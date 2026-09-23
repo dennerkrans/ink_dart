@@ -144,5 +144,275 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.c-1.0\"}],\"threadCounter\":18},\"outputStream\":[\"^ \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1,\"hub.0.loop.c-1\":1},\"turnIndices\":{},\"turnIdx\":3,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.c-1.0\"}],\"threadCounter\":18},\"outputStream\":[\"^ \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1,\"hub.0.loop.c-1\":1},\"turnIndices\":{},\"turnIdx\":3,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Buy for 10",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Talk",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 3,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":0,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":6},\"outputStream\":[\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"shop.1\",\"idx\":15,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":2,\"previousContentObject\":\"shop.1.14\"},\"4\":{\"callstack\":[{\"cPath\":\"talk.0\",\"idx\":5,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":4,\"previousContentObject\":\"talk.0.4\"},\"5\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":5,\"previousContentObject\":\"hub.0.loop.27\"},\"6\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":6,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Buy for 10\",\"index\":0,\"originalChoicePath\":\"shop.1.15\",\"originalThreadIndex\":2,\"targetPath\":\"shop.1.c-0\"},{\"text\":\"Talk\",\"index\":1,\"originalChoicePath\":\"talk.0.5\",\"originalThreadIndex\":4,\"targetPath\":\"talk.0.c-0\"},{\"text\":\"Wait\",\"index\":2,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":5,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":3,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":6,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "You buy it for 10. Change: 90.\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "Hub, visit 1.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Talk",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":2,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":11},\"outputStream\":[\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"9\":{\"callstack\":[{\"cPath\":\"talk.0\",\"idx\":5,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":9,\"previousContentObject\":\"talk.0.4\"},\"10\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":10,\"previousContentObject\":\"hub.0.loop.27\"},\"11\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":11,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Talk\",\"index\":0,\"originalChoicePath\":\"talk.0.5\",\"originalThreadIndex\":9,\"targetPath\":\"talk.0.c-0\"},{\"text\":\"Wait\",\"index\":1,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":10,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":2,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":11,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "\"Hello.\" Hub, visit 1.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":9,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":15},\"outputStream\":[\"^ \\\"Hello.\\\" \",\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"14\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":14,\"previousContentObject\":\"hub.0.loop.27\"},\"15\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":15,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Wait\",\"index\":0,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":14,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":1,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":15,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Hub, visit 2.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":14,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":18},\"outputStream\":[\"^ \",\"^Hub, visit \",\"^2\",\"^.\",\"\\n\"],\"choiceThreads\":{\"18\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Leave\",\"index\":0,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":18,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.c-1.0\"}],\"threadCounter\":18},\"outputStream\":[\"^ \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1,\"hub.0.loop.c-1\":1},\"turnIndices\":{},\"turnIdx\":3,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Buy for 10",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Talk",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 3,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":0,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":6},\"outputStream\":[\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"shop.1\",\"idx\":15,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":2,\"previousContentObject\":\"shop.1.14\"},\"4\":{\"callstack\":[{\"cPath\":\"talk.0\",\"idx\":5,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":4,\"previousContentObject\":\"talk.0.4\"},\"5\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":5,\"previousContentObject\":\"hub.0.loop.27\"},\"6\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1}}],\"threadIndex\":6,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Buy for 10\",\"index\":0,\"originalChoicePath\":\"shop.1.15\",\"originalThreadIndex\":2,\"targetPath\":\"shop.1.c-0\"},{\"text\":\"Talk\",\"index\":1,\"originalChoicePath\":\"talk.0.5\",\"originalThreadIndex\":4,\"targetPath\":\"talk.0.c-0\"},{\"text\":\"Wait\",\"index\":2,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":5,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":3,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":6,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "You buy it for 10. Change: 90.\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "Hub, visit 1.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Talk",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":2,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":11},\"outputStream\":[\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"9\":{\"callstack\":[{\"cPath\":\"talk.0\",\"idx\":5,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":9,\"previousContentObject\":\"talk.0.4\"},\"10\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":10,\"previousContentObject\":\"hub.0.loop.27\"},\"11\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":11,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Talk\",\"index\":0,\"originalChoicePath\":\"talk.0.5\",\"originalThreadIndex\":9,\"targetPath\":\"talk.0.c-0\"},{\"text\":\"Wait\",\"index\":1,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":10,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":2,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":11,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "\"Hello.\" Hub, visit 1.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Wait",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":9,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":15},\"outputStream\":[\"^ \\\"Hello.\\\" \",\"^Hub, visit \",\"^1\",\"^.\",\"\\n\"],\"choiceThreads\":{\"14\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":28,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":14,\"previousContentObject\":\"hub.0.loop.27\"},\"15\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":1,\"n\":1,\"price\":10}}],\"threadIndex\":15,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Wait\",\"index\":0,\"originalChoicePath\":\"hub.0.loop.28\",\"originalThreadIndex\":14,\"targetPath\":\"hub.0.loop.c-0\"},{\"text\":\"Leave\",\"index\":1,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":15,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Hub, visit 2.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Leave",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":14,\"previousContentObject\":\"hub.0.loop.34\"}],\"threadCounter\":18},\"outputStream\":[\"^ \",\"^Hub, visit \",\"^2\",\"^.\",\"\\n\"],\"choiceThreads\":{\"18\":{\"callstack\":[{\"cPath\":\"hub.0.loop\",\"idx\":34,\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.33\"}},\"currentChoices\":[{\"text\":\"Leave\",\"index\":0,\"originalChoicePath\":\"hub.0.loop.34\",\"originalThreadIndex\":18,\"targetPath\":\"hub.0.loop.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"visits\":2,\"n\":1,\"price\":10}}],\"threadIndex\":18,\"previousContentObject\":\"hub.0.loop.c-1.0\"}],\"threadCounter\":18},\"outputStream\":[\"^ \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"shop.1.c-0\":1,\"talk.0.c-0\":1,\"hub.0.loop.c-0\":1,\"hub.0.loop.c-1\":1},\"turnIndices\":{},\"turnIdx\":3,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

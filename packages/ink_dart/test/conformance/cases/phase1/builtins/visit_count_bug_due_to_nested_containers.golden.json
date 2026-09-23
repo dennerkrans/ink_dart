@@ -45,5 +45,77 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.c-0.$r2\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.g-0.4\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1,\"0.gather.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.c-0.$r2\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.g-0.4\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1,\"0.gather.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "choice",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.5.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"0.gather.5.8\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"0.gather.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.5.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.gather.5.7\"}},\"currentChoices\":[{\"text\":\"choice\",\"index\":0,\"originalChoicePath\":\"0.gather.5.8\",\"originalThreadIndex\":1,\"targetPath\":\"0.gather.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "choice\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "1\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.c-0.$r2\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.g-0.4\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1,\"0.gather.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "choice",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.5.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"0.gather.5.8\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"0.gather.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.5.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.gather.5.7\"}},\"currentChoices\":[{\"text\":\"choice\",\"index\":0,\"originalChoicePath\":\"0.gather.5.8\",\"originalThreadIndex\":1,\"targetPath\":\"0.gather.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "choice\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "1\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.gather.c-0.$r2\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.g-0.4\"}],\"threadCounter\":1},\"outputStream\":[\"^1\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.gather\":1,\"0.gather.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

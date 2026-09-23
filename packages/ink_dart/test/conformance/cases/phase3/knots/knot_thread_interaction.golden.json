@@ -50,5 +50,87 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.c-0.$r2\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.g-0.1\"}],\"threadCounter\":3},\"outputStream\":[\"^something\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"threadB.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.c-0.$r2\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.g-0.1\"}],\"threadCounter\":3},\"outputStream\":[\"^something\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"threadB.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "option",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "wigwag",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"knot\",\"idx\":2,\"exp\":false,\"type\":0},{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"tunnel.0.g-0.2.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"tunnel.0.g-0.2.8\"}],\"threadCounter\":3},\"outputStream\":[\"^blah blah\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"threadB.0.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.0.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.0.7\"},\"3\":{\"callstack\":[{\"cPath\":\"knot\",\"idx\":2,\"exp\":false,\"type\":0},{\"cPath\":\"tunnel.0.g-0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"tunnel.0.g-0.2.$r1\"}}}],\"threadIndex\":3,\"previousContentObject\":\"tunnel.0.g-0.2.7\"}},\"currentChoices\":[{\"text\":\"option\",\"index\":0,\"originalChoicePath\":\"threadB.0.0.8\",\"originalThreadIndex\":2,\"targetPath\":\"threadB.0.c-0\"},{\"text\":\"wigwag\",\"index\":1,\"originalChoicePath\":\"tunnel.0.g-0.2.8\",\"originalThreadIndex\":3,\"targetPath\":\"tunnel.0.g-0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "option\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "something\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.c-0.$r2\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.g-0.1\"}],\"threadCounter\":3},\"outputStream\":[\"^something\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"threadB.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "option",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "wigwag",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"knot\",\"idx\":2,\"exp\":false,\"type\":0},{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"tunnel.0.g-0.2.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"tunnel.0.g-0.2.8\"}],\"threadCounter\":3},\"outputStream\":[\"^blah blah\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"threadB.0.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.0.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.0.7\"},\"3\":{\"callstack\":[{\"cPath\":\"knot\",\"idx\":2,\"exp\":false,\"type\":0},{\"cPath\":\"tunnel.0.g-0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"tunnel.0.g-0.2.$r1\"}}}],\"threadIndex\":3,\"previousContentObject\":\"tunnel.0.g-0.2.7\"}},\"currentChoices\":[{\"text\":\"option\",\"index\":0,\"originalChoicePath\":\"threadB.0.0.8\",\"originalThreadIndex\":2,\"targetPath\":\"threadB.0.c-0\"},{\"text\":\"wigwag\",\"index\":1,\"originalChoicePath\":\"tunnel.0.g-0.2.8\",\"originalThreadIndex\":3,\"targetPath\":\"tunnel.0.g-0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "option\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "something\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"threadB.0.c-0.$r2\"}}}],\"threadIndex\":2,\"previousContentObject\":\"threadB.0.g-0.1\"}],\"threadCounter\":3},\"outputStream\":[\"^something\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"threadB.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

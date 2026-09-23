@@ -4,6 +4,7 @@
 // To skip a case, pass `skip:` with a comment naming the reference
 // behaviour it waits on (see CLAUDE.md).
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
@@ -40,6 +41,44 @@ void main() {
     for (final c in cases) {
       test(c.name, () {
         final mismatch = diff(c, replay(c, roundTrip: true));
+        if (mismatch != null) fail(mismatch);
+      });
+    }
+  });
+
+  // Saves made by inkjs (tool/record_inkjs_saves.mjs), loaded into a fresh
+  // story: Dart must do what the C# runtime does after loading the same
+  // save, byte for byte. The second variant drops `previousRandom`, which
+  // older inkjs versions left out of their saves.
+  group('inkjs saves', () {
+    final withSaves = [
+      for (final c in cases)
+        if (c.inkjsSave != null) c,
+    ];
+
+    test('saves are present', () {
+      expect(withSaves.length, greaterThan(30));
+    });
+
+    for (final c in withSaves) {
+      test(c.name, () {
+        final save = c.inkjsSave ?? '';
+        final mismatch = diffResumed(
+          c,
+          'fromInkjsSave',
+          replayFromSave(c, save),
+        );
+        if (mismatch != null) fail(mismatch);
+      });
+
+      test('${c.name} (without previousRandom)', () {
+        final save = jsonDecode(c.inkjsSave ?? '{}') as Map<String, Object?>
+          ..remove('previousRandom');
+        final mismatch = diffResumed(
+          c,
+          'fromInkjsSaveWithoutPreviousRandom',
+          replayFromSave(c, jsonEncode(save)),
+        );
         if (mismatch != null) fail(mismatch);
       });
     }

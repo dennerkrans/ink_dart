@@ -45,6 +45,18 @@ class ConformanceCase {
     goldenFile.path.replaceFirst(RegExp(r'\.golden\.json$'), '.json'),
   ).readAsStringSync();
 
+  /// A save inkjs made at the first choice, if one was recorded (see
+  /// tool/record_inkjs_saves.mjs).
+  String? get inkjsSave {
+    final f = File(
+      goldenFile.path.replaceFirst(
+        RegExp(r'\.golden\.json$'),
+        '.inkjs-save.json',
+      ),
+    );
+    return f.existsSync() ? f.readAsStringSync() : null;
+  }
+
   /// The op script the oracle ran, if any.
   List<Map<String, Object?>> get script => [
     ...((golden['script'] as List?) ?? const []).cast<Map<String, Object?>>(),
@@ -76,6 +88,12 @@ class Replay {
 Replay replay(ConformanceCase c, {bool roundTrip = false}) =>
     Driver(c, roundTrip: roundTrip).play();
 
+/// Loads [save] (made by another runtime) into a fresh story and plays the
+/// default loop from there, as `play` does after the golden's first
+/// checkpoint.
+Replay replayFromSave(ConformanceCase c, String save) =>
+    Driver(c, resumeFrom: save).play();
+
 /// Plays a case: the golden's op script, then the default loop (continue to
 /// the next choice, take the first, repeat).
 ///
@@ -83,10 +101,13 @@ Replay replay(ConformanceCase c, {bool roundTrip = false}) =>
 /// save JSON. With [roundTrip], the oracle's checkpoint JSON is then loaded
 /// into a fresh [Story], which carries on; the transcript must not change.
 class Driver {
-  Driver(this.c, {this.roundTrip = false});
+  Driver(this.c, {this.roundTrip = false, this.resumeFrom});
 
   final ConformanceCase c;
   final bool roundTrip;
+
+  /// A save to load before playing; skips the global tags and the script.
+  final String? resumeFrom;
 
   /// How many times round-trip mode swapped in a reloaded story.
   int reloads = 0;
@@ -119,9 +140,18 @@ class Driver {
     var continues = 0;
     var choicesMade = 0;
     try {
-      _record({'type': 'globalTags', 'tags': _story.globalTags ?? <String>[]});
+      final resume = resumeFrom;
+      if (resume != null) {
+        _story.state.loadJson(resume);
+      } else {
+        _record({
+          'type': 'globalTags',
+          'tags': _story.globalTags ?? <String>[],
+        });
+      }
 
-      for (final op in c.script) {
+      for (final op
+          in resume == null ? c.script : const <Map<String, Object?>>[]) {
         try {
           continues = _runOp(op, continues);
         } catch (e) {
@@ -497,26 +527,48 @@ Object? decodeValue(Object? node) {
 
 /// Returns a readable description of the first divergence, or null when
 /// [actual] matches the golden.
-String? diff(ConformanceCase c, Replay actual) {
-  final expected = c.events;
+String? diff(ConformanceCase c, Replay actual) =>
+    diffAgainst(c.name, c.events, c.finalState, actual);
+
+/// What the C# runtime did after loading this case's inkjs save, recorded
+/// in the golden under [key] (`fromInkjsSave` or
+/// `fromInkjsSaveWithoutPreviousRandom`), compared with [actual].
+String? diffResumed(ConformanceCase c, String key, Replay actual) {
+  final recorded = c.golden[key] as Map<String, Object?>;
+  return diffAgainst(
+    '${c.name} ($key)',
+    (recorded['events'] as List).cast<Map<String, Object?>>(),
+    recorded['finalState'] as String?,
+    actual,
+  );
+}
+
+/// Returns a readable description of the first divergence between the
+/// [expected] events and final state and [actual], or null when they match.
+String? diffAgainst(
+  String name,
+  List<Map<String, Object?>> expected,
+  String? expectedFinalState,
+  Replay actual,
+) {
   final n = expected.length < actual.events.length
       ? expected.length
       : actual.events.length;
   for (var i = 0; i < n; i++) {
     final where = jsonPath(expected[i], actual.events[i], '');
     if (where != null) {
-      return _eventMismatch(c, i, expected, actual.events, where);
+      return _eventMismatch(name, i, expected, actual.events, where);
     }
   }
   if (expected.length != actual.events.length) {
-    return _eventMismatch(c, n, expected, actual.events, '');
+    return _eventMismatch(name, n, expected, actual.events, '');
   }
 
-  final expectedState = c.finalState;
+  final expectedState = expectedFinalState;
   final actualState = actual.finalState;
   if (expectedState == null || actualState == null) {
     if (expectedState == actualState) return null;
-    return '${c.name}: final state\n'
+    return '$name: final state\n'
         '  expected: $expectedState\n'
         '  actual:   $actualState';
   }
@@ -527,18 +579,18 @@ String? diff(ConformanceCase c, Replay actual) {
     // Same structure; saves must also be byte-identical, so that a Dart
     // save is a C# save.
     if (expectedState == actualState) return null;
-    return '${c.name}: final state has the same structure but different '
+    return '$name: final state has the same structure but different '
         'bytes\n'
         '  expected: $expectedState\n'
         '  actual:   $actualState';
   }
-  return '${c.name}: final state differs at $where\n'
+  return '$name: final state differs at $where\n'
       '  expected: ${_at(e, where)}\n'
       '  actual:   ${_at(a, where)}';
 }
 
 String _eventMismatch(
-  ConformanceCase c,
+  String name,
   int i,
   List<Map<String, Object?>> expected,
   List<Map<String, Object?>> actual,
@@ -550,7 +602,7 @@ String _eventMismatch(
     final es = e?['state'] as String;
     final as_ = a?['state'] as String;
     final at = jsonPath(jsonDecode(es), jsonDecode(as_), r'$');
-    return '${c.name}: checkpoint at event $i differs'
+    return '$name: checkpoint at event $i differs'
         '${at == null ? ' in bytes only' : ' at $at'}\n'
         '  expected: $es\n'
         '  actual:   $as_';
@@ -562,7 +614,7 @@ String _eventMismatch(
       '    [$j] ${jsonEncode(expected[j])}',
   ];
   return [
-    '${c.name}: event $i differs${where.isEmpty ? '' : ' at $where'}',
+    '$name: event $i differs${where.isEmpty ? '' : ' at $where'}',
     if (context.isNotEmpty) '  preceded by:',
     ...context,
     '  expected: ${show(expected)}',

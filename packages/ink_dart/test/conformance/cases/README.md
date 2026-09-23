@@ -74,6 +74,22 @@ Regenerate with `node tool/regen_goldens.mjs [filter]` (needs the .NET 10
 SDK; tests do not). Re-vendor from a fresh inkjs checkout with
 `node tool/vendor_cases.mjs path/to/inkjs` (needs `npm ci` in `tool/`).
 
+## Saves made by inkjs
+
+`<case>.inkjs-save.json` (40 cases) is the save inkjs 2.4.0 makes at the
+first choice, written by `node tool/record_inkjs_saves.mjs` (needs `npm ci`
+in `tool/`) wherever it holds the same state as the C# runtime's checkpoint
+there. The oracle then loads each one into a fresh C# story, as it is and
+without `previousRandom` (older inkjs versions left it out), and records what
+happens under `fromInkjsSave` and `fromInkjsSaveWithoutPreviousRandom` in
+the golden. The Dart suite loads the same saves and must match byte for
+byte.
+
+One C# behaviour shows up only here: a save doesn't record that a choice is
+an invisible default, so after loading, the C# runtime (and so ink_dart)
+offers it as a visible, empty choice. inkjs writes an extra
+`isInvisibleDefault` field for it, which neither loader reads.
+
 ## Cases written for ink_dart
 
 `*/ink-dart/` holds stories written here rather than vendored, each saying so

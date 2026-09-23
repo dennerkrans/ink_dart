@@ -55,5 +55,87 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":4},\"outputStream\":[\"^The end\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"place1.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":4},\"outputStream\":[\"^The end\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"place1.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "choice in place 1",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "choice in place 2",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"tunnel.3\"}],\"threadCounter\":4},\"outputStream\":[\"^This is place 2.\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"place1.0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"place1.0.2.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"place1.0.2.7\"},\"4\":{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"place2.0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"place2.0.2.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"place2.0.2.7\"}},\"currentChoices\":[{\"text\":\"choice in place 1\",\"index\":0,\"originalChoicePath\":\"place1.0.2.8\",\"originalThreadIndex\":2,\"targetPath\":\"place1.0.c-0\"},{\"text\":\"choice in place 2\",\"index\":1,\"originalChoicePath\":\"place2.0.2.8\",\"originalThreadIndex\":4,\"targetPath\":\"place2.0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "choice in place 1\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "The end\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":4},\"outputStream\":[\"^The end\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"place1.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "choice in place 1",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "choice in place 2",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"tunnel.3\"}],\"threadCounter\":4},\"outputStream\":[\"^This is place 2.\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"place1.0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"place1.0.2.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"place1.0.2.7\"},\"4\":{\"callstack\":[{\"cPath\":\"start\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"place2.0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"place2.0.2.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"place2.0.2.7\"}},\"currentChoices\":[{\"text\":\"choice in place 1\",\"index\":0,\"originalChoicePath\":\"place1.0.2.8\",\"originalThreadIndex\":2,\"targetPath\":\"place1.0.c-0\"},{\"text\":\"choice in place 2\",\"index\":1,\"originalChoicePath\":\"place2.0.2.8\",\"originalThreadIndex\":4,\"targetPath\":\"place2.0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "choice in place 1\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "The end\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":4},\"outputStream\":[\"^The end\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"place1.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

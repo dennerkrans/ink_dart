@@ -97,6 +97,24 @@ static class Oracle
                 ["finalState"] = finalState,
             };
             if (script != null) golden.Insert(4, "script", script.DeepClone());
+
+            // A save inkjs made at the first choice (tool/record_inkjs_saves.mjs):
+            // what the C# runtime does after loading it, as it is and without
+            // previousRandom, which older inkjs versions left out.
+            var inkjsSavePath = $"{basePath}.inkjs-save.json";
+            if (File.Exists(inkjsSavePath))
+            {
+                var save = File.ReadAllText(inkjsSavePath);
+                var withoutPrevious = JsonNode.Parse(save).AsObject();
+                withoutPrevious.Remove("previousRandom");
+                JsonObject Resume(string from)
+                {
+                    var (resumedEvents, resumedState) = new Driver(json, from).Play(null);
+                    return new JsonObject { ["events"] = resumedEvents, ["finalState"] = resumedState };
+                }
+                golden["fromInkjsSave"] = Resume(save);
+                golden["fromInkjsSaveWithoutPreviousRandom"] = Resume(withoutPrevious.ToJsonString());
+            }
             File.WriteAllText(
                 $"{basePath}.golden.json",
                 golden.ToJsonString(JsonOptions).Replace("\r\n", "\n") + "\n");

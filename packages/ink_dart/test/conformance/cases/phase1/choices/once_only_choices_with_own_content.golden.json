@@ -116,5 +116,219 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":6},\"outputStream\":[\"^I've finished eating now.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":-1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1,\"eat.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":6},\"outputStream\":[\"^I've finished eating now.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":-1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1,\"eat.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Eat ice-cream",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Drink coke",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":3},\"outputStream\":[\"^This is the \",\"^first\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"eat.0.4\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.4.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"eat.0.4.7\"},\"2\":{\"callstack\":[{\"cPath\":\"eat.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.5.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"eat.0.5.7\"},\"3\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":3,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Eat ice-cream\",\"index\":0,\"originalChoicePath\":\"eat.0.4.8\",\"originalThreadIndex\":1,\"targetPath\":\"eat.0.c-0\"},{\"text\":\"Drink coke\",\"index\":1,\"originalChoicePath\":\"eat.0.5.8\",\"originalThreadIndex\":2,\"targetPath\":\"eat.0.c-1\"},{\"text\":\"Munch cookies\",\"index\":2,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":3,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":2},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Eat ice-cream\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "This is the second time.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Drink coke",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":5},\"outputStream\":[\"^This is the \",\"^second\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"4\":{\"callstack\":[{\"cPath\":\"eat.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.5.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"eat.0.5.7\"},\"5\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":5,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Drink coke\",\"index\":0,\"originalChoicePath\":\"eat.0.5.8\",\"originalThreadIndex\":4,\"targetPath\":\"eat.0.c-1\"},{\"text\":\"Munch cookies\",\"index\":1,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":5,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":2,\"eat.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Drink coke\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "This is the third time.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":6},\"outputStream\":[\"^This is the \",\"^third\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"6\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":6,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Munch cookies\",\"index\":0,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":6,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":0},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Munch cookies\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "I've finished eating now.\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":6},\"outputStream\":[\"^I've finished eating now.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":-1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1,\"eat.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Eat ice-cream",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Drink coke",
+            "tags": []
+          },
+          {
+            "index": 2,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":3},\"outputStream\":[\"^This is the \",\"^first\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"eat.0.4\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.4.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"eat.0.4.7\"},\"2\":{\"callstack\":[{\"cPath\":\"eat.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.5.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"eat.0.5.7\"},\"3\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":3,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Eat ice-cream\",\"index\":0,\"originalChoicePath\":\"eat.0.4.8\",\"originalThreadIndex\":1,\"targetPath\":\"eat.0.c-0\"},{\"text\":\"Drink coke\",\"index\":1,\"originalChoicePath\":\"eat.0.5.8\",\"originalThreadIndex\":2,\"targetPath\":\"eat.0.c-1\"},{\"text\":\"Munch cookies\",\"index\":2,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":3,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":2},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Eat ice-cream\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "This is the second time.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Drink coke",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":5},\"outputStream\":[\"^This is the \",\"^second\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"4\":{\"callstack\":[{\"cPath\":\"eat.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.5.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"eat.0.5.7\"},\"5\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":5,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Drink coke\",\"index\":0,\"originalChoicePath\":\"eat.0.5.8\",\"originalThreadIndex\":4,\"targetPath\":\"eat.0.c-1\"},{\"text\":\"Munch cookies\",\"index\":1,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":5,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":2,\"eat.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Drink coke\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "This is the third time.\n",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Munch cookies",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"eat.0.6.8\"}],\"threadCounter\":6},\"outputStream\":[\"^This is the \",\"^third\",\"^ time.\",\"\\n\"],\"choiceThreads\":{\"6\":{\"callstack\":[{\"cPath\":\"eat.0.6\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"eat.0.6.$r1\"}}}],\"threadIndex\":6,\"previousContentObject\":\"eat.0.6.7\"}},\"currentChoices\":[{\"text\":\"Munch cookies\",\"index\":0,\"originalChoicePath\":\"eat.0.6.8\",\"originalThreadIndex\":6,\"targetPath\":\"eat.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":0},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "Munch cookies\n",
+        "tags": []
+      },
+      {
+        "type": "line",
+        "text": "I've finished eating now.\n",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":6},\"outputStream\":[\"^I've finished eating now.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"times\":-1},\"evalStack\":[],\"visitCounts\":{\"eat.0.1\":3,\"eat.0.c-0\":1,\"eat.0.c-1\":1,\"eat.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

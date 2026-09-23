@@ -63,5 +63,123 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":5},\"outputStream\":[\"^  \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1,\"opts.0.c-1\":1,\"opts.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":5},\"outputStream\":[\"^  \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1,\"opts.0.c-1\":1,\"opts.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+  "fromInkjsSave": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "First choice",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"opts.0.13\"}],\"threadCounter\":2},\"outputStream\":[],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":5,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"opts.0.4\"},\"2\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":13,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"opts.0.12\"}},\"currentChoices\":[{\"text\":\"First choice\",\"index\":0,\"originalChoicePath\":\"opts.0.5\",\"originalThreadIndex\":1,\"targetPath\":\"opts.0.c-0\"},{\"text\":\"\",\"index\":1,\"originalChoicePath\":\"opts.0.13\",\"originalThreadIndex\":2,\"targetPath\":\"opts.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Second choice",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"opts.0.13\"}],\"threadCounter\":4},\"outputStream\":[\"^   \"],\"choiceThreads\":{\"3\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":12,\"exp\":false,\"type\":0}],\"threadIndex\":3,\"previousContentObject\":\"opts.0.11\"},\"4\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":13,\"exp\":false,\"type\":0}],\"threadIndex\":4,\"previousContentObject\":\"opts.0.12\"}},\"currentChoices\":[{\"text\":\"Second choice\",\"index\":0,\"originalChoicePath\":\"opts.0.12\",\"originalThreadIndex\":3,\"targetPath\":\"opts.0.c-1\"},{\"text\":\"\",\"index\":0,\"originalChoicePath\":\"opts.0.13\",\"originalThreadIndex\":4,\"targetPath\":\"opts.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":5},\"outputStream\":[\"^  \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1,\"opts.0.c-1\":1,\"opts.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  },
+  "fromInkjsSaveWithoutPreviousRandom": {
+    "events": [
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "First choice",
+            "tags": []
+          },
+          {
+            "index": 1,
+            "text": "",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"opts.0.13\"}],\"threadCounter\":2},\"outputStream\":[],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":5,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"opts.0.4\"},\"2\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":13,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"opts.0.12\"}},\"currentChoices\":[{\"text\":\"First choice\",\"index\":0,\"originalChoicePath\":\"opts.0.5\",\"originalThreadIndex\":1,\"targetPath\":\"opts.0.c-0\"},{\"text\":\"\",\"index\":1,\"originalChoicePath\":\"opts.0.13\",\"originalThreadIndex\":2,\"targetPath\":\"opts.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "choices",
+        "choices": [
+          {
+            "index": 0,
+            "text": "Second choice",
+            "tags": []
+          }
+        ]
+      },
+      {
+        "type": "checkpoint",
+        "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"opts.0.13\"}],\"threadCounter\":4},\"outputStream\":[\"^   \"],\"choiceThreads\":{\"3\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":12,\"exp\":false,\"type\":0}],\"threadIndex\":3,\"previousContentObject\":\"opts.0.11\"},\"4\":{\"callstack\":[{\"cPath\":\"opts.0\",\"idx\":13,\"exp\":false,\"type\":0}],\"threadIndex\":4,\"previousContentObject\":\"opts.0.12\"}},\"currentChoices\":[{\"text\":\"Second choice\",\"index\":0,\"originalChoicePath\":\"opts.0.12\",\"originalThreadIndex\":3,\"targetPath\":\"opts.0.c-1\"},{\"text\":\"\",\"index\":0,\"originalChoicePath\":\"opts.0.13\",\"originalThreadIndex\":4,\"targetPath\":\"opts.0.c-2\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+      },
+      {
+        "type": "choose",
+        "index": 0
+      },
+      {
+        "type": "line",
+        "text": "",
+        "tags": []
+      },
+      {
+        "type": "end"
+      }
+    ],
+    "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":5},\"outputStream\":[\"^  \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"opts.0.c-0\":1,\"opts.0.c-1\":1,\"opts.0.c-2\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  }
 }

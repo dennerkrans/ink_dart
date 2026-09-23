@@ -20,7 +20,14 @@ sealed class Driver
     StoryState _backgroundSave;
     Profiler _profiler;
 
-    public Driver(string json) => _json = json;
+    public Driver(string json, string resumeFrom = null)
+    {
+        _json = json;
+        _resumeFrom = resumeFrom;
+    }
+
+    // A save to load before playing; skips the global tags and the script.
+    readonly string _resumeFrom;
 
     void Record(JsonObject e) => _events.Add(e);
 
@@ -40,9 +47,12 @@ sealed class Driver
         var choicesMade = 0;
         try
         {
-            Record(new JsonObject { ["type"] = "globalTags", ["tags"] = Tags(_story.globalTags) });
+            if (_resumeFrom != null)
+                _story.state.LoadJson(_resumeFrom);
+            else
+                Record(new JsonObject { ["type"] = "globalTags", ["tags"] = Tags(_story.globalTags) });
 
-            foreach (var op in script ?? new JsonArray())
+            foreach (var op in _resumeFrom == null ? script ?? new JsonArray() : new JsonArray())
             {
                 try
                 {
