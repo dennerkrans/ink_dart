@@ -1,4 +1,4 @@
-## Unreleased
+## 0.1.1
 
 - Guides in the API reference (getting started, game functions and
   variables, saving and loading, flows, matching Unity and Inky), a fuller

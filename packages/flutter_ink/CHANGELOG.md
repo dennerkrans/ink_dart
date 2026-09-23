@@ -1,4 +1,4 @@
-## Unreleased
+## 0.1.1
 
 - A fuller library overview in the API reference.
 - The example is now a runnable app (`example/`, Android, iOS, macOS and

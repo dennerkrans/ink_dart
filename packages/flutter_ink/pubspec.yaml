@@ -2,7 +2,7 @@ name: flutter_ink
 description: >-
   Flutter widgets for ink_dart, the pure Dart runtime for inkle's ink: a
   story controller, a story view and a debug view.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/dennerkrans/ink_dart/tree/main/packages/flutter_ink
 issue_tracker: https://github.com/dennerkrans/ink_dart/issues
 topics:
