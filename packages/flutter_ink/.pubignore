@@ -1,0 +1,16 @@
+# pub reads this instead of .gitignore, so it repeats .gitignore's rules.
+.dart_tool/
+build/
+pubspec.lock
+.flutter-plugins-dependencies
+
+# Publish the example's code, not its generated platform projects, and not
+# its override (its path to the repo's ink_dart doesn't exist in the pub
+# cache; there it resolves ink_dart from pub.dev).
+example/android/
+example/ios/
+example/macos/
+example/web/
+example/build/
+example/.dart_tool/
+example/pubspec_overrides.yaml

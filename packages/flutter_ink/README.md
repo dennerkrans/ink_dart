@@ -41,6 +41,14 @@ saves are the same format the C# ink runtime writes.
 `flutter_ink` re-exports `package:ink_dart/ink_dart.dart`, so one import is
 enough.
 
+## Example
+
+`example/` is a runnable app, a story beside its debug view:
+
+```
+cd example && flutter run -d chrome   # or -d macos, or a phone
+```
+
 ## Licence
 
 MIT; see `LICENSE`, which includes the notices for ink and inkjs, which

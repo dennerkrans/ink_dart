@@ -1,4 +1,5 @@
-// A complete app: a story on the left, its debug view on the right.
+// The flutter_ink example app: a story on the left, its debug view on the
+// right. Run it with `flutter run` from this folder.
 //
 // Replace storyJson with your own story compiled by Inky or inklecate.
 

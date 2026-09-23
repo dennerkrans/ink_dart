@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ink/flutter_ink.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../example/example.dart';
-
 StoryController load(String name) => StoryController.fromJson(
   File('test/fixtures/$name.json').readAsStringSync(),
 );
@@ -118,16 +116,5 @@ void main() {
     expect(find.text('flow: ${story.currentFlowName}'), findsOneWidget);
     expect(find.text('target: 0'), findsOneWidget);
     expect(find.textContaining('error: RUNTIME ERROR'), findsOneWidget);
-  });
-
-  testWidgets('the example app plays', (tester) async {
-    tester.view.physicalSize = const Size(1600, 900);
-    addTearDown(tester.view.resetPhysicalSize);
-    await tester.pumpWidget(const ExampleApp());
-
-    expect(find.text('The door is locked.'), findsOneWidget);
-    await tester.tap(find.text('Knock'));
-    await tester.pump();
-    expect(find.text('Someone answers.'), findsOneWidget);
   });
 }

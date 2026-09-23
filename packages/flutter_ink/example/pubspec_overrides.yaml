@@ -1,0 +1,4 @@
+# Run against the ink_dart in this repository rather than the published one.
+dependency_overrides:
+  ink_dart:
+    path: ../../ink_dart

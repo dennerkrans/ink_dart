@@ -1,3 +1,8 @@
+## Unreleased
+
+- The example is now a runnable app (`example/`, Android, iOS, macOS and
+  web): `cd example && flutter run`.
+
 ## 0.1.0
 
 First release: Flutter widgets for ink_dart.
