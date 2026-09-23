@@ -3,6 +3,29 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "tagsForContentAtPath",
+      "path": "knot"
+    },
+    {
+      "op": "tagsForContentAtPath",
+      "path": "knot.stitch"
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -20,8 +43,36 @@
       ]
     },
     {
+      "type": "tags",
+      "path": "knot",
+      "tags": [
+        "knot tag"
+      ]
+    },
+    {
+      "type": "tags",
+      "path": "knot.stitch",
+      "tags": [
+        "stitch tag"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "Knot content\n",
+      "tags": [
+        "knot tag"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": [
+        "end of knot tag"
+      ]
+    },
+    {
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.7\"}],\"threadCounter\":0},\"outputStream\":[\"#\",\"^author: Joe\",\"/#\",\"#\",\"^title: My Great Story\",\"/#\",\"^This is the content\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[\"#\",\"^end of knot tag\",\"/#\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

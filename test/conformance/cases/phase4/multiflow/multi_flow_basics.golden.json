@@ -3,6 +3,44 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "switchFlow",
+      "name": "First"
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot1"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Second"
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "First"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Second"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -10,12 +48,27 @@
     },
     {
       "type": "line",
-      "text": "",
+      "text": "knot 1 line 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "knot 2 line 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "knot 1 line 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "knot 2 line 2\n",
       "tags": []
     },
     {
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]},\"First\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[\"^knot 1 line 2\",\"\\n\"],\"currentChoices\":[]},\"Second\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[\"^knot 2 line 2\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"Second\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

@@ -3,10 +3,49 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "evaluateFunction",
+      "name": "func1"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "func2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "add",
+      "args": [
+        {
+          "int": 1
+        },
+        {
+          "int": 2
+        }
+      ]
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
+    },
+    {
+      "type": "function",
+      "name": "func1",
+      "result": {
+        "int": 5
+      },
+      "output": "This is a function\n"
     },
     {
       "type": "line",
@@ -14,9 +53,23 @@
       "tags": []
     },
     {
+      "type": "function",
+      "name": "func2",
+      "result": null,
+      "output": "This is a function without a return value\n"
+    },
+    {
       "type": "line",
       "text": "Two\n",
       "tags": []
+    },
+    {
+      "type": "function",
+      "name": "add",
+      "result": {
+        "int": 3
+      },
+      "output": "x = 1, y = 2\n"
     },
     {
       "type": "line",

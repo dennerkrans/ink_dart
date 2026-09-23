@@ -1,0 +1,12 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "choosePathString",
+    "path": "SomewhereElse"
+  },
+  {
+    "op": "continueMaximally"
+  }
+]

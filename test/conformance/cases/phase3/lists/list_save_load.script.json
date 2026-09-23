@@ -1,0 +1,23 @@
+[
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "save",
+    "slot": "a"
+  },
+  {
+    "op": "freshStory"
+  },
+  {
+    "op": "load",
+    "slot": "a"
+  },
+  {
+    "op": "choosePathString",
+    "path": "elsewhere"
+  },
+  {
+    "op": "continueMaximally"
+  }
+]

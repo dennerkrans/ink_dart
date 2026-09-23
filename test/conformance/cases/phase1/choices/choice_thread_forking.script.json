@@ -1,0 +1,23 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "save",
+    "slot": "a"
+  },
+  {
+    "op": "freshStory"
+  },
+  {
+    "op": "load",
+    "slot": "a"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  }
+]

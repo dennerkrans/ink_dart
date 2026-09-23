@@ -1,0 +1,10 @@
+[
+  {
+    "op": "bind",
+    "name": "myAction",
+    "behaviour": "record"
+  },
+  {
+    "op": "continueMaximally"
+  }
+]

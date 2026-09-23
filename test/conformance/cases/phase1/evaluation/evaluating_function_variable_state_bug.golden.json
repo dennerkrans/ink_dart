@@ -3,6 +3,21 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "function_to_evaluate"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -17,6 +32,14 @@
       "type": "line",
       "text": "In tunnel.\n",
       "tags": []
+    },
+    {
+      "type": "function",
+      "name": "function_to_evaluate",
+      "result": {
+        "string": "RIGHT"
+      },
+      "output": ""
     },
     {
       "type": "line",

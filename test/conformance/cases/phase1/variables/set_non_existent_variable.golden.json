@@ -3,6 +3,18 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "setVariable",
+      "name": "y",
+      "value": {
+        "string": "earth"
+      }
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -12,6 +24,10 @@
       "type": "line",
       "text": "Hello world.\n",
       "tags": []
+    },
+    {
+      "type": "exception",
+      "message": "Cannot assign to a variable (y) that hasn't been declared in the story"
     },
     {
       "type": "end"

@@ -1,0 +1,56 @@
+[
+  {
+    "op": "visitCount",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot2"
+  },
+  {
+    "op": "choosePathString",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot2"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot2"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot2"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot"
+  },
+  {
+    "op": "visitCount",
+    "path": "TestKnot2"
+  }
+]

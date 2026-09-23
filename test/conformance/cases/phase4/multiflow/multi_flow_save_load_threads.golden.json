@@ -3,6 +3,115 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Blue Flow"
+    },
+    {
+      "op": "choosePathString",
+      "path": "blue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Red Flow"
+    },
+    {
+      "op": "choosePathString",
+      "path": "red"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Blue Flow"
+    },
+    {
+      "op": "currentText"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Red Flow"
+    },
+    {
+      "op": "currentText"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "save",
+      "slot": "a"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "resetState"
+    },
+    {
+      "op": "load",
+      "slot": "a"
+    },
+    {
+      "op": "choose",
+      "index": 1
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "load",
+      "slot": "a"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Blue Flow"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "load",
+      "slot": "a"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Blue Flow"
+    },
+    {
+      "op": "choose",
+      "index": 1
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "removeFlow",
+      "name": "Blue Flow"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -15,6 +124,170 @@
     },
     {
       "type": "line",
+      "text": "Hello I'm blue\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Hello I'm red\n",
+      "tags": []
+    },
+    {
+      "type": "currentText",
+      "text": "Hello I'm blue\n"
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 blue choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 blue choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "currentText",
+      "text": "Hello I'm red\n"
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 red choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 red choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 red choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 red choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "Thread 1 red choice\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "After thread 1 choice (red)\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 red choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 red choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 1
+    },
+    {
+      "type": "line",
+      "text": "Thread 2 red choice\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "After thread 2 choice (red)\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 blue choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 blue choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "Thread 1 blue choice\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "After thread 1 choice (blue)\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Thread 1 blue choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Thread 2 blue choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 1
+    },
+    {
+      "type": "line",
+      "text": "Thread 2 blue choice\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "After thread 2 choice (blue)\n",
+      "tags": []
+    },
+    {
+      "type": "line",
       "text": "Default line 2\n",
       "tags": []
     },
@@ -22,5 +295,5 @@
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.3\"}],\"threadCounter\":0},\"outputStream\":[\"^Default line 2\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.3\"}],\"threadCounter\":0},\"outputStream\":[\"^Default line 2\",\"\\n\"],\"currentChoices\":[]},\"Red Flow\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"red.15\"}],\"threadCounter\":4},\"outputStream\":[\"^Hello I'm red\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"thread1.1.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"name\":\"^red\",\"$r\":{\"^->\":\"thread1.1.0.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"thread1.1.0.7\"},\"4\":{\"callstack\":[{\"cPath\":\"thread2.1.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"name\":\"^red\",\"$r\":{\"^->\":\"thread2.1.0.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"thread2.1.0.7\"}},\"currentChoices\":[{\"text\":\"Thread 1 red choice\",\"index\":0,\"originalChoicePath\":\"thread1.1.0.8\",\"originalThreadIndex\":2,\"targetPath\":\"thread1.1.c-0\"},{\"text\":\"Thread 2 red choice\",\"index\":1,\"originalChoicePath\":\"thread2.1.0.8\",\"originalThreadIndex\":4,\"targetPath\":\"thread2.1.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":2,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

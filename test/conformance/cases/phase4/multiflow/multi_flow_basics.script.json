@@ -1,0 +1,38 @@
+[
+  {
+    "op": "switchFlow",
+    "name": "First"
+  },
+  {
+    "op": "choosePathString",
+    "path": "knot1"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Second"
+  },
+  {
+    "op": "choosePathString",
+    "path": "knot2"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "First"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Second"
+  },
+  {
+    "op": "continue"
+  }
+]

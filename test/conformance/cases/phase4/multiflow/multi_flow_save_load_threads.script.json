@@ -1,0 +1,109 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Blue Flow"
+  },
+  {
+    "op": "choosePathString",
+    "path": "blue"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Red Flow"
+  },
+  {
+    "op": "choosePathString",
+    "path": "red"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Blue Flow"
+  },
+  {
+    "op": "currentText"
+  },
+  {
+    "op": "currentChoices"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Red Flow"
+  },
+  {
+    "op": "currentText"
+  },
+  {
+    "op": "currentChoices"
+  },
+  {
+    "op": "save",
+    "slot": "a"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "resetState"
+  },
+  {
+    "op": "load",
+    "slot": "a"
+  },
+  {
+    "op": "choose",
+    "index": 1
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "load",
+    "slot": "a"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Blue Flow"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "load",
+    "slot": "a"
+  },
+  {
+    "op": "switchFlow",
+    "name": "Blue Flow"
+  },
+  {
+    "op": "choose",
+    "index": 1
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "removeFlow",
+    "name": "Blue Flow"
+  },
+  {
+    "op": "continue"
+  }
+]

@@ -3,19 +3,144 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "visitCount",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot2"
+    },
+    {
+      "op": "choosePathString",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot2"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot"
+    },
+    {
+      "op": "visitCount",
+      "path": "TestKnot2"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
     },
     {
+      "type": "visitCount",
+      "path": "TestKnot",
+      "count": 0
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot2",
+      "count": 0
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot",
+      "count": 1
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot2",
+      "count": 0
+    },
+    {
       "type": "line",
-      "text": "",
+      "text": "this is a test\n",
       "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot",
+      "count": 1
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot2",
+      "count": 0
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Next",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot",
+      "count": 1
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot2",
+      "count": 0
+    },
+    {
+      "type": "line",
+      "text": "this is the end\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot",
+      "count": 1
+    },
+    {
+      "type": "visitCount",
+      "path": "TestKnot2",
+      "count": 1
     },
     {
       "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.g-0\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":1},\"outputStream\":[\"^ \",\"^this is the end\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"TestKnot\":1,\"\":1,\"TestKnot.0.c-0\":1,\"TestKnot2\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

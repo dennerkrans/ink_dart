@@ -9,8 +9,44 @@ can run them. Each case is three files:
 | `<case>.json` | Compiled story (generated) |
 | `<case>.golden.json` | C# reference transcript: lines, tags, choice lists, chosen indices, errors, final `state.ToJson()` (generated) |
 
-An optional `<case>.script.json` (a JSON list of choice indices) overrides the
-default choice script, which takes the first choice every time.
+An optional `<case>.script.json` holds ops that run before the default loop
+(continue to the next choice, take the first, repeat). The golden copies the
+script, so the Dart side replays the golden alone.
+
+## Script ops
+
+Each op is a JSON object with an `"op"` key. Values are tagged:
+`{"int": 5}`, `{"float": "2.5"}`, `{"string": "x"}`, `{"bool": true}`, and
+list values come back as `{"list": "a, b"}`.
+
+| Op | Fields | Event recorded |
+| --- | --- | --- |
+| `continue` / `continueMaximally` | | `line` per line |
+| `choose` | `index` | `choices`, `choose` |
+| `choosePathString` | `path`, `resetCallstack`?, `args`? | |
+| `evaluateFunction` | `name`, `args`? | `function` (`result`, `output`) |
+| `setVariable` / `getVariable` | `name`, `value` | `variable` (get) |
+| `variableNames` | | `variableNames` |
+| `observe` | `name` | `observed` on each change |
+| `bind` / `unbind` | `name`, `behaviour`, `lookaheadSafe`?, `value`?, `function`? | `external` on each call |
+| `allowExternalFunctionFallbacks` | `value` | |
+| `save` / `load` | `slot` | |
+| `freshStory` | | (a new `Story` from the same JSON) |
+| `resetState` | | (then re-seeds with 42) |
+| `switchFlow` / `removeFlow` / `switchToDefaultFlow` | `name` | |
+| `visitCount` | `path` | `visitCount` |
+| `tagsForContentAtPath` | `path` | `tags` |
+| `currentText` / `currentChoices` | | `currentText` / `choices` |
+
+Bind behaviours: `record` (returns nothing), `return` (`value`), `multiply`,
+`repeat` (string repeated n times), `callInk` (argument + 1 passed to the ink
+`function`). An op that throws records an `exception` event and the script
+goes on. Both drivers (`tool/oracle/Driver.cs`, `test/conformance/harness.dart`)
+implement the same ops.
+
+The Dart suite also replays every case in save/load round-trip mode: at each
+default-loop choice point the state is saved, loaded into a fresh `Story`,
+and must serialise identically and play on to the same transcript.
 
 ## Provenance and pins
 
@@ -68,12 +104,11 @@ runtime changed 13 transcripts, for three reasons the port must follow C# on:
 
 ## Known limits of the transcripts
 
-- inkjs's specs drive some stories with `ChoosePathString`, `EvaluateFunction`,
-  variable writes or bound externals. The generic driver does none of that,
-  so `phase2/bindings/*`, `phase2/newlines/newlines_trimming_with_func_external_fallback`
-  and `phase3/inkjs/tests` currently record the runtime's
-  `Missing function binding` exception. Phase 2 extends `script.json` with
-  those operations and regenerates.
+- Scripts follow inkjs's specs for 19 stories that the specs drive through
+  the API. Where C# and inkjs disagree, the golden keeps C#: `EvaluateFunction`
+  returning a divert gives `somewhere.here`, not inkjs's `-> somewhere.here`.
+- `phase3/inkjs/tests` still has no script, so it records the
+  `Missing function binding` exception; its inkjs spec drives it knot by knot.
 - ink's own C# test suite (`tests/Tests.cs` in inkle/ink) keeps its stories
   inline in code; they are not vendored yet.
 

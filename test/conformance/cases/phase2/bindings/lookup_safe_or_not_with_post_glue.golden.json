@@ -3,15 +3,39 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "bind",
+      "name": "myAction",
+      "behaviour": "record"
+    },
+    {
+      "op": "continueMaximally"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
     },
     {
-      "type": "exception",
-      "message": "ERROR: Missing function binding for external: 'myAction'  (ink fallbacks disabled)"
+      "type": "line",
+      "text": "One\n",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "myAction",
+      "args": []
+    },
+    {
+      "type": "line",
+      "text": "Two\n",
+      "tags": []
+    },
+    {
+      "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.9\"}],\"threadCounter\":0},\"outputStream\":[\"^ Two\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

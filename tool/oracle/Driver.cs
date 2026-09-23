@@ -26,24 +26,13 @@ sealed class Driver
     {
         try
         {
-            _story = new Story(_json);
+            NewStory();
         }
         catch (Exception e)
         {
             Record(new JsonObject { ["type"] = "exception", ["message"] = e.Message });
             return (_events, null);
         }
-        _story.onError += (message, type) =>
-        {
-            var kind = type switch
-            {
-                ErrorType.Author => "author",
-                ErrorType.Warning => "warning",
-                _ => "error",
-            };
-            Record(new JsonObject { ["type"] = kind, ["message"] = message });
-        };
-        _story.state.storySeed = Oracle.Seed;
 
         var continues = 0;
         var choicesMade = 0;
@@ -98,6 +87,22 @@ sealed class Driver
             Record(new JsonObject { ["type"] = "exception", ["message"] = e.Message });
         }
         return (_events, _story.state.ToJson());
+    }
+
+    void NewStory()
+    {
+        _story = new Story(_json);
+        _story.onError += (message, type) =>
+        {
+            var kind = type switch
+            {
+                ErrorType.Author => "author",
+                ErrorType.Warning => "warning",
+                _ => "error",
+            };
+            Record(new JsonObject { ["type"] = kind, ["message"] = message });
+        };
+        _story.state.storySeed = Oracle.Seed;
     }
 
     void ContinueOnce()
@@ -210,7 +215,19 @@ sealed class Driver
                 _story.state.LoadJson(_slots[(string)op["slot"] ?? ""]);
                 break;
             case "resetState":
+                // ResetState seeds from the clock; keep the case deterministic.
                 _story.ResetState();
+                _story.state.storySeed = Oracle.Seed;
+                break;
+            case "freshStory":
+                // A new Story from the same JSON, as a game would make on relaunch.
+                NewStory();
+                break;
+            case "currentText":
+                Record(new JsonObject { ["type"] = "currentText", ["text"] = _story.currentText });
+                break;
+            case "currentChoices":
+                RecordChoices();
                 break;
             case "switchFlow":
                 _story.SwitchFlow((string)op["name"]);
@@ -264,7 +281,9 @@ sealed class Driver
                 case "return":
                     return Decode(op["value"]);
                 case "multiply":
-                    return (int)args[0] * (int)args[1];
+                    // Float if either side is.
+                    if (args[0] is int x && args[1] is int y) return x * y;
+                    return Convert.ToSingle(args[0]) * Convert.ToSingle(args[1]);
                 case "repeat":
                     return string.Concat(Enumerable.Repeat((string)args[1], (int)args[0]));
                 case "callInk":

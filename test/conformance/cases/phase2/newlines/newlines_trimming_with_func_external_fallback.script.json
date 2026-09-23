@@ -1,0 +1,6 @@
+[
+  {
+    "op": "allowExternalFunctionFallbacks",
+    "value": true
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "evaluateFunction",
+    "name": "function_to_evaluate"
+  },
+  {
+    "op": "continue"
+  }
+]

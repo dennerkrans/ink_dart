@@ -1,0 +1,17 @@
+[
+  {
+    "op": "bind",
+    "name": "gameInc",
+    "behaviour": "callInk",
+    "function": "inkInc"
+  },
+  {
+    "op": "evaluateFunction",
+    "name": "topExternal",
+    "args": [
+      {
+        "int": 5
+      }
+    ]
+  }
+]

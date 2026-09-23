@@ -3,6 +3,15 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "test"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -12,6 +21,14 @@
       "type": "line",
       "text": "Top level content\n",
       "tags": []
+    },
+    {
+      "type": "function",
+      "name": "test",
+      "result": {
+        "string": "somewhere.here"
+      },
+      "output": ""
     },
     {
       "type": "choices",

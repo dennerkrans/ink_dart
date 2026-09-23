@@ -3,15 +3,80 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "bind",
+      "name": "message",
+      "behaviour": "record"
+    },
+    {
+      "op": "bind",
+      "name": "multiply",
+      "behaviour": "multiply"
+    },
+    {
+      "op": "bind",
+      "name": "times",
+      "behaviour": "repeat"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
     },
     {
-      "type": "exception",
-      "message": "ERROR: Missing function binding for externals: 'message', 'multiply', 'times'  (ink fallbacks disabled)"
+      "type": "external",
+      "name": "message",
+      "args": [
+        {
+          "string": "hello world"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "multiply",
+      "args": [
+        {
+          "float": "5"
+        },
+        {
+          "int": 3
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "15\n",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "times",
+      "args": [
+        {
+          "int": 3
+        },
+        {
+          "string": "knock "
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "knock knock knock\n",
+      "tags": []
+    },
+    {
+      "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.23\"}],\"threadCounter\":0},\"outputStream\":[\"^knock knock knock \",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

@@ -1,0 +1,31 @@
+[
+  {
+    "op": "evaluateFunction",
+    "name": "func1"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "evaluateFunction",
+    "name": "func2"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "evaluateFunction",
+    "name": "add",
+    "args": [
+      {
+        "int": 1
+      },
+      {
+        "int": 2
+      }
+    ]
+  },
+  {
+    "op": "continue"
+  }
+]

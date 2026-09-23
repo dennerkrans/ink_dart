@@ -1,0 +1,19 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  }
+]

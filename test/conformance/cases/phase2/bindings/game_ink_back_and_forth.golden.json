@@ -3,15 +3,53 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "bind",
+      "name": "gameInc",
+      "behaviour": "callInk",
+      "function": "inkInc"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "topExternal",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
     },
     {
-      "type": "exception",
-      "message": "ERROR: Missing function binding for external: 'gameInc'  (ink fallbacks disabled)"
+      "type": "external",
+      "name": "gameInc",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "topExternal",
+      "result": {
+        "int": 7
+      },
+      "output": "In top external\n"
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"topExternal.6\"}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

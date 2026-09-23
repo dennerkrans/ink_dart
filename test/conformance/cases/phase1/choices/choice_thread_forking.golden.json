@@ -3,6 +3,29 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "save",
+      "slot": "a"
+    },
+    {
+      "op": "freshStory"
+    },
+    {
+      "op": "load",
+      "slot": "a"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",

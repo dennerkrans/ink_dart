@@ -1,0 +1,19 @@
+[
+  {
+    "op": "observe",
+    "name": "testVar"
+  },
+  {
+    "op": "variableNames"
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continue"
+  }
+]

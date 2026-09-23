@@ -1,0 +1,9 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "evaluateFunction",
+    "name": "test"
+  }
+]

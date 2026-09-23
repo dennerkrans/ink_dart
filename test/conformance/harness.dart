@@ -276,7 +276,16 @@ class Driver {
         if (saved == null) throw StateError('nothing saved in slot');
         _story.state.loadJson(saved);
       case 'resetState':
+        // resetState seeds from the clock; keep the case deterministic.
         _story.resetState();
+        _story.state.storySeed = c.seed;
+      case 'freshStory':
+        // A new Story from the same JSON, as a game would make on relaunch.
+        _story = _newStory()..state.storySeed = c.seed;
+      case 'currentText':
+        _record({'type': 'currentText', 'text': _story.currentText});
+      case 'currentChoices':
+        _recordChoices();
       case 'switchFlow':
         _story.switchFlow(op['name'] as String);
       case 'removeFlow':
@@ -318,7 +327,11 @@ class Driver {
         case 'return':
           return decodeValue(op['value']);
         case 'multiply':
-          return ((args[0] as int) * (args[1] as int)).toSigned(32);
+          // Float if either side is.
+          final x = args[0];
+          final y = args[1];
+          if (x is int && y is int) return (x * y).toSigned(32);
+          return toFloat32((x as num).toDouble() * (y as num).toDouble());
         case 'repeat':
           return (args[1] as String) * (args[0] as int);
         case 'callInk':

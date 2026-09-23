@@ -1,0 +1,23 @@
+[
+  {
+    "op": "bind",
+    "name": "message",
+    "behaviour": "record"
+  },
+  {
+    "op": "bind",
+    "name": "multiply",
+    "behaviour": "multiply"
+  },
+  {
+    "op": "bind",
+    "name": "times",
+    "behaviour": "repeat"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "continue"
+  }
+]

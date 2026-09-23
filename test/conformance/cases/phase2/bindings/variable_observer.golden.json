@@ -3,15 +3,48 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "observe",
+      "name": "testVar"
+    },
+    {
+      "op": "variableNames"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
       "tags": []
     },
     {
+      "type": "variableNames",
+      "names": [
+        "testVar",
+        "testVar2"
+      ]
+    },
+    {
       "type": "line",
       "text": "Hello world!\n",
       "tags": []
+    },
+    {
+      "type": "observed",
+      "name": "testVar",
+      "value": {
+        "int": 15
+      }
     },
     {
       "type": "line",
@@ -31,6 +64,13 @@
     {
       "type": "choose",
       "index": 0
+    },
+    {
+      "type": "observed",
+      "name": "testVar",
+      "value": {
+        "int": 25
+      }
     },
     {
       "type": "line",

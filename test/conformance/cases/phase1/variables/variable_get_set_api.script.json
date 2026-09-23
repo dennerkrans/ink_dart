@@ -1,0 +1,67 @@
+[
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "getVariable",
+    "name": "x"
+  },
+  {
+    "op": "setVariable",
+    "name": "x",
+    "value": {
+      "int": 10
+    }
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "getVariable",
+    "name": "x"
+  },
+  {
+    "op": "setVariable",
+    "name": "x",
+    "value": {
+      "float": "8.5"
+    }
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "getVariable",
+    "name": "x"
+  },
+  {
+    "op": "setVariable",
+    "name": "x",
+    "value": {
+      "string": "a string"
+    }
+  },
+  {
+    "op": "choose",
+    "index": 0
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "getVariable",
+    "name": "x"
+  },
+  {
+    "op": "getVariable",
+    "name": "z"
+  }
+]

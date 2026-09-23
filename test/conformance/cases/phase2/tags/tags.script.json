@@ -1,0 +1,23 @@
+[
+  {
+    "op": "continue"
+  },
+  {
+    "op": "tagsForContentAtPath",
+    "path": "knot"
+  },
+  {
+    "op": "tagsForContentAtPath",
+    "path": "knot.stitch"
+  },
+  {
+    "op": "choosePathString",
+    "path": "knot"
+  },
+  {
+    "op": "continue"
+  },
+  {
+    "op": "continue"
+  }
+]

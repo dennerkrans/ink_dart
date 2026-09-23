@@ -1,0 +1,27 @@
+[
+  {
+    "op": "bind",
+    "name": "myAction",
+    "behaviour": "record",
+    "lookaheadSafe": true
+  },
+  {
+    "op": "continueMaximally"
+  },
+  {
+    "op": "resetState"
+  },
+  {
+    "op": "unbind",
+    "name": "myAction"
+  },
+  {
+    "op": "bind",
+    "name": "myAction",
+    "behaviour": "record",
+    "lookaheadSafe": false
+  },
+  {
+    "op": "continueMaximally"
+  }
+]
