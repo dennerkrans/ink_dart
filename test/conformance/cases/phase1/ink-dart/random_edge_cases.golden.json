@@ -1,0 +1,40 @@
+{
+  "case": "phase1/ink-dart/random_edge_cases",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 2 1851705487\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "c b a\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 5\n",
+      "tags": []
+    },
+    {
+      "type": "error",
+      "message": "RUNTIME ERROR: (0.56): RANDOM was called with minimum as 5 and maximum as 1. The maximum must be larger"
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.27\":1,\"0.29\":1,\"0.31\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":2147483647,\"previousRandom\":1383133234,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

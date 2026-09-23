@@ -1,0 +1,95 @@
+{
+  "case": "phase3/ink-dart/list_operators",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "blue\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "true true false\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "green, yellow green\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "/ /\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "true false true true\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "30 0 /\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "red, small, large\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "blue medium\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "4 green, yellow small, medium, large\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "green, blue medium, large\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "/ false / false\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "blue medium / /\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "red, green, blue, yellow\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "blue\n",
+      "tags": []
+    },
+    {
+      "type": "error",
+      "message": "RUNTIME ERROR: (0.218): Can not call use '==' operation on List and Int"
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"mine\":{\"list\":{},\"origins\":[\"colours\",\"colours\"]}},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

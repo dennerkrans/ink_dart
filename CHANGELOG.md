@@ -13,5 +13,5 @@ First release.
 - Numbers and randomness follow the C# reference runtime: 32-bit floats,
   .NET's float formatting, .NET's seeded `System.Random`.
 - Multi-flow (`switchFlow`, `removeFlow`) is experimental.
-- Checked against inkle's C# runtime on 169 stories, each also replayed
+- Checked against inkle's C# runtime on 173 stories, each also replayed
   through save/load at every choice.

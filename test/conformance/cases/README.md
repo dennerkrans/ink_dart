@@ -71,6 +71,15 @@ Regenerate with `node tool/regen_goldens.mjs [filter]` (needs the .NET 10
 SDK; tests do not). Re-vendor from a fresh inkjs checkout with
 `node tool/vendor_cases.mjs path/to/inkjs` (needs `npm ci` in `tool/`).
 
+## Cases written for ink_dart
+
+`*/ink-dart/` holds stories written here rather than vendored, each saying so
+in its first line: list operators the corpus barely uses (`^`, `hasnt`,
+int-to-list coercion, ranges, mixed origins), `LIST_RANDOM` over mixed
+origins, `RANDOM` edge cases, typed external bindings (in `bindings/`), and
+thread choices holding temporaries and tunnels. Their goldens come from the
+C# runtime like every other case.
+
 ## Phase assignment
 
 A story goes in the higher of its category's phase and the phase of the

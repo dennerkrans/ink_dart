@@ -1,0 +1,36 @@
+{
+  "case": "phase3/ink-dart/list_random_mixed",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "a1, b1, a2, b3\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "a1 b3 a1 a2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "b3 b3 a1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "/\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.61\"}],\"threadCounter\":0},\"outputStream\":[\"^\",\"^ /\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":7,\"previousRandom\":1584005941,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}
