@@ -40,6 +40,7 @@ The oracle is the C# runtime, not inkjs. Regenerating goldens needs the .NET 10 
 1. Bump `version` in both pubspecs (flutter_ink's `ink_dart` constraint too, if the runtime changed) and add a `CHANGELOG.md` entry in each package.
 2. CI green on `main`; `dart pub publish --dry-run` in `packages/ink_dart` clean; pana 160/160.
 3. Publish ink_dart first (`cd packages/ink_dart && dart pub publish`), then flutter_ink (`cd packages/flutter_ink && flutter pub publish`). Publishing is permanent; the user runs both.
+   Both packages belong to the verified publisher `daniel.party`. A new package must be transferred to it after its first upload (pub.dev: the package's Admin tab, then Transfer to publisher); new versions of an existing package stay with it.
 4. A GitHub release tagged `vX.Y.Z` on `main` with both changelogs; draft it first, publish it once pub.dev has both packages.
 
 ## References
