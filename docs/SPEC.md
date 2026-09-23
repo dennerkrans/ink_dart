@@ -163,18 +163,18 @@ Port [inkjs](https://github.com/y-lohse/inkjs) (TypeScript, MIT, the port inkle 
 TypeScript to Dart is a mechanical translation for this codebase: classes, enums, nullable types, generics, `Map`/`List`. Watch four things:
 
 - Integer vs float: JS has one number type; Dart has `int` and `double`. ink distinguishes them, so `IntValue` and `FloatValue` must stay distinct and arithmetic must follow ink's promotion rules, not Dart's.
-- Equality: value objects need `==` and `hashCode`, or maps keyed by paths and list items break silently.
+- Equality: plain data types (`Path`, `Pointer`, list items, `InkList`) need `==` and `hashCode`, or maps keyed by them break silently. Runtime objects keep the reference's identity equality, except `Divert`, which compares by target as in C#; variable observers and path lookup depend on this.
 - Nulls: turn inkjs's defensive null checks into Dart's sound null safety; do not sprinkle `!`.
 - No reflection: the reference uses none; keep it that way for AOT.
 
 **Phases, each ending green on its slice of the conformance corpus**
 
-1. **Core flow.** Object model, `Path`/`Pointer`, containers, JSON parsing, `StoryState` with callstack and eval stack, `continueStory` with lookahead and glue, diverts, choices, variables, temps, native functions, visit and turn counts, sequences, PRNG. Errors as data. This is most of the work and enough for a plain branching story.
-2. **Persistence and game interface.** `StoryState.toJson`/`loadJson` interoperable with inkjs saves, variable observers, external functions with lookahead safety and fallbacks, `evaluateFunction`, `choosePathString`, tags including dynamic tags, `globalTags`.
-3. **Lists and threads.** `InkList`, list definitions and every list operation; `thread`/`done` and choice-thread restore.
-4. **Later.** Multi-flow (`SwitchFlow`, `RemoveFlow`), profiler hooks, a `flutter_ink` package with a story widget and a debug view.
+1. **Core flow.** Done: the whole runtime, including lists, threads and multi-flow, is ported, and all 168 goldens pass.
+2. **Persistence and game interface.** Verify `StoryState.toJson`/`loadJson` (a round trip over every golden), variable observers, external functions with lookahead safety and fallbacks, `evaluateFunction`, `choosePathString`, tags and `globalTags` with scripted cases.
+3. **Lists and threads.** Verify with scripted cases, starting with thread choices across save/load, and vendor ink's own C# test stories.
+4. **Later.** Verify multi-flow with scripts that call `SwitchFlow`/`RemoveFlow`; profiler hooks; a `flutter_ink` package with a story widget and a debug view.
 
-Adventuring Shape needs phases 1 and 2. Ship the package to pub.dev after phase 2 with lists and threads listed as unsupported, and refuse at load time when a story's JSON contains `listDefs`, `"thread"`, or list commands, rather than failing mid-story.
+Adventuring Shape needs phases 1 and 2. Ship the package to pub.dev after phase 2 with lists and threads supported and multi-flow marked experimental until phase 4 verifies it.
 
 ## Conformance testing
 
