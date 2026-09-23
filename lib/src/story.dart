@@ -15,6 +15,7 @@ import 'runtime/divert_target_value.dart';
 import 'runtime/ink_list.dart';
 import 'runtime/ink_object.dart';
 import 'runtime/int_value.dart';
+import 'runtime/list_definition.dart';
 import 'runtime/list_definitions_origin.dart';
 import 'runtime/list_value.dart';
 import 'runtime/native_function_call.dart';
@@ -169,9 +170,11 @@ class Story extends InkObject {
   /// Warning: When creating a Story using this constructor, you need to
   /// call ResetState on it before use. Intended for compiler use only.
   /// For normal use, use the constructor that takes a json string.
-  Story.fromContainer(Container? contentContainer, [List<dynamic>? lists])
-    : _mainContentContainer = contentContainer {
-    if (lists != null) _listDefinitions = ListDefinitionsOrigin([...lists]);
+  Story.fromContainer(
+    Container? contentContainer, [
+    List<ListDefinition>? lists,
+  ]) : _mainContentContainer = contentContainer {
+    if (lists != null) _listDefinitions = ListDefinitionsOrigin(lists);
   }
 
   /// Construct a Story object using a JSON string compiled through inklecate.
@@ -180,9 +183,10 @@ class Story extends InkObject {
 
   /// Construct a Story object from the decoded compiled JSON.
   ///
-  /// Float tokens should be [JsonFloat]s, as [Story.fromJson] produces; a
-  /// plain `double` is also read as a float, so a map from `jsonDecode`
-  /// works on the Dart VM, where `3.0` decodes as a double.
+  /// [Story.fromJson] is exact on every platform. A map from `jsonDecode`
+  /// works on the Dart VM and AOT, where `3.0` decodes as a double, but not
+  /// on the web, where `3` and `3.0` decode alike and a float literal loses
+  /// its type.
   Story(Map<String, Object?> rootObject) : _mainContentContainer = null {
     final versionObj = rootObject['inkVersion'];
     if (versionObj == null) {

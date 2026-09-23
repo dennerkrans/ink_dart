@@ -47,6 +47,7 @@
 //
 // Tag:            {"#": "the tag text"}
 
+import '../float32.dart';
 import '../runtime/bool_value.dart';
 import '../runtime/choice.dart';
 import '../runtime/choice_point.dart';
@@ -319,6 +320,8 @@ abstract final class JsonSerialisation {
   static InkObject? jTokenToRuntimeObject(Object? token) {
     if (token is int) return IntValue(token);
     if (token is JsonFloat) return FloatValue(token.value);
+    // A plain double comes from a map decoded with `jsonDecode`.
+    if (token is double) return FloatValue(toFloat32(token));
     if (token is bool) return BoolValue(token);
 
     if (token is String) {

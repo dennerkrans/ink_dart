@@ -21,7 +21,10 @@ default choice script, which takes the first choice every time.
   checked in under `tool/oracle/lib/` (identical in the linux, mac and
   windows zips). Compiled stories are `inkVersion` 21; saves are
   `inkSaveVersion` 10.
-- Seed: 42 for every case. Guards: 1000 continues, 100 choices; a case that
+- Seed: 42 for every case, set after the story is constructed. Construction
+  already runs the `global decl` block with a time-based seed, so a case must
+  not use `RANDOM` or a shuffle in a `VAR` initialiser; none in the corpus
+  does. Guards: 1000 continues, 100 choices; a case that
   hits one records a `truncated` event.
 
 Regenerate with `node tool/regen_goldens.mjs [filter]` (needs the .NET 10
