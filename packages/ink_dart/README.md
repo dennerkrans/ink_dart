@@ -50,6 +50,36 @@ in Dart. External functions bind with `bindExternalFunction0` to
 types as the C# runtime does (a float passed to an `int` parameter rounds,
 halves to even), or with `bindExternalFunctionGeneral` for the raw values.
 
+## Guides
+
+The API reference has short guides:
+[Getting started](https://pub.dev/documentation/ink_dart/latest/topics/Getting%20started-topic.html),
+[Game functions and variables](https://pub.dev/documentation/ink_dart/latest/topics/Game%20functions%20and%20variables-topic.html),
+[Saving and loading](https://pub.dev/documentation/ink_dart/latest/topics/Saving%20and%20loading-topic.html),
+[Flows](https://pub.dev/documentation/ink_dart/latest/topics/Flows-topic.html) and
+[Matching Unity and Inky](https://pub.dev/documentation/ink_dart/latest/topics/Matching%20Unity%20and%20Inky-topic.html).
+
+## From ink's C# API
+
+If you know ink from Unity, the names carry over in Dart casing:
+
+| C# (`Ink.Runtime.Story`) | ink_dart |
+| --- | --- |
+| `new Story(json)` | `Story.fromJson(json)` |
+| `Continue()` | `continueStory()` (`continue` is a Dart keyword) |
+| `ContinueMaximally()`, `canContinue` | `continueMaximally()`, `canContinue` |
+| `currentChoices`, `ChooseChoiceIndex(i)` | `currentChoices`, `chooseChoiceIndex(i)` |
+| `currentTags`, `globalTags`, `TagsForContentAtPath(p)` | `currentTags`, `globalTags`, `tagsForContentAtPath(p)` |
+| `ChoosePathString(p, reset, args)` | `choosePathString(p, resetCallstack: reset, arguments: args)` |
+| `variablesState["x"]` | `variablesState['x']` |
+| `ObserveVariable(name, fn)` | `observeVariable(name, fn)` |
+| `BindExternalFunction<T>(name, fn)` | `bindExternalFunction1<T>(name, fn)` (0 to 4 arguments) |
+| `BindExternalFunctionGeneral(name, fn)` | `bindExternalFunctionGeneral(name, fn)` |
+| `EvaluateFunction(name, out text, args)` | `evaluateFunctionWithOutput(name, args)` |
+| `state.ToJson()`, `state.LoadJson(s)` | `state.toJson()`, `state.loadJson(s)` |
+| `SwitchFlow(name)`, `RemoveFlow(name)` | `switchFlow(name)`, `removeFlow(name)` |
+| `onError += handler` | `onError = handler` |
+
 `example/play.dart` plays any compiled story in the terminal:
 
 ```

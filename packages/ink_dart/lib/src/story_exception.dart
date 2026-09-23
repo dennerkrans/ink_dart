@@ -2,6 +2,8 @@
 
 /// An error in the story content, reported through `Story.onError` (or
 /// thrown when no handler is set).
+///
+/// {@category Getting started}
 class StoryException implements Exception {
   /// Creates an exception with [message].
   StoryException(this.message);

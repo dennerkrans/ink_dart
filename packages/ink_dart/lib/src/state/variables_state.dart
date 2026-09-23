@@ -23,6 +23,8 @@ typedef VariableChanged =
 /// Encompasses all the global variables in an ink Story, and
 /// allows binding of a VariableChanged event so that that game
 /// code can be notified whenever the global variables change.
+///
+/// {@category Game functions and variables}
 class VariablesState extends Iterable<String> {
   /// Creates the variables of a story, reading temporaries from [callStack].
   VariablesState(this.callStack, this._listDefsOrigin);

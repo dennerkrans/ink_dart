@@ -30,6 +30,8 @@ import 'variables_state.dart';
 /// point in the story, the call stack (for tunnels, functions, etc),
 /// and a few other smaller bits and pieces. You can save the current
 /// state using the json serialisation functions ToJson and LoadJson.
+///
+/// {@category Saving and loading}
 class StoryState {
   /// The current version of the state save file JSON-based format.
   //

@@ -9,6 +9,8 @@ import 'list_definition.dart';
 /// The value of an ink list variable: a set of items, each with its int
 /// value. Derives from `Dictionary<InkListItem, int>` in the reference;
 /// iteration follows .NET's dictionary order (see [DotNetDictionary]).
+///
+/// {@category Game functions and variables}
 class InkList {
   /// Creates an empty list with no origins.
   InkList();

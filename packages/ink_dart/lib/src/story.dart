@@ -55,6 +55,16 @@ enum _OutputStateChange { noChange, extendedBeyondNewline, newlineRemoved }
 
 /// A Story is the core class that represents a complete Ink narrative, and
 /// manages the evaluation and state of it.
+///
+/// {@category Getting started}
+///
+/// {@category Game functions and variables}
+///
+/// {@category Saving and loading}
+///
+/// {@category Flows}
+///
+/// {@category Matching Unity and Inky}
 class Story extends InkObject {
   /// The current version of the ink story file format.
   static const inkVersionCurrent = 21;

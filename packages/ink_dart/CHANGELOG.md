@@ -1,5 +1,9 @@
 ## Unreleased
 
+- Guides in the API reference (getting started, game functions and
+  variables, saving and loading, flows, matching Unity and Inky), a fuller
+  library overview, and a C# API mapping in the README. The guides' snippets
+  are tested.
 - Popping an empty evaluation stack (reachable by jumping into the middle of
   a function with `choosePathString`) now fails with the C# runtime's
   message instead of a Dart `RangeError`.

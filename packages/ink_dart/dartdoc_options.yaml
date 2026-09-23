@@ -1,0 +1,18 @@
+dartdoc:
+  categories:
+    "Getting started":
+      markdown: doc/getting_started.md
+    "Game functions and variables":
+      markdown: doc/game_functions.md
+    "Saving and loading":
+      markdown: doc/saving.md
+    "Flows":
+      markdown: doc/flows.md
+    "Matching Unity and Inky":
+      markdown: doc/matching_csharp.md
+  categoryOrder:
+    - "Getting started"
+    - "Game functions and variables"
+    - "Saving and loading"
+    - "Flows"
+    - "Matching Unity and Inky"

@@ -8,6 +8,8 @@ import 'path.dart';
 /// A single ChoicePoint in the Story could potentially generate
 /// different Choices dynamically dependent on state, so they're
 /// separated.
+///
+/// {@category Getting started}
 class Choice extends InkObject {
   /// Creates an empty choice; the story fills it in when generating
   /// choices.

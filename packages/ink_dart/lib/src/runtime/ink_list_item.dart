@@ -2,6 +2,8 @@
 
 /// The name of a list item, qualified by the list it comes from.
 /// A struct in the reference: an immutable value here.
+///
+/// {@category Game functions and variables}
 class InkListItem {
   /// Creates the item [itemName] of the list [originName].
   const InkListItem(this.originName, this.itemName);
