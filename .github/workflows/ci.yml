@@ -5,8 +5,11 @@ on:
   pull_request:
 
 jobs:
-  test:
+  ink_dart:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/ink_dart
     steps:
       - uses: actions/checkout@v5
       - uses: dart-lang/setup-dart@v1
@@ -20,3 +23,18 @@ jobs:
         run: dart test --compiler exe test/conformance
       - name: Package validation
         run: dart pub publish --dry-run
+
+  flutter_ink:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/flutter_ink
+    steps:
+      - uses: actions/checkout@v5
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: flutter analyze --fatal-infos
+      - run: flutter test

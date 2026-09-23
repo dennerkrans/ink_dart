@@ -1,5 +1,5 @@
 // One-off: copy the stories inline in ink's C# test suite (tests/Tests.cs in
-// inkle/ink) into test/conformance/cases/, grouped by phase, skipping any
+// inkle/ink) into packages/ink_dart/test/conformance/cases/, grouped by phase, skipping any
 // whose test name inkjs's corpus already covers.
 //
 // Usage: node tool/vendor_ink_tests.mjs path/to/ink-checkout
@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 import { compileInk, detectFeatures, phaseFor } from "./ink.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const casesDir = path.resolve(here, "../test/conformance/cases");
+const casesDir = path.resolve(here, "../packages/ink_dart/test/conformance/cases");
 const category = "ink-tests";
 
 const inkRoot = process.argv[2];

@@ -79,8 +79,10 @@ SDK; tests do not). Re-vendor from a fresh inkjs checkout with
 `*/ink-dart/` holds stories written here rather than vendored, each saying so
 in its first line: list operators the corpus barely uses (`^`, `hasnt`,
 int-to-list coercion, ranges, mixed origins), `LIST_RANDOM` over mixed
-origins, `RANDOM` edge cases, typed external bindings (in `bindings/`), and
-thread choices holding temporaries and tunnels. Their goldens come from the
+origins, `RANDOM` edge cases, typed external bindings (in `bindings/`), thread
+choices holding temporaries and tunnels, multi-flow state and background
+saves, and a profiled story whose step log checks every runtime object's
+description. Their goldens come from the
 C# runtime like every other case.
 
 ## Phase assignment

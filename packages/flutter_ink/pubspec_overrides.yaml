@@ -1,0 +1,5 @@
+# Develop against the ink_dart in this repository rather than the published
+# one. Not published; pub ignores this file in the package archive.
+dependency_overrides:
+  ink_dart:
+    path: ../ink_dart

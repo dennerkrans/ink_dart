@@ -28,9 +28,9 @@ The oracle is the C# reference runtime (ink 1.2.1, DLLs in `tool/oracle/lib/`), 
 1. Core flow (done: the whole runtime is ported, and all 168 goldens pass)
 2. Persistence, observers, externals, `evaluateFunction`, `choosePathString`, tags (done: 19 scripted cases; saves byte-identical to C# at every checkpoint; C# saves load in Dart)
 3. Lists and threads (done: authored list, random and thread cases; `inkjs/tests` scripted from inkjs's engine specs; ink's C# `Tests.cs` stories are all already in the corpus; thread choices are loaded from C# saves at every checkpoint)
-4. Multi-flow verification (scripts that call `switchFlow`/`removeFlow`), profiler, `flutter_ink`
+4. Multi-flow, profiler, `flutter_ink` (done: authored multi-flow and background-save cases; the profiler's step log matches C#; `packages/flutter_ink` with controller, story view and debug view)
 
-Publish to pub.dev at the end of all the phases, not before (decided 2026-09-23). Multi-flow stays marked experimental until phase 4 verifies it. Nothing is refused at load.
+Publish to pub.dev at the end of all the phases, not before (decided 2026-09-23): ink_dart first, then flutter_ink, whose `pubspec_overrides.yaml` points at the local ink_dart until then. Nothing is refused at load.
 
 ## References
 
@@ -43,10 +43,12 @@ Publish to pub.dev at the end of all the phases, not before (decided 2026-09-23)
 ## Commands
 
 ```
+cd packages/ink_dart
 dart pub get
 dart analyze
 dart test
 dart test test/conformance
 dart run example/play.dart path/to/story.json
-node tool/regen_goldens.mjs
+cd ../flutter_ink && flutter test
+node tool/regen_goldens.mjs   # from the repo root
 ```

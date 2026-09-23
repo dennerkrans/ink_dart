@@ -1,9 +1,9 @@
 {
-  "case": "phase1/choices/various_blank_choice_warning",
+  "case": "phase1/choices/blank_choice",
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [
-    "WARNING: '/Users/daniel/dev/personal/ink_dart/test/conformance/cases/phase1/choices/various_blank_choice_warning.ink' line 1: Blank choice - if you intended a default fallback choice, use the `* ->` syntax"
+    "WARNING: '/Users/daniel/dev/personal/ink_dart/packages/ink_dart/test/conformance/cases/phase1/choices/blank_choice.ink' line 1: Blank choice - if you intended a default fallback choice, use the `* ->` syntax"
   ],
   "events": [
     {

@@ -13,8 +13,8 @@
 // the default loop (continue to the next choice, take the first choice,
 // repeat). The golden records the script and every event, and the Dart
 // harness replays the golden's script the same way. Ops and their events are
-// documented in test/conformance/cases/README.md. Keep this file in step with
-// test/conformance/harness.dart.
+// documented in packages/ink_dart/test/conformance/cases/README.md. Keep this file in step with
+// packages/ink_dart/test/conformance/harness.dart.
 
 using System;
 using System.Collections.Generic;

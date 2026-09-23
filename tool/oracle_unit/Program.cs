@@ -1,12 +1,12 @@
-// Records the unit-test data behind test/unit/prng_test.dart and
-// test/unit/float32_test.dart:
+// Records the unit-test data behind packages/ink_dart/test/unit/prng_test.dart and
+// packages/ink_dart/test/unit/float32_test.dart:
 //   prng_cases.json:    new System.Random(seed).Next() sequences, the only
 //                       Random call the ink runtime makes;
 //   float32_cases.json: float.ToString(InvariantCulture), ink's
 //                       SimpleJson.Writer.Write(float) and float.TryParse
 //                       (NumberStyles.Float, InvariantCulture) results.
 //
-// Usage: dotnet run --project tool/oracle_unit -- <output dir>
+// Usage: dotnet run --project tool/oracle_unit -- packages/ink_dart/test/unit
 
 using System;
 using System.Collections.Generic;

@@ -3,7 +3,7 @@ description: >-
   Pure Dart runtime for inkle's ink narrative language: plays compiled ink
   JSON stories with the same text, randomness and saves as the C# runtime.
 version: 0.1.0
-repository: https://github.com/dennerkrans/ink_dart
+repository: https://github.com/dennerkrans/ink_dart/tree/main/packages/ink_dart
 issue_tracker: https://github.com/dennerkrans/ink_dart/issues
 topics:
   - ink

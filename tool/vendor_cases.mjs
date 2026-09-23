@@ -1,4 +1,4 @@
-// One-off: copy inkjs's .ink test stories into test/conformance/cases/,
+// One-off: copy inkjs's .ink test stories into packages/ink_dart/test/conformance/cases/,
 // grouped by the phase whose runtime can run them.
 //
 // Usage: node tool/vendor_cases.mjs path/to/inkjs-checkout
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 import { compileInk, detectFeatures, phaseFor } from "./ink.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const casesDir = path.resolve(here, "../test/conformance/cases");
+const casesDir = path.resolve(here, "../packages/ink_dart/test/conformance/cases");
 
 const inkjsRoot = process.argv[2];
 if (!inkjsRoot) {

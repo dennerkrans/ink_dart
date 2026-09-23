@@ -12,6 +12,7 @@ First release.
   `bindExternalFunctionGeneral`), `state.toJson` / `state.loadJson`.
 - Numbers and randomness follow the C# reference runtime: 32-bit floats,
   .NET's float formatting, .NET's seeded `System.Random`.
-- Multi-flow (`switchFlow`, `removeFlow`) is experimental.
-- Checked against inkle's C# runtime on 173 stories, each also replayed
+- Multi-flow (`switchFlow`, `removeFlow`), background saves, and the
+  profiler (`startProfiling`, `Profiler.report`, `megalog`).
+- Checked against inkle's C# runtime on 176 stories, each also replayed
   through save/load at every choice.

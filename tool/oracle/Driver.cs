@@ -1,5 +1,5 @@
 // Plays one conformance case in the C# runtime: the optional op script, then
-// the default loop. Mirrors `Driver` in test/conformance/harness.dart; keep
+// the default loop. Mirrors `Driver` in packages/ink_dart/test/conformance/harness.dart; keep
 // the two in step, op for op and event for event.
 
 using System;

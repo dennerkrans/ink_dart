@@ -1,0 +1,4 @@
+# Development only: the tests and the golden corpus they need.
+test/
+.dart_tool/
+pubspec.lock
