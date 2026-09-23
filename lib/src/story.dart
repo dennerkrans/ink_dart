@@ -1,11 +1,11 @@
-// Port of ink's Story.cs (inkjs Story.ts). The profiler hooks are left out
-// until phase 4.
+// Port of ink's Story.cs (inkjs Story.ts).
 
 import 'error.dart';
 import 'float32.dart';
 import 'json/json_serialisation.dart';
 import 'json/simple_json.dart';
 import 'prng.dart';
+import 'profiler.dart';
 import 'runtime/choice.dart';
 import 'runtime/choice_point.dart';
 import 'runtime/container.dart';
@@ -169,6 +169,19 @@ class Story extends InkObject {
 
   /// Callback for when a path string is chosen
   void Function(String, List<Object?>?)? onChoosePathString;
+
+  /// Start recording ink profiling information during calls to Continue on
+  /// Story. Return a Profiler instance that you can request a report from
+  /// when you're finished.
+  Profiler startProfiling() {
+    _ifAsyncWeCant('start profiling');
+    return _profiler = Profiler();
+  }
+
+  /// Stop recording ink profiling information during calls to Continue on
+  /// Story. To generate a report from the profiler, call
+  /// `profiler.report()` on the Profiler that [startProfiling] returned.
+  void endProfiling() => _profiler = null;
 
   /// Warning: When creating a Story using this constructor, you need to
   /// call ResetState on it before use. Intended for compiler use only.
@@ -373,6 +386,8 @@ class Story extends InkObject {
   }
 
   void _continueInternal([double millisecsLimitAsync = 0]) {
+    _profiler?.preContinue();
+
     final isAsyncTimeLimited = millisecsLimitAsync > 0;
 
     _recursiveContinueCount++;
@@ -491,6 +506,8 @@ class Story extends InkObject {
 
     _recursiveContinueCount--;
 
+    _profiler?.postContinue();
+
     // Report any errors that occured during evaluation.
     // This may either have been StoryExceptions that were thrown
     // and caught during evaluation, or directly added with AddError.
@@ -555,14 +572,20 @@ class Story extends InkObject {
   }
 
   bool _continueSingleStep() {
+    _profiler?.preStep();
+
     // Run main step function (walks through content)
     _step();
+
+    _profiler?.postStep();
 
     // Run out of content and we have a default invisible choice that we can
     // follow?
     if (!canContinue && !state.callStack.elementIsEvaluateFromGame) {
       _tryFollowDefaultInvisibleChoice();
     }
+
+    _profiler?.preSnapshot();
 
     // Don't save/rewind during string evaluation, which is e.g. used for
     // choices
@@ -618,6 +641,8 @@ class Story extends InkObject {
         }
       }
     }
+
+    _profiler?.postSnapshot();
 
     return false;
   }
@@ -840,6 +865,8 @@ class Story extends InkObject {
       containerToEnter = resolved is Container ? resolved : null;
     }
     state.currentPointer = pointer;
+
+    _profiler?.step(state.callStack);
 
     // Is the current content object:
     //  - Normal content
@@ -2693,4 +2720,6 @@ class Story extends InkObject {
   int _recursiveContinueCount = 0;
 
   bool _asyncSaving = false;
+
+  Profiler? _profiler;
 }

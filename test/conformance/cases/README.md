@@ -40,6 +40,7 @@ list values come back as `{"list": "a, b"}` and divert targets as
 | `currentText` / `currentChoices` | | `currentText` / `choices` |
 | `flowInfo` | | `flows` (`current`, `isDefault`, `alive`) |
 | `backgroundSaveStart` / `backgroundSaveWrite` / `backgroundSaveComplete` | `slot` (write) | |
+| `startProfiling` / `endProfiling` / `profile` | | `profile` (`continues`, `steps` without timings, `tree` of sample counts) |
 
 Bind behaviours: `record` (returns nothing), `return` (`value`), `multiply`,
 `repeat` (string repeated n times), `callInk` (argument + 1 passed to the ink

@@ -10,6 +10,8 @@
 library;
 
 export 'src/error.dart' show ErrorHandler, ErrorType;
+export 'src/profile_node.dart' show ProfileNode;
+export 'src/profiler.dart' show Profiler;
 export 'src/runtime/choice.dart' show Choice;
 export 'src/runtime/ink_list.dart' show InkList;
 export 'src/runtime/ink_list_item.dart' show InkListItem;

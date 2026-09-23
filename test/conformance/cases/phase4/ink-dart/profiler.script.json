@@ -1,0 +1,8 @@
+[
+  {"op": "startProfiling"},
+  {"op": "continueMaximally"},
+  {"op": "choose", "index": 0},
+  {"op": "continueMaximally"},
+  {"op": "profile"},
+  {"op": "endProfiling"}
+]

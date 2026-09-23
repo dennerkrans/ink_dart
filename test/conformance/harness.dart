@@ -100,6 +100,7 @@ class Driver {
 
   late Story _story;
   StoryState? _backgroundSave;
+  Profiler? _profiler;
   int _checkpoints = 0;
 
   void _record(Map<String, Object?> e) => _events.add(e);
@@ -315,6 +316,12 @@ class Driver {
       case 'backgroundSaveComplete':
         _story.backgroundSaveComplete();
         _backgroundSave = null;
+      case 'startProfiling':
+        _profiler = _story.startProfiling();
+      case 'endProfiling':
+        _story.endProfiling();
+      case 'profile':
+        _recordProfile();
       case 'flowInfo':
         _record({
           'type': 'flows',
@@ -339,6 +346,40 @@ class Driver {
         throw StateError('unknown script op: $name');
     }
     return continues;
+  }
+
+  /// The profiler's deterministic parts, as `RecordProfile` in
+  /// tool/oracle/Driver.cs.
+  void _recordProfile() {
+    final profiler = _profiler;
+    if (profiler == null) throw StateError('not profiling');
+    final report = profiler.report();
+    final continues = int.parse(report.substring(0, report.indexOf(' ')));
+    final steps = [
+      for (final l in profiler.megalog().split('\n').skip(1))
+        if (l.isNotEmpty) l.substring(0, l.lastIndexOf('\t')),
+    ];
+    final tree = <String>[];
+    void walk(ProfileNode node, String path) {
+      tree.add(
+        '$path: self ${node.selfSampleCount}, total ${node.totalSampleCount}',
+      );
+      if (!node.hasChildren) return;
+      for (final kv
+          in node.descendingOrderedNodes ??
+              const <MapEntry<String, ProfileNode>>[]) {
+        walk(kv.value, '$path/${kv.key}');
+      }
+    }
+
+    walk(profiler.rootNode, '');
+    tree.sort();
+    _record({
+      'type': 'profile',
+      'continues': continues,
+      'steps': steps,
+      'tree': tree,
+    });
   }
 
   /// A typed binding, as `BindTyped` in tool/oracle/Driver.cs: the runtime

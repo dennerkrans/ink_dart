@@ -18,6 +18,7 @@ sealed class Driver
     readonly Dictionary<string, string> _slots = new();
     Story _story;
     StoryState _backgroundSave;
+    Profiler _profiler;
 
     public Driver(string json) => _json = json;
 
@@ -253,6 +254,15 @@ sealed class Driver
                 _story.BackgroundSaveComplete();
                 _backgroundSave = null;
                 break;
+            case "startProfiling":
+                _profiler = _story.StartProfiling();
+                break;
+            case "endProfiling":
+                _story.EndProfiling();
+                break;
+            case "profile":
+                RecordProfile();
+                break;
             case "flowInfo":
                 Record(new JsonObject
                 {
@@ -281,6 +291,38 @@ sealed class Driver
             default:
                 throw new Exception($"unknown script op: {name}");
         }
+    }
+
+    // The profiler's deterministic parts: continues counted, every step's
+    // type, description and path (the megalog without its timings), and the
+    // sample counts per call-stack path, sorted by path.
+    void RecordProfile()
+    {
+        var report = _profiler.Report();
+        var continues = int.Parse(report.Substring(0, report.IndexOf(' ')));
+        var steps = _profiler.Megalog().Split('\n')
+            .Skip(1)
+            .Where(l => l.Length > 0)
+            .Select(l => l.Substring(0, l.LastIndexOf('\t')))
+            .Select(l => (JsonNode)l)
+            .ToArray();
+        var tree = new List<string>();
+        void Walk(ProfileNode node, string path)
+        {
+            var m = System.Text.RegularExpressions.Regex.Match(node.ownReport, @"\((\d+) self samples, (\d+) total\)");
+            tree.Add($"{path}: self {m.Groups[1].Value}, total {m.Groups[2].Value}");
+            if (!node.hasChildren) return;
+            foreach (var kv in node.descendingOrderedNodes) Walk(kv.Value, path + "/" + kv.Key);
+        }
+        Walk(_profiler.rootNode, "");
+        tree.Sort(StringComparer.Ordinal);
+        Record(new JsonObject
+        {
+            ["type"] = "profile",
+            ["continues"] = continues,
+            ["steps"] = new JsonArray(steps),
+            ["tree"] = new JsonArray(tree.Select(t => (JsonNode)t).ToArray()),
+        });
     }
 
     // External function behaviours, named in the script. Each records the

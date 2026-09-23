@@ -189,6 +189,11 @@ class InkObject {
   }
 
   /// A copy of this object; throws for kinds of content that can't be copied.
+  /// The reference's default `Object.ToString()`: the runtime type's full
+  /// name. Most subclasses override it.
+  @override
+  String toString() => 'Ink.Runtime.$runtimeType';
+
   InkObject copy() {
     throw UnsupportedError("$runtimeType doesn't support copying");
   }

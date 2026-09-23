@@ -1,0 +1,198 @@
+{
+  "case": "phase4/ink-dart/profiler",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "script": [
+    {
+      "op": "startProfiling"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "profile"
+    },
+    {
+      "op": "endProfiling"
+    }
+  ],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Opening hello you\n",
+      "tags": [
+        "intro"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Aside",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Stay",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "Go",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "Whispered.",
+      "tags": []
+    },
+    {
+      "type": "profile",
+      "continues": 3,
+      "steps": [
+        "StringValue\tOpening \t0.0",
+        "EvalStart CC\tEvalStart\t0.1",
+        "BeginString CC\tBeginString\t0.2",
+        "StringValue\tyou\t0.3",
+        "EndString CC\tEndString\t0.4",
+        "Divert\tDivert function -> greet (greet)\t0.5",
+        "VariableAssignment\tVarAssign to who\tgreet.0",
+        "EvalStart CC\tEvalStart\tgreet.1",
+        "BeginString CC\tBeginString\tgreet.2",
+        "StringValue\thello \tgreet.3",
+        "EndString CC\tEndString\tgreet.4",
+        "VariableReference\tvar(who)\tgreet.5",
+        "NativeFunctionCall\tNative '+'\tgreet.6",
+        "EvalEnd CC\tEvalEnd\tgreet.7",
+        "PopFunction CC\tPopFunction\tgreet.8",
+        "EvalOutput CC\tEvalOutput\t0.6",
+        "EvalEnd CC\tEvalEnd\t0.7",
+        "StringValue\t \t0.8",
+        "BeginTag CC\tBeginTag\t0.9",
+        "StringValue\tintro\t0.10",
+        "EndTag CC\tEndTag\t0.11",
+        "StringValue",
+        "\t0.12",
+        "Divert\tDivert tunnel -> scene (scene)\t0.13",
+        "EvalStart CC\tEvalStart\tscene.0",
+        "IntValue\t2\tscene.1",
+        "EvalEnd CC\tEvalEnd\tscene.2",
+        "VariableAssignment\tVarAssign to n\tscene.3",
+        "EvalStart CC\tEvalStart\tscene.4",
+        "VariableReference\tvar(n)\tscene.5",
+        "EvalEnd CC\tEvalEnd\tscene.6",
+        "Duplicate CC\tDuplicate\tscene.7.0",
+        "EvalStart CC\tEvalStart\tscene.7.1",
+        "IntValue\t1\tscene.7.2",
+        "NativeFunctionCall\tNative '=='\tscene.7.3",
+        "EvalEnd CC\tEvalEnd\tscene.7.4",
+        "Divert\tDivert? -> .^.b.0 (scene.7.b.0)\tscene.7.5",
+        "Duplicate CC\tDuplicate\tscene.8.0",
+        "EvalStart CC\tEvalStart\tscene.8.1",
+        "IntValue\t2\tscene.8.2",
+        "NativeFunctionCall\tNative '=='\tscene.8.3",
+        "EvalEnd CC\tEvalEnd\tscene.8.4",
+        "Divert\tDivert? -> .^.b.0 (scene.8.b.0)\tscene.8.5",
+        "PopEvaluatedValue CC\tPopEvaluatedValue\tscene.8.b.0",
+        "StringValue",
+        "\tscene.8.b.1",
+        "StringValue\ttwo\tscene.8.b.2",
+        "Divert\tDivert tunnel -> scene (scene)\t0.13",
+        "EvalStart CC\tEvalStart\tscene.0",
+        "IntValue\t2\tscene.1",
+        "EvalEnd CC\tEvalEnd\tscene.2",
+        "VariableAssignment\tVarAssign to n\tscene.3",
+        "EvalStart CC\tEvalStart\tscene.4",
+        "VariableReference\tvar(n)\tscene.5",
+        "EvalEnd CC\tEvalEnd\tscene.6",
+        "Duplicate CC\tDuplicate\tscene.7.0",
+        "EvalStart CC\tEvalStart\tscene.7.1",
+        "IntValue\t1\tscene.7.2",
+        "NativeFunctionCall\tNative '=='\tscene.7.3",
+        "EvalEnd CC\tEvalEnd\tscene.7.4",
+        "Divert\tDivert? -> .^.b.0 (scene.7.b.0)\tscene.7.5",
+        "Duplicate CC\tDuplicate\tscene.8.0",
+        "EvalStart CC\tEvalStart\tscene.8.1",
+        "IntValue\t2\tscene.8.2",
+        "NativeFunctionCall\tNative '=='\tscene.8.3",
+        "EvalEnd CC\tEvalEnd\tscene.8.4",
+        "Divert\tDivert? -> .^.b.0 (scene.8.b.0)\tscene.8.5",
+        "PopEvaluatedValue CC\tPopEvaluatedValue\tscene.8.b.0",
+        "StringValue",
+        "\tscene.8.b.1",
+        "StringValue\ttwo\tscene.8.b.2",
+        "StringValue",
+        "\tscene.8.b.3",
+        "Divert\tDivert -> scene.10 (scene.10)\tscene.8.b.4",
+        "NoOp CC\tNoOp\tscene.10",
+        "StringValue",
+        "\tscene.11",
+        "EvalStart CC\tEvalStart\tscene.12",
+        "Void\tInk.Runtime.Void\tscene.13",
+        "EvalEnd CC\tEvalEnd\tscene.14",
+        "PopTunnel CC\tPopTunnel\tscene.15",
+        "StartThread CC\tStartThread\t0.14",
+        "Divert\tDivert -> aside (aside)\t0.15",
+        "EvalStart CC\tEvalStart\taside.0.0",
+        "BeginString CC\tBeginString\taside.0.1",
+        "StringValue\tAside\taside.0.2",
+        "EndString CC\tEndString\taside.0.3",
+        "EvalEnd CC\tEvalEnd\taside.0.4",
+        "ChoicePoint\tChoice: -> aside.0.c-0\taside.0.5",
+        "EvalStart CC\tEvalStart\t0.16",
+        "BeginString CC\tBeginString\t0.17",
+        "StringValue\tStay\t0.18",
+        "EndString CC\tEndString\t0.19",
+        "EvalEnd CC\tEvalEnd\t0.20",
+        "ChoicePoint\tChoice: -> 0.c-0\t0.21",
+        "EvalStart CC\tEvalStart\t0.22",
+        "BeginString CC\tBeginString\t0.23",
+        "StringValue\tGo\t0.24",
+        "EndString CC\tEndString\t0.25",
+        "VariableReference\tvar(score)\t0.26",
+        "IntValue\t1\t0.27",
+        "NativeFunctionCall\tNative '>'\t0.28",
+        "EvalEnd CC\tEvalEnd\t0.29",
+        "ChoicePoint\tChoice: -> 0.c-1\t0.30",
+        "Done CC\tDone\t1",
+        "StringValue\t Whispered. \taside.0.c-0.0",
+        "Done CC\tDone\taside.0.c-0.1"
+      ],
+      "tree": [
+        "//greet: self 9, total 9",
+        "//scene: self 52, total 52",
+        "/: self 33, total 94",
+        "/aside: self 8, total 8",
+        ": self 0, total 102"
+      ]
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"aside.0.c-0.0\"}],\"threadCounter\":4},\"outputStream\":[\"^ Whispered. \"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}
