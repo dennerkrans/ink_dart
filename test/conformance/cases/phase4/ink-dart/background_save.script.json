@@ -1,0 +1,20 @@
+[
+  {"op": "continue"},
+  {"op": "backgroundSaveStart"},
+  {"op": "continue"},
+  {"op": "continue"},
+  {"op": "switchFlow", "name": "Side"},
+  {"op": "getVariable", "name": "gold"},
+  {"op": "backgroundSaveWrite", "slot": "frozen"},
+  {"op": "backgroundSaveComplete"},
+  {"op": "getVariable", "name": "gold"},
+  {"op": "continueMaximally"},
+  {"op": "switchFlow", "name": "Side"},
+  {"op": "choosePathString", "path": "side"},
+  {"op": "continue"},
+  {"op": "freshStory"},
+  {"op": "load", "slot": "frozen"},
+  {"op": "getVariable", "name": "gold"},
+  {"op": "flowInfo"},
+  {"op": "continueMaximally"}
+]

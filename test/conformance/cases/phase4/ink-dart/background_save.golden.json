@@ -1,0 +1,161 @@
+{
+  "case": "phase4/ink-dart/background_save",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "script": [
+    {
+      "op": "continue"
+    },
+    {
+      "op": "backgroundSaveStart"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Side"
+    },
+    {
+      "op": "getVariable",
+      "name": "gold"
+    },
+    {
+      "op": "backgroundSaveWrite",
+      "slot": "frozen"
+    },
+    {
+      "op": "backgroundSaveComplete"
+    },
+    {
+      "op": "getVariable",
+      "name": "gold"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Side"
+    },
+    {
+      "op": "choosePathString",
+      "path": "side"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory"
+    },
+    {
+      "op": "load",
+      "slot": "frozen"
+    },
+    {
+      "op": "getVariable",
+      "name": "gold"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "continueMaximally"
+    }
+  ],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 10.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 20.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 30.\n",
+      "tags": []
+    },
+    {
+      "type": "exception",
+      "message": "Story is already in background saving mode, can't switch flow to Side"
+    },
+    {
+      "type": "variable",
+      "name": "gold",
+      "value": {
+        "int": 30
+      }
+    },
+    {
+      "type": "variable",
+      "name": "gold",
+      "value": {
+        "int": 30
+      }
+    },
+    {
+      "type": "line",
+      "text": "Gold: 40.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Rich.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Side flow, gold 40.\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "gold",
+      "value": {
+        "int": 10
+      }
+    },
+    {
+      "type": "flows",
+      "current": "DEFAULT_FLOW",
+      "isDefault": true,
+      "alive": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 20.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 30.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Gold: 40.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Rich.\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.top.22\"}],\"threadCounter\":0},\"outputStream\":[\"^Rich.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"gold\":40},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

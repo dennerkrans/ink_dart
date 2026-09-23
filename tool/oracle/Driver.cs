@@ -17,6 +17,7 @@ sealed class Driver
     readonly JsonArray _events = new();
     readonly Dictionary<string, string> _slots = new();
     Story _story;
+    StoryState _backgroundSave;
 
     public Driver(string json) => _json = json;
 
@@ -240,6 +241,26 @@ sealed class Driver
                 break;
             case "switchToDefaultFlow":
                 _story.SwitchToDefaultFlow();
+                break;
+            case "backgroundSaveStart":
+                // Freeze a copy to save while the story plays on.
+                _backgroundSave = _story.CopyStateForBackgroundThreadSave();
+                break;
+            case "backgroundSaveWrite":
+                _slots[(string)op["slot"] ?? ""] = _backgroundSave.ToJson();
+                break;
+            case "backgroundSaveComplete":
+                _story.BackgroundSaveComplete();
+                _backgroundSave = null;
+                break;
+            case "flowInfo":
+                Record(new JsonObject
+                {
+                    ["type"] = "flows",
+                    ["current"] = _story.currentFlowName,
+                    ["isDefault"] = _story.currentFlowIsDefaultFlow,
+                    ["alive"] = new JsonArray(_story.aliveFlowNames.Select(n => (JsonNode)n).ToArray()),
+                });
                 break;
             case "visitCount":
                 Record(new JsonObject

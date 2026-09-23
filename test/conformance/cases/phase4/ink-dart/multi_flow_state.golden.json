@@ -1,0 +1,369 @@
+{
+  "case": "phase4/ink-dart/multi_flow_state",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "script": [
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Market"
+    },
+    {
+      "op": "choosePathString",
+      "path": "market"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Docks"
+    },
+    {
+      "op": "choosePathString",
+      "path": "docks"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Market"
+    },
+    {
+      "op": "currentText"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "getVariable",
+      "name": "coins"
+    },
+    {
+      "op": "visitCount",
+      "path": "docks"
+    },
+    {
+      "op": "save",
+      "slot": "three flows"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "removeFlow",
+      "name": "Market"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "currentText"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Docks"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Docks"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "removeFlow",
+      "name": "DEFAULT_FLOW"
+    },
+    {
+      "op": "freshStory"
+    },
+    {
+      "op": "load",
+      "slot": "three flows"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "currentText"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "switchToDefaultFlow"
+    },
+    {
+      "op": "flowInfo"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "switchFlow",
+      "name": "Docks"
+    },
+    {
+      "op": "choose",
+      "index": 1
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "getVariable",
+      "name": "coins"
+    }
+  ],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "flows",
+      "current": "DEFAULT_FLOW",
+      "isDefault": true,
+      "alive": []
+    },
+    {
+      "type": "line",
+      "text": "Default flow starts.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Market, visit 1, coins 5.\n",
+      "tags": []
+    },
+    {
+      "type": "flows",
+      "current": "Market",
+      "isDefault": false,
+      "alive": [
+        "Market"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "Docks, visit 1, market visits 1, coins 6.\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Fish",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave docks",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "You fish. Docks, visit 1, market visits 1, coins 7.\n",
+      "tags": []
+    },
+    {
+      "type": "flows",
+      "current": "Docks",
+      "isDefault": false,
+      "alive": [
+        "Market",
+        "Docks"
+      ]
+    },
+    {
+      "type": "currentText",
+      "text": "Market, visit 1, coins 5.\n"
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Buy bread",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave market",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "variable",
+      "name": "coins",
+      "value": {
+        "int": 7
+      }
+    },
+    {
+      "type": "visitCount",
+      "path": "docks",
+      "count": 1
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Buy bread",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave market",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "Bread bought.",
+      "tags": []
+    },
+    {
+      "type": "flows",
+      "current": "DEFAULT_FLOW",
+      "isDefault": true,
+      "alive": [
+        "Docks"
+      ]
+    },
+    {
+      "type": "currentText",
+      "text": "Default flow starts.\n"
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Fish",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave docks",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "exception",
+      "message": "Cannot destroy default flow"
+    },
+    {
+      "type": "flows",
+      "current": "Market",
+      "isDefault": false,
+      "alive": [
+        "Market",
+        "Docks"
+      ]
+    },
+    {
+      "type": "currentText",
+      "text": "Market, visit 1, coins 5.\n"
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Buy bread",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave market",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "flows",
+      "current": "DEFAULT_FLOW",
+      "isDefault": true,
+      "alive": [
+        "Market",
+        "Docks"
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "Fish",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "Leave docks",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 1
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "coins",
+      "value": {
+        "int": 7
+      }
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.1\"}],\"threadCounter\":0},\"outputStream\":[\"^Default flow starts.\",\"\\n\"],\"currentChoices\":[]},\"Market\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"market.0.29\"}],\"threadCounter\":2},\"outputStream\":[\"^Market, visit \",\"^1\",\"^, coins \",\"^5\",\"^.\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"market.0\",\"idx\":23,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"market.0.22\"},\"2\":{\"callstack\":[{\"cPath\":\"market.0\",\"idx\":29,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"market.0.28\"}},\"currentChoices\":[{\"text\":\"Buy bread\",\"index\":0,\"originalChoicePath\":\"market.0.23\",\"originalThreadIndex\":1,\"targetPath\":\"market.0.c-0\"},{\"text\":\"Leave market\",\"index\":1,\"originalChoicePath\":\"market.0.29\",\"originalThreadIndex\":2,\"targetPath\":\"market.0.c-1\"}]},\"Docks\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":4,\"previousContentObject\":\"docks.0.c-1.0\"}],\"threadCounter\":4},\"outputStream\":[\"^ \"],\"currentChoices\":[]}},\"currentFlowName\":\"Docks\",\"variablesState\":{\"coins\":7},\"evalStack\":[],\"visitCounts\":{\"market\":1,\"docks\":1},\"turnIndices\":{},\"turnIdx\":3,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

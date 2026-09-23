@@ -99,6 +99,7 @@ class Driver {
   final List<Map<String, Object?>> _configOps = [];
 
   late Story _story;
+  StoryState? _backgroundSave;
   int _checkpoints = 0;
 
   void _record(Map<String, Object?> e) => _events.add(e);
@@ -304,6 +305,23 @@ class Driver {
         _story.removeFlow(op['name'] as String);
       case 'switchToDefaultFlow':
         _story.switchToDefaultFlow();
+      case 'backgroundSaveStart':
+        // Freeze a copy to save while the story plays on.
+        _backgroundSave = _story.copyStateForBackgroundThreadSave();
+      case 'backgroundSaveWrite':
+        final frozen = _backgroundSave;
+        if (frozen == null) throw StateError('no background save running');
+        _slots[(op['slot'] as String?) ?? ''] = frozen.toJson();
+      case 'backgroundSaveComplete':
+        _story.backgroundSaveComplete();
+        _backgroundSave = null;
+      case 'flowInfo':
+        _record({
+          'type': 'flows',
+          'current': _story.currentFlowName,
+          'isDefault': _story.currentFlowIsDefaultFlow,
+          'alive': [..._story.aliveFlowNames],
+        });
       case 'visitCount':
         _record({
           'type': 'visitCount',

@@ -38,6 +38,8 @@ list values come back as `{"list": "a, b"}` and divert targets as
 | `visitCount` | `path` | `visitCount` |
 | `tagsForContentAtPath` | `path` | `tags` |
 | `currentText` / `currentChoices` | | `currentText` / `choices` |
+| `flowInfo` | | `flows` (`current`, `isDefault`, `alive`) |
+| `backgroundSaveStart` / `backgroundSaveWrite` / `backgroundSaveComplete` | `slot` (write) | |
 
 Bind behaviours: `record` (returns nothing), `return` (`value`), `multiply`,
 `repeat` (string repeated n times), `callInk` (argument + 1 passed to the ink
