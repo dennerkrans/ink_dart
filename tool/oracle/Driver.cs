@@ -341,7 +341,8 @@ sealed class Driver
         new JsonArray((tags ?? new List<string>()).Select(t => (JsonNode)t).ToArray());
 
     // Values cross the script and the golden as {"int": 5}, {"float": "2.5"},
-    // {"string": "x"}, {"bool": true}, {"list": "a, b"}, or null.
+    // {"string": "x"}, {"bool": true}, {"list": "a, b"}, {"divert": "a.b"},
+    // or null.
     static JsonNode Encode(object value) => value switch
     {
         null => null,
@@ -350,6 +351,7 @@ sealed class Driver
         bool b => new JsonObject { ["bool"] = b },
         string s => new JsonObject { ["string"] = s },
         InkList l => new JsonObject { ["list"] = l.ToString() },
+        Ink.Runtime.Path p => new JsonObject { ["divert"] = p.ToString() },
         _ => new JsonObject { ["unknown"] = value.GetType().Name },
     };
 

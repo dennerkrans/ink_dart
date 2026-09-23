@@ -3,6 +3,2743 @@
   "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
+  "script": [
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should offer a single choice"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.basic_choice"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should offer multiple choices"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.multiple_choices"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should select a choice"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.multiple_choices"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should throw when selecting an invalid choice"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.multiple_choices"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choose",
+      "index": 10
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should suppress parts of choice text"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.choice_text"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should suppress choices after they have been selected"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.suppression"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 1
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.suppression"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.suppression"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should select the fallback choice"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.fallback"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.fallback"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should keep a sticky choice"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.sticky"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.sticky"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.sticky"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.sticky"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Choices.spec.ts: should handle conditional choices"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "choices.conditional"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should read simple content"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.simple"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should read multiline content"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.multiline"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should print a variable"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.variable_text"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should print a truthy conditional text"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.if_text_truthy"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should print a falsy conditional text"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.if_text_falsy"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should handle an if/else text"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "content.if_else_text"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should glue lines together"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "glue.simple"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should glue diverts together"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "glue.diverted_glue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should divert to a knot"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "divert.divert_knot"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should divert to a stitch"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "divert.divert_stitch"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should divert to an internal stitch"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "divert.internal_stitch"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should divert with a variable"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "divert.divert_var"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should reuturn a choice count"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "game_queries.choicecount"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Content.spec.ts: should return a turn since count"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "game_queries.turnssince_before"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Flows.spec.ts: should go through a tunnel"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "flow_control.tunnel_call"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Flows.spec.ts: should follow threads"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "flow_control.thread"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should load a file"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should jump to a knot"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should get where the context.story currently is"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should jump to a stitch"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "knot.stitch"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should read variables from ink"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "getVariable",
+      "name": "intvar"
+    },
+    {
+      "op": "getVariable",
+      "name": "floatvar"
+    },
+    {
+      "op": "getVariable",
+      "name": "divertvar"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should write variables to ink"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should correctly print variables passed to ink, part 1"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_print"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should correctly print variables passed to ink, part 2"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "getVariable",
+      "name": "stringvar"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_print"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should observe variables"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar1"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar2"
+    },
+    {
+      "op": "observe",
+      "name": "observedVar1"
+    },
+    {
+      "op": "observe",
+      "name": "observedVar2"
+    },
+    {
+      "op": "observe",
+      "name": "observedVar1"
+    },
+    {
+      "op": "observe",
+      "name": "observedVar2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar1"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar1"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar2"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar1"
+    },
+    {
+      "op": "getVariable",
+      "name": "observedVar2"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should increment the read count on each visit"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.variable_observer"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should increment the read count when the callstack is reset"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should not increment the read count when the callstack is not reset"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.visit_count",
+      "resetCallstack": false
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "integration.visit_count"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should call ink functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_with_return"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_without_return"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_print"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_calls_other"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should call ink functions with params"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_params",
+      "args": [
+        {
+          "string": "a"
+        },
+        {
+          "string": "b"
+        }
+      ]
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "string": "string"
+        }
+      ]
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "float": "5.3"
+        }
+      ]
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should report invalid params passed to ink functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should report invalid params passed to knots/stitches"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should return output and return value from ink function calls"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_print"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "string": "string"
+        }
+      ]
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "fn_echo",
+      "args": [
+        {
+          "float": "5.3"
+        }
+      ]
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should call external functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "bind",
+      "name": "fn_ext",
+      "behaviour": "record"
+    },
+    {
+      "op": "bind",
+      "name": "gameInc",
+      "behaviour": "record"
+    },
+    {
+      "op": "choosePathString",
+      "path": "integration.external"
+    },
+    {
+      "op": "continueMaximally"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should handle callstack changes"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "bind",
+      "name": "fn_ext",
+      "behaviour": "record"
+    },
+    {
+      "op": "bind",
+      "name": "gameInc",
+      "behaviour": "callInk",
+      "function": "inkInc"
+    },
+    {
+      "op": "evaluateFunction",
+      "name": "topExternal",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    },
+    {
+      "op": "freshStory",
+      "_it": "Integration.spec.ts: should return a visit count"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "visitCount",
+      "path": "game_queries.turnssince"
+    },
+    {
+      "op": "choosePathString",
+      "path": "game_queries.turnssince"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "game_queries.turnssince"
+    },
+    {
+      "op": "choosePathString",
+      "path": "game_queries.turnssince_1"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "game_queries.turnssince"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "visitCount",
+      "path": "game_queries.turnssince"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should be defined"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.basic_list"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should increment/decrement"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.increment"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should print the values"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.list_value"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should set names from values"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.value_from_number"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should handle user defined values"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.defined_value"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should add and remove values from lists"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.multivalue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Lists.spec.ts: should resolve list queries"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "lists.listqueries"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should define variables"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.vardef"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should cast variables"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.casts"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should perform mathematical operations"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.math"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should perform if/else tests"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.ifelse"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should support params for stitches"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.stitch_param"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should define constants"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.constants"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should call ink functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.simple_functions"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should call ink functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.param_functions"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamA"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamB"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamA"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamB"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamA"
+    },
+    {
+      "op": "getVariable",
+      "name": "fnParamB"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should call ink functions"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.void_function"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Logic.spec.ts: should generate random numbers"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "logic.random"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "SimpleLists.spec.ts: should go through a sequence"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.sequence"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.sequence"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.sequence"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.sequence"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.sequence"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "SimpleLists.spec.ts: should go through a cycle"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.cycle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "SimpleLists.spec.ts: should go through a list once"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.once"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.once"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.once"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.once"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "SimpleLists.spec.ts: should go through a shuffle"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.shuffle"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "SimpleLists.spec.ts: should handle blank elements"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.blanks"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.blanks"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.blanks"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "choosePathString",
+      "path": "simple_lists.blanks"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Tags.spec.ts: should find global tags"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "freshStory",
+      "_it": "Tags.spec.ts: should find knot level tags"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "tagsForContentAtPath",
+      "path": "tags"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Tags.spec.ts: should find line by line tags"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "tags.line_by_Line"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Tags.spec.ts: should find tags on choice points"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "tags.choice"
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "currentChoices"
+    },
+    {
+      "op": "choose",
+      "index": 0
+    },
+    {
+      "op": "continue"
+    },
+    {
+      "op": "freshStory",
+      "_it": "Tags.spec.ts: should handle tag edge cases"
+    },
+    {
+      "op": "allowExternalFunctionFallbacks",
+      "value": true
+    },
+    {
+      "op": "choosePathString",
+      "path": "tags.weird"
+    },
+    {
+      "op": "continue"
+    }
+  ],
   "events": [
     {
       "type": "globalTags",
@@ -11,9 +2748,3000 @@
       ]
     },
     {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "a choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "choice 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "choice 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "choice 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "choice 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 10
+    },
+    {
       "type": "exception",
-      "message": "ERROR: Missing function binding for externals: 'fn_ext', 'gameInc'  (ink fallbacks disabled)"
+      "message": "choice out of range "
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "always choice only",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "always choice only",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "always choice only",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "always output only\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 1
+    },
+    {
+      "type": "line",
+      "text": "choice 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "choice 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "choice 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "disapears",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "disapears",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "disapears",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "disapears",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "disapears\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "stays\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "stays\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stays",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "stays\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "no condition",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "available",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "multi condition available",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "no condition",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "available",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "multi condition available",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "no condition",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "available",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "multi condition available",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "no condition",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "available",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "multi condition available",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "Simple content inside a knot\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "First line\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Second line\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "variable text\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "I… I saw him. Only for a moment.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "I…\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "I saw him. Only for a moment.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "I missed him. Was he particularly evil?\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Simple glue\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "More glue\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Diverted to a knot\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Diverted to a stitch\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Diverted to internal stitch\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Diverted with a variable\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "count 0",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "count 0",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "count 0",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "count 0\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "1 choice\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "count 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "count 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "count 2",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "1 choice\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 3,
+          "text": "count 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 3,
+          "text": "count 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "1 choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "count 1",
+          "tags": []
+        },
+        {
+          "index": 2,
+          "text": "2 choices",
+          "tags": []
+        },
+        {
+          "index": 3,
+          "text": "count 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "-1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "advance",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "advance",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "1\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "advance",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "advance",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tunnel end\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "thread start\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "threaded text\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "thread end\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "first threaded choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "second threaded choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "first threaded choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "second threaded choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "first threaded choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "second threaded choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "first threaded choice",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "second threaded choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "first threaded choice\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Knot content\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Knot content\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Stitch content\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "intvar",
+      "value": {
+        "int": 521
+      }
+    },
+    {
+      "type": "variable",
+      "name": "floatvar",
+      "value": {
+        "float": "52.1"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "divertvar",
+      "value": {
+        "divert": "logic.logic_divert_dest"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "line",
+      "text": "Emilia\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "stringvar",
+      "value": {
+        "string": "Emilia"
+      }
+    },
+    {
+      "type": "line",
+      "text": "Emilia\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "observedVar1",
+      "value": {
+        "int": 1
+      }
+    },
+    {
+      "type": "variable",
+      "name": "observedVar2",
+      "value": {
+        "int": 2
+      }
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "observedVar1",
+      "value": {
+        "int": 1
+      }
+    },
+    {
+      "type": "variable",
+      "name": "observedVar2",
+      "value": {
+        "int": 2
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar1",
+      "value": {
+        "int": 3
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar1",
+      "value": {
+        "int": 3
+      }
+    },
+    {
+      "type": "line",
+      "text": "mutated 1\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "observedVar1",
+      "value": {
+        "int": 3
+      }
+    },
+    {
+      "type": "variable",
+      "name": "observedVar2",
+      "value": {
+        "int": 2
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar1",
+      "value": {
+        "int": 4
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar1",
+      "value": {
+        "int": 4
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar2",
+      "value": {
+        "int": 5
+      }
+    },
+    {
+      "type": "observed",
+      "name": "observedVar2",
+      "value": {
+        "int": 5
+      }
+    },
+    {
+      "type": "line",
+      "text": "mutated 2\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "observedVar1",
+      "value": {
+        "int": 4
+      }
+    },
+    {
+      "type": "variable",
+      "name": "observedVar2",
+      "value": {
+        "int": 5
+      }
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 0
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 2
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 3
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 4
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 5
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 6
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 7
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 8
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 9
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 10
+    },
+    {
+      "type": "line",
+      "text": "declared\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 0
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 2
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 3
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 4
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 5
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 6
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 7
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 8
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 9
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 10
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 0
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "visited\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "integration.visit_count",
+      "count": 1
+    },
+    {
+      "type": "function",
+      "name": "fn_with_return",
+      "result": {
+        "string": "returned"
+      },
+      "output": ""
+    },
+    {
+      "type": "function",
+      "name": "fn_without_return",
+      "result": null,
+      "output": ""
+    },
+    {
+      "type": "function",
+      "name": "fn_print",
+      "result": null,
+      "output": "function called\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_calls_other",
+      "result": {
+        "string": "nested function called"
+      },
+      "output": ""
+    },
+    {
+      "type": "function",
+      "name": "fn_params",
+      "result": {
+        "string": "was a"
+      },
+      "output": ""
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "string": "string"
+      },
+      "output": "string\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "int": 5
+      },
+      "output": "5\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "float": "5.3"
+      },
+      "output": "5.3\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_print",
+      "result": null,
+      "output": "function called\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "string": "string"
+      },
+      "output": "string\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "int": 5
+      },
+      "output": "5\n"
+    },
+    {
+      "type": "function",
+      "name": "fn_echo",
+      "result": {
+        "float": "5.3"
+      },
+      "output": "5.3\n"
+    },
+    {
+      "type": "external",
+      "name": "fn_ext",
+      "args": [
+        {
+          "int": 1
+        },
+        {
+          "int": 2
+        },
+        {
+          "int": 3
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "fn_ext",
+      "args": [
+        {
+          "float": "1.1"
+        },
+        {
+          "float": "2.2"
+        },
+        {
+          "float": "3.3"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "fn_ext",
+      "args": [
+        {
+          "string": "a"
+        },
+        {
+          "string": "b"
+        },
+        {
+          "string": "c"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "fn_ext",
+      "args": [
+        {
+          "string": "a"
+        },
+        {
+          "int": 1
+        },
+        {
+          "float": "2.2"
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "gameInc",
+      "args": [
+        {
+          "int": 5
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "topExternal",
+      "result": {
+        "int": 7
+      },
+      "output": "In top external\n"
+    },
+    {
+      "type": "visitCount",
+      "path": "game_queries.turnssince",
+      "count": 0
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "game_queries.turnssince",
+      "count": 1
+    },
+    {
+      "type": "line",
+      "text": "1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "visitCount",
+      "path": "game_queries.turnssince",
+      "count": 2
+    },
+    {
+      "type": "line",
+      "text": "cold\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "boiling\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "cold\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "boiling\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "evaporated\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "boiling\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "cold\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "cold\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "boiling\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "evaporated\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Denver, Eamonn\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Denver\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Eamonn\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "list is empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Denver\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Eamonn\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "list is not empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "exact equality\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy exact equality\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "exact inequality\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "exact inequality works\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "has Eamonn\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "has falsy works\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "has not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy has not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Adams, Bernard, Cartwright, Denver, Eamonn\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy greater than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy greater than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "greater than empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "empty greater than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy smaller than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy smaller than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "smaller than empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "empty smaller than\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy greater than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy greater than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy greater than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "greater than or equals empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "empty greater than or equals\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy smaller than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy smaller than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy smaller than or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "smaller than or equals empty\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "empty smaller than or equals\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy list AND\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy list AND\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy list OR\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy list OR\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy list not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy list not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Bernard, Cartwright, Denver\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Smith, Jones\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Carter, Braithwaite\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "self_belief\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "variables defined: Emilia 521 52.1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "521.5\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "521hello\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float var is truthy\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "52.1hello\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "string var is truthy\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "-5\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "5\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy greater\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy greater\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy lesser\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy lesser\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy greater or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy greater or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy lesser or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy lesser or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy and\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy and\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int truthy or\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "int falsy or\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2.6\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "-5.2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3.6000001\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "4.2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1.5\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy greater\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy greater\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy lesser\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy lesser\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy greater or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy greater or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy lesser or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy lesser or equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy not\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy and\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy and\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float truthy or\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "float falsy or\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy string equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy string equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy string not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy string not equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "truthy divert equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "falsy divert equal\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "if text\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "else text\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "elseif text\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Called with param\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "constants defined: Emilia 521 52.1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "returned\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "function called\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "nested function called\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Function called inline and returned something\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "fnParamA",
+      "value": {
+        "string": "a"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "fnParamB",
+      "value": {
+        "string": "b"
+      }
+    },
+    {
+      "type": "line",
+      "text": "was a\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "fnParamA",
+      "value": {
+        "string": "a"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "fnParamB",
+      "value": {
+        "string": "b"
+      }
+    },
+    {
+      "type": "line",
+      "text": "was a\n",
+      "tags": []
+    },
+    {
+      "type": "variable",
+      "name": "fnParamA",
+      "value": {
+        "string": "was a"
+      }
+    },
+    {
+      "type": "variable",
+      "name": "fnParamB",
+      "value": {
+        "string": "was b"
+      }
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "82\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "-18\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "final\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "final\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "heads\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "tails\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "end\n",
+      "tags": []
+    },
+    {
+      "type": "tags",
+      "path": "tags",
+      "tags": [
+        "knot tag"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "A line of content\n",
+      "tags": [
+        "a tag"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "Another line of content\n",
+      "tags": [
+        "tag1",
+        "tag2"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "Content after a tag\n",
+      "tags": [
+        "tag above",
+        "tag after"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "a choice",
+          "tags": [
+            "a tag"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "a choice",
+          "tags": [
+            "a tag"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "a choice",
+          "tags": [
+            "a tag"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "a choice\n",
+      "tags": [
+        "a tag"
+      ]
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": [
+        "space around",
+        "0"
+      ]
+    },
+    {
+      "type": "end"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"tags.weird.11\"}],\"threadCounter\":0},\"outputStream\":[\"#\",\"^space around\",\"/#\",\"#\",\"/#\",\"#\",\"/#\",\"#\",\"/#\",\"#\",\"^0\",\"/#\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"\":2,\"tags.weird\":1,\"tags\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

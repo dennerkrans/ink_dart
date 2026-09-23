@@ -17,7 +17,8 @@ script, so the Dart side replays the golden alone.
 
 Each op is a JSON object with an `"op"` key. Values are tagged:
 `{"int": 5}`, `{"float": "2.5"}`, `{"string": "x"}`, `{"bool": true}`, and
-list values come back as `{"list": "a, b"}`.
+list values come back as `{"list": "a, b"}` and divert targets as
+`{"divert": "knot.stitch"}`.
 
 | Op | Fields | Event recorded |
 | --- | --- | --- |
@@ -110,10 +111,14 @@ runtime changed 13 transcripts, for three reasons the port must follow C# on:
 - Scripts follow inkjs's specs for 19 stories that the specs drive through
   the API. Where C# and inkjs disagree, the golden keeps C#: `EvaluateFunction`
   returning a divert gives `somewhere.here`, not inkjs's `-> somewhere.here`.
-- `phase3/inkjs/tests` still has no script, so it records the
-  `Missing function binding` exception; its inkjs spec drives it knot by knot.
-- ink's own C# test suite (`tests/Tests.cs` in inkle/ink) keeps its stories
-  inline in code; they are not vendored yet.
+- `phase3/inkjs/tests`, inkjs's integration story, is scripted from inkjs's
+  engine specs (`src/tests/specs/inkjs/engine/`): each spec becomes a
+  `freshStory` followed by its calls, with loops unrolled. Two specs that pass
+  a JavaScript object as an argument have no ink equivalent and are left out.
+- ink's own C# test suite (`tests/Tests.cs` in inkle/ink) adds no stories:
+  `node tool/vendor_ink_tests.mjs path/to/ink` finds every runtime test already
+  in inkjs's corpus (by name or by content); the rest are compiler-only or
+  fail to compile.
 
 ## Licence
 

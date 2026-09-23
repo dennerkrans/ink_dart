@@ -1,0 +1,2737 @@
+[
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should offer a single choice"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.basic_choice"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should offer multiple choices"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.multiple_choices"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should select a choice"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.multiple_choices"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should throw when selecting an invalid choice"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.multiple_choices"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choose",
+  "index": 10
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should suppress parts of choice text"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.choice_text"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should suppress choices after they have been selected"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.suppression"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 1
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.suppression"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.suppression"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should select the fallback choice"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.fallback"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.fallback"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should keep a sticky choice"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.sticky"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.sticky"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.sticky"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.sticky"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Choices.spec.ts: should handle conditional choices"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "choices.conditional"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should read simple content"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.simple"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should read multiline content"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.multiline"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should print a variable"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.variable_text"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should print a truthy conditional text"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.if_text_truthy"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should print a falsy conditional text"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.if_text_falsy"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should handle an if/else text"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "content.if_else_text"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should glue lines together"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "glue.simple"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should glue diverts together"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "glue.diverted_glue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should divert to a knot"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "divert.divert_knot"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should divert to a stitch"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "divert.divert_stitch"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should divert to an internal stitch"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "divert.internal_stitch"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should divert with a variable"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "divert.divert_var"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should reuturn a choice count"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "game_queries.choicecount"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Content.spec.ts: should return a turn since count"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "game_queries.turnssince_before"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Flows.spec.ts: should go through a tunnel"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "flow_control.tunnel_call"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Flows.spec.ts: should follow threads"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "flow_control.thread"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should load a file"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should jump to a knot"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "knot"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should get where the context.story currently is"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "knot"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should jump to a stitch"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "knot.stitch"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should read variables from ink"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "getVariable",
+  "name": "intvar"
+ },
+ {
+  "op": "getVariable",
+  "name": "floatvar"
+ },
+ {
+  "op": "getVariable",
+  "name": "divertvar"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should write variables to ink"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should correctly print variables passed to ink, part 1"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_print"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should correctly print variables passed to ink, part 2"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "getVariable",
+  "name": "stringvar"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_print"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should observe variables"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar1"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar2"
+ },
+ {
+  "op": "observe",
+  "name": "observedVar1"
+ },
+ {
+  "op": "observe",
+  "name": "observedVar2"
+ },
+ {
+  "op": "observe",
+  "name": "observedVar1"
+ },
+ {
+  "op": "observe",
+  "name": "observedVar2"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar1"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar2"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar1"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar2"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar1"
+ },
+ {
+  "op": "getVariable",
+  "name": "observedVar2"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should increment the read count on each visit"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.variable_observer"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should increment the read count when the callstack is reset"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should not increment the read count when the callstack is not reset"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.visit_count",
+  "resetCallstack": false
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "integration.visit_count"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should call ink functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_with_return"
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_without_return"
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_print"
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_calls_other"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should call ink functions with params"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_params",
+  "args": [
+   {
+    "string": "a"
+   },
+   {
+    "string": "b"
+   }
+  ]
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "string": "string"
+   }
+  ]
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "int": 5
+   }
+  ]
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "float": "5.3"
+   }
+  ]
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should report invalid params passed to ink functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should report invalid params passed to knots/stitches"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should return output and return value from ink function calls"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_print"
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "string": "string"
+   }
+  ]
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "int": 5
+   }
+  ]
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "fn_echo",
+  "args": [
+   {
+    "float": "5.3"
+   }
+  ]
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should call external functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "bind",
+  "name": "fn_ext",
+  "behaviour": "record"
+ },
+ {
+  "op": "bind",
+  "name": "gameInc",
+  "behaviour": "record"
+ },
+ {
+  "op": "choosePathString",
+  "path": "integration.external"
+ },
+ {
+  "op": "continueMaximally"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should handle callstack changes"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "bind",
+  "name": "fn_ext",
+  "behaviour": "record"
+ },
+ {
+  "op": "bind",
+  "name": "gameInc",
+  "behaviour": "callInk",
+  "function": "inkInc"
+ },
+ {
+  "op": "evaluateFunction",
+  "name": "topExternal",
+  "args": [
+   {
+    "int": 5
+   }
+  ]
+ },
+ {
+  "op": "freshStory",
+  "_it": "Integration.spec.ts: should return a visit count"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "visitCount",
+  "path": "game_queries.turnssince"
+ },
+ {
+  "op": "choosePathString",
+  "path": "game_queries.turnssince"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "game_queries.turnssince"
+ },
+ {
+  "op": "choosePathString",
+  "path": "game_queries.turnssince_1"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "game_queries.turnssince"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "visitCount",
+  "path": "game_queries.turnssince"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should be defined"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.basic_list"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should increment/decrement"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.increment"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should print the values"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.list_value"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should set names from values"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.value_from_number"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should handle user defined values"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.defined_value"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should add and remove values from lists"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.multivalue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Lists.spec.ts: should resolve list queries"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "lists.listqueries"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should define variables"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.vardef"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should cast variables"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.casts"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should perform mathematical operations"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.math"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should perform if/else tests"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.ifelse"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should support params for stitches"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.stitch_param"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should define constants"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.constants"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should call ink functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.simple_functions"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should call ink functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.param_functions"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamA"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamB"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamA"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamB"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamA"
+ },
+ {
+  "op": "getVariable",
+  "name": "fnParamB"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should call ink functions"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.void_function"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Logic.spec.ts: should generate random numbers"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "logic.random"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "SimpleLists.spec.ts: should go through a sequence"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.sequence"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.sequence"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.sequence"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.sequence"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.sequence"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "SimpleLists.spec.ts: should go through a cycle"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.cycle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "SimpleLists.spec.ts: should go through a list once"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.once"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.once"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.once"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.once"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "SimpleLists.spec.ts: should go through a shuffle"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.shuffle"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "SimpleLists.spec.ts: should handle blank elements"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.blanks"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.blanks"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.blanks"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "choosePathString",
+  "path": "simple_lists.blanks"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Tags.spec.ts: should find global tags"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "freshStory",
+  "_it": "Tags.spec.ts: should find knot level tags"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "tagsForContentAtPath",
+  "path": "tags"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Tags.spec.ts: should find line by line tags"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "tags.line_by_Line"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Tags.spec.ts: should find tags on choice points"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "tags.choice"
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "currentChoices"
+ },
+ {
+  "op": "choose",
+  "index": 0
+ },
+ {
+  "op": "continue"
+ },
+ {
+  "op": "freshStory",
+  "_it": "Tags.spec.ts: should handle tag edge cases"
+ },
+ {
+  "op": "allowExternalFunctionFallbacks",
+  "value": true
+ },
+ {
+  "op": "choosePathString",
+  "path": "tags.weird"
+ },
+ {
+  "op": "continue"
+ }
+]

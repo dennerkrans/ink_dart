@@ -9,6 +9,7 @@ import 'dart:io';
 
 import 'package:ink_dart/ink_dart.dart';
 import 'package:ink_dart/src/float32.dart';
+import 'package:ink_dart/src/runtime/path.dart';
 
 /// Same guards as tool/oracle/Program.cs.
 const maxContinues = 1000;
@@ -413,7 +414,7 @@ class Driver {
 
 /// Values cross the script and the golden as `{"int": 5}`,
 /// `{"float": "2.5"}`, `{"string": "x"}`, `{"bool": true}`,
-/// `{"list": "a, b"}`, or null.
+/// `{"list": "a, b"}`, `{"divert": "a.b"}`, or null.
 Object? encodeValue(Object? value) => switch (value) {
   null => null,
   final int i => {'int': i},
@@ -421,6 +422,7 @@ Object? encodeValue(Object? value) => switch (value) {
   final bool b => {'bool': b},
   final String s => {'string': s},
   final InkList l => {'list': l.toString()},
+  final Path p => {'divert': p.toString()},
   _ => {'unknown': value.runtimeType.toString()},
 };
 
