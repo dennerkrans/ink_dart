@@ -264,8 +264,41 @@ sealed class Driver
 
     // External function behaviours, named in the script. Each records the
     // call before running.
+    // A typed binding goes through C#'s generic BindExternalFunction<T>, so
+    // the runtime's TryCoerce converts the argument. `echo` returns it.
+    void BindTyped(JsonObject op, string type)
+    {
+        var fn = (string)op["name"];
+        var lookaheadSafe = op["lookaheadSafe"] != null && (bool)op["lookaheadSafe"];
+        object Echo(object x)
+        {
+            Record(new JsonObject
+            {
+                ["type"] = "external",
+                ["name"] = fn,
+                ["args"] = new JsonArray(Encode(x)),
+            });
+            return x;
+        }
+        switch (type)
+        {
+            case "int": _story.BindExternalFunction<int>(fn, x => Echo(x), lookaheadSafe); break;
+            case "float": _story.BindExternalFunction<float>(fn, x => Echo(x), lookaheadSafe); break;
+            case "bool": _story.BindExternalFunction<bool>(fn, x => Echo(x), lookaheadSafe); break;
+            case "string": _story.BindExternalFunction<string>(fn, x => Echo(x), lookaheadSafe); break;
+            default: throw new Exception($"unknown binding type: {type}");
+        }
+    }
+
     void Bind(JsonObject op)
     {
+        var types = op["types"]?.AsArray();
+        if (types != null)
+        {
+            if (types.Count != 1) throw new Exception("typed bindings take one type");
+            BindTyped(op, (string)types[0]);
+            return;
+        }
         var fn = (string)op["name"];
         var behaviour = (string)op["behaviour"] ?? "record";
         var lookaheadSafe = op["lookaheadSafe"] != null && (bool)op["lookaheadSafe"];

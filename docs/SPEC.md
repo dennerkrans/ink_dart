@@ -23,7 +23,7 @@ final story = Story.fromJson(jsonString);
 
 // Game-side values and functions before the first Continue
 story.variablesState['str_mod'] = 1;
-story.bindExternalFunction('roll', (int sides) => rng.nextInt(sides) + 1);
+story.bindExternalFunction1<int>('roll', (sides) => rng.nextInt(sides) + 1);
 story.observeVariable('gold', (name, value) => hud.gold = value as int);
 
 while (story.canContinue) {
@@ -46,7 +46,7 @@ story.state.loadJson(saved);
 | `chooseChoiceIndex(int)`, `choosePathString(String, {resetCallstack})` | Player input; authored jumps |
 | `variablesState` | Map-like read/write of globals; typed getters |
 | `observeVariable(name, fn)`, `removeVariableObserver` | Change callbacks for the game side |
-| `bindExternalFunction(name, fn, {lookaheadSafe})`, `unbindExternalFunction` | Game functions callable from ink; fallback to ink definition when unbound |
+| `bindExternalFunction0`…`bindExternalFunction4<T1…>(name, fn, {lookaheadSafe})`, `bindExternalFunctionGeneral`, `unbindExternalFunction` | Game functions callable from ink, arguments converted to the declared types as C# does; fallback to ink definition when unbound |
 | `evaluateFunction(name, args)` | Call an ink function from the game and get its return and text |
 | `state.toJson()`, `state.loadJson()`, `resetState()`, `resetCallstack()` | Save and load; must interoperate with inkjs/C# save JSON |
 | `globalTags`, `tagsForContentAtPath(path)` | Metadata for menus and encounter setup |

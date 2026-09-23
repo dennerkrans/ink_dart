@@ -1,0 +1,6 @@
+[
+  {"op": "bind", "name": "asInt", "types": ["int"], "behaviour": "echo"},
+  {"op": "bind", "name": "asFloat", "types": ["float"], "behaviour": "echo"},
+  {"op": "bind", "name": "asBool", "types": ["bool"], "behaviour": "echo"},
+  {"op": "bind", "name": "asString", "types": ["string"], "behaviour": "echo"}
+]

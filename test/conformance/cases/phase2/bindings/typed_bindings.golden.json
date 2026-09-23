@@ -1,0 +1,206 @@
+{
+  "case": "phase2/bindings/typed_bindings",
+  "runtime": "ink 1.2.1",
+  "seed": 42,
+  "compilerWarnings": [],
+  "script": [
+    {
+      "op": "bind",
+      "name": "asInt",
+      "types": [
+        "int"
+      ],
+      "behaviour": "echo"
+    },
+    {
+      "op": "bind",
+      "name": "asFloat",
+      "types": [
+        "float"
+      ],
+      "behaviour": "echo"
+    },
+    {
+      "op": "bind",
+      "name": "asBool",
+      "types": [
+        "bool"
+      ],
+      "behaviour": "echo"
+    },
+    {
+      "op": "bind",
+      "name": "asString",
+      "types": [
+        "string"
+      ],
+      "behaviour": "echo"
+    }
+  ],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": 2
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": 4
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": -2
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": 3
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": 7
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asInt",
+      "args": [
+        {
+          "int": 1
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "2 4 -2 3 7 1\n",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "asFloat",
+      "args": [
+        {
+          "float": "3"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asFloat",
+      "args": [
+        {
+          "float": "2.5"
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "3 2.5\n",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "asBool",
+      "args": [
+        {
+          "bool": false
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asBool",
+      "args": [
+        {
+          "bool": true
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asBool",
+      "args": [
+        {
+          "bool": true
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "false true true\n",
+      "tags": []
+    },
+    {
+      "type": "external",
+      "name": "asString",
+      "args": [
+        {
+          "string": "2.5"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asString",
+      "args": [
+        {
+          "string": "7"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asString",
+      "args": [
+        {
+          "string": "True"
+        }
+      ]
+    },
+    {
+      "type": "external",
+      "name": "asString",
+      "args": [
+        {
+          "string": "hi"
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "text": "2.5 7 True hi\n",
+      "tags": []
+    },
+    {
+      "type": "exception",
+      "message": "Failed to cast Single to Boolean "
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"0\",\"idx\":94,\"exp\":true,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.93\"}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

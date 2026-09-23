@@ -322,8 +322,58 @@ class Driver {
     return continues;
   }
 
+  /// A typed binding, as `BindTyped` in tool/oracle/Driver.cs: the runtime
+  /// converts the argument, and `echo` returns it.
+  void _bindTyped(Map<String, Object?> op, String type) {
+    final fn = op['name'] as String;
+    final lookaheadSafe = (op['lookaheadSafe'] as bool?) ?? false;
+    Object? echo(Object? x) {
+      _record({
+        'type': 'external',
+        'name': fn,
+        'args': [encodeValue(x)],
+      });
+      return x;
+    }
+
+    switch (type) {
+      case 'int':
+        _story.bindExternalFunction1<int>(
+          fn,
+          echo,
+          lookaheadSafe: lookaheadSafe,
+        );
+      case 'float':
+        _story.bindExternalFunction1<double>(
+          fn,
+          echo,
+          lookaheadSafe: lookaheadSafe,
+        );
+      case 'bool':
+        _story.bindExternalFunction1<bool>(
+          fn,
+          echo,
+          lookaheadSafe: lookaheadSafe,
+        );
+      case 'string':
+        _story.bindExternalFunction1<String>(
+          fn,
+          echo,
+          lookaheadSafe: lookaheadSafe,
+        );
+      default:
+        throw StateError('unknown binding type: $type');
+    }
+  }
+
   /// External function behaviours, as in tool/oracle/Driver.cs.
   void _bind(Map<String, Object?> op) {
+    final types = op['types'] as List?;
+    if (types != null) {
+      if (types.length != 1) throw StateError('typed bindings take one type');
+      _bindTyped(op, types[0] as String);
+      return;
+    }
     final fn = op['name'] as String;
     final behaviour = (op['behaviour'] as String?) ?? 'record';
     _story.bindExternalFunctionGeneral(fn, (args) {

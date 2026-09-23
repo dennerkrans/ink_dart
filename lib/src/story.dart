@@ -2,6 +2,7 @@
 // until phase 4.
 
 import 'error.dart';
+import 'float32.dart';
 import 'json/json_serialisation.dart';
 import 'json/simple_json.dart';
 import 'prng.dart';
@@ -12,6 +13,7 @@ import 'runtime/control_command.dart';
 import 'runtime/debug_metadata.dart';
 import 'runtime/divert.dart';
 import 'runtime/divert_target_value.dart';
+import 'runtime/float_value.dart';
 import 'runtime/ink_list.dart';
 import 'runtime/ink_object.dart';
 import 'runtime/int_value.dart';
@@ -1984,9 +1986,10 @@ class Story extends InkObject {
     state.pushEvaluationStack(returnObj);
   }
 
-  /// Most general form of function binding that returns an object
-  /// and takes an array of object parameters.
-  /// The only way to bind a function with more than 3 arguments.
+  /// Most general form of function binding: [func] receives the ink
+  /// arguments unconverted (`int`, `double`, `String`, `bool`, [InkList]).
+  /// Unlike the typed forms, [lookaheadSafe] defaults to `true`, as in the
+  /// reference.
   void bindExternalFunctionGeneral(
     String funcName,
     ExternalFunction func, {
@@ -2000,28 +2003,156 @@ class Story extends InkObject {
     _externals[funcName] = _ExternalFunctionDef(func, lookaheadSafe);
   }
 
-  /// Bind a Dart function to an ink EXTERNAL function declaration. [func]
-  /// is called with the ink arguments as positional parameters.
+  /// Converts an argument from ink to [T], as the reference's `TryCoerce`:
+  /// a float rounds to the nearest int (halves to even), an int becomes a
+  /// float or a bool, a bool becomes 1 or 0, and anything becomes a string.
+  T _tryCoerce<T>(Object? value) {
+    if (value == null) return null as T;
+
+    if (value is T) return value as T;
+
+    if (value is double && T == int) {
+      return _roundHalfToEven(value) as T;
+    }
+
+    if (value is int && T == double) {
+      return toFloat32(value.toDouble()) as T;
+    }
+
+    if (value is int && T == bool) return (value != 0) as T;
+
+    if (value is bool && T == int) return (value ? 1 : 0) as T;
+
+    if (T == String) return csObjectToString(value) as T;
+
+    _assert(
+      false,
+      'Failed to cast ${_csTypeName(value.runtimeType)} to ${_csTypeName(T)}',
+    );
+    throw StateError('unreachable');
+  }
+
+  /// C#'s `(int)Math.Round(f)`: nearest, halves to even.
+  static int _roundHalfToEven(double f) {
+    final floor = f.floorToDouble();
+    final diff = f - floor;
+    double r;
+    if (diff > 0.5) {
+      r = floor + 1;
+    } else if (diff < 0.5) {
+      r = floor;
+    } else {
+      r = floor % 2 == 0 ? floor : floor + 1;
+    }
+    return floatToInt32(r);
+  }
+
+  /// The .NET type name the reference prints in cast errors.
+  static String _csTypeName(Type t) => switch (t) {
+    const (int) => 'Int32',
+    const (double) => 'Single',
+    const (bool) => 'Boolean',
+    const (String) => 'String',
+    const (InkList) => 'InkList',
+    _ => t.toString(),
+  };
+
+  // lookaheadSafe: The ink engine often evaluates further than you might
+  // expect beyond the current line just in case it sees glue that will
+  // cause the two lines to become one. In this case it's possible that a
+  // function can appear to be called twice instead of just once, and
+  // earlier than you expect. If it's safe for your function to be called
+  // in this way (since the result and side effect of the function will not
+  // change), then you can pass 'true'. Usually, you want to pass 'false',
+  // especially if you want some action to be performed in game code when
+  // this function is called.
+
+  /// Bind a Dart function with no arguments to an ink EXTERNAL function
+  /// declaration. A function that returns nothing (or null) returns nothing
+  /// to ink; an `int`, `double`, `String`, `bool` or [InkList] goes back as
+  /// that ink value. The return type is `dynamic` so that `void` functions
+  /// bind as they are.
   ///
-  /// lookaheadSafe: The ink engine often evaluates further than you might
-  /// expect beyond the current line just in case it sees glue that will
-  /// cause the two lines to become one. In this case it's possible that a
-  /// function can appear to be called twice instead of just once, and
-  /// earlier than you expect. If it's safe for your function to be called
-  /// in this way (since the result and side effect of the function will not
-  /// change), then you can pass 'true'. Usually, you want to pass 'false',
-  /// especially if you want some action to be performed in game code when
-  /// this function is called.
-  void bindExternalFunction(
+  /// Pass [lookaheadSafe] `true` only if the function may run early or more
+  /// than once: the engine evaluates past the current line to look for
+  /// glue.
+  void bindExternalFunction0(
     String funcName,
-    Function func, {
+    dynamic Function() func, {
     bool lookaheadSafe = false,
   }) {
-    bindExternalFunctionGeneral(
-      funcName,
-      (args) => Function.apply(func, args),
-      lookaheadSafe: lookaheadSafe,
-    );
+    bindExternalFunctionGeneral(funcName, (args) {
+      _assert(args.isEmpty, 'External function expected no arguments');
+      return func();
+    }, lookaheadSafe: lookaheadSafe);
+  }
+
+  /// Bind a one-argument Dart function to an ink EXTERNAL function. The
+  /// argument is converted to [T1] first (see [bindExternalFunction0] for
+  /// return values and [lookaheadSafe]):
+  ///
+  ///     story.bindExternalFunction1<int>('roll', (sides) => rng.nextInt(sides) + 1);
+  ///
+  /// A float passed to an `int` parameter rounds to the nearest int, halves
+  /// to even; an int passed to `double` or `bool` converts; a `bool` passed
+  /// to `int` is 1 or 0; any value passed to `String` is its text.
+  void bindExternalFunction1<T1>(
+    String funcName,
+    dynamic Function(T1) func, {
+    bool lookaheadSafe = false,
+  }) {
+    bindExternalFunctionGeneral(funcName, (args) {
+      _assert(args.length == 1, 'External function expected one argument');
+      return func(_tryCoerce<T1>(args[0]));
+    }, lookaheadSafe: lookaheadSafe);
+  }
+
+  /// Bind a two-argument Dart function to an ink EXTERNAL function; see
+  /// [bindExternalFunction1].
+  void bindExternalFunction2<T1, T2>(
+    String funcName,
+    dynamic Function(T1, T2) func, {
+    bool lookaheadSafe = false,
+  }) {
+    bindExternalFunctionGeneral(funcName, (args) {
+      _assert(args.length == 2, 'External function expected two arguments');
+      return func(_tryCoerce<T1>(args[0]), _tryCoerce<T2>(args[1]));
+    }, lookaheadSafe: lookaheadSafe);
+  }
+
+  /// Bind a three-argument Dart function to an ink EXTERNAL function; see
+  /// [bindExternalFunction1].
+  void bindExternalFunction3<T1, T2, T3>(
+    String funcName,
+    dynamic Function(T1, T2, T3) func, {
+    bool lookaheadSafe = false,
+  }) {
+    bindExternalFunctionGeneral(funcName, (args) {
+      _assert(args.length == 3, 'External function expected three arguments');
+      return func(
+        _tryCoerce<T1>(args[0]),
+        _tryCoerce<T2>(args[1]),
+        _tryCoerce<T3>(args[2]),
+      );
+    }, lookaheadSafe: lookaheadSafe);
+  }
+
+  /// Bind a four-argument Dart function to an ink EXTERNAL function; see
+  /// [bindExternalFunction1].
+  void bindExternalFunction4<T1, T2, T3, T4>(
+    String funcName,
+    dynamic Function(T1, T2, T3, T4) func, {
+    bool lookaheadSafe = false,
+  }) {
+    bindExternalFunctionGeneral(funcName, (args) {
+      _assert(args.length == 4, 'External function expected four arguments');
+      return func(
+        _tryCoerce<T1>(args[0]),
+        _tryCoerce<T2>(args[1]),
+        _tryCoerce<T3>(args[2]),
+        _tryCoerce<T4>(args[3]),
+      );
+    }, lookaheadSafe: lookaheadSafe);
   }
 
   /// Remove a binding for a named EXTERNAL ink function.
