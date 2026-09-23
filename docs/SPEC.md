@@ -260,7 +260,7 @@ A fresh port through phase 2 is roughly 4–6 weekends for someone who reads Typ
 
 Open questions:
 
-- [x] Pin the ink and inkjs versions to conform to: the C# runtime and compiler of ink 1.2.1 (tag `v1.2.1`, `35c63e5`) as the oracle, the story corpus from inkjs commit `6b11534`; `inkVersion` 21, `inkSaveVersion` 10. Numbers follow C# (32-bit floats, no demotion of whole floats to ints), decided 2026-09-23. The accepted `inkVersion` range follows inkjs's `inkVersionMinimumCompatible` when `Story` is ported
+- [x] Pin the ink and inkjs versions to conform to: the C# runtime and compiler of ink 1.2.1 (tag `v1.2.1`, `35c63e5`) as the oracle, the story corpus from inkjs commit `6b11534`; `inkVersion` 21, `inkSaveVersion` 10. Stories with `inkVersion` 18–21 load, as in C#. Numbers follow C# (32-bit floats, no demotion of whole floats to ints), decided 2026-09-23.
 - [ ] Confirm `ink_dart` is free on pub.dev before first publish
 - [ ] Whether the app's arc one waits for phase 2 or ships on the custom node format first
 - [ ] Whether multi-flow is ever needed (parallel hub and delve stories would use it)
