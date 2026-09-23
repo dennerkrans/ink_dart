@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Records conformance goldens with inkle's reference C# runtime.
+       Run through tool/regen_goldens.mjs. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- From the inklecate v1.2.1 release (inkle/ink tag v1.2.1, 35c63e5);
+         identical in the linux, mac and windows zips. -->
+    <Reference Include="ink-engine-runtime">
+      <HintPath>lib/ink-engine-runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ink_compiler">
+      <HintPath>lib/ink_compiler.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

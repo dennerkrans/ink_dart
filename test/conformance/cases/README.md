@@ -7,22 +7,26 @@ can run them. Each case is three files:
 | --- | --- |
 | `<case>.ink` | Source, copied from inkjs |
 | `<case>.json` | Compiled story (generated) |
-| `<case>.golden.json` | inkjs transcript: lines, tags, choice lists, chosen indices, errors, final `state.toJson()` (generated) |
+| `<case>.golden.json` | C# reference transcript: lines, tags, choice lists, chosen indices, errors, final `state.ToJson()` (generated) |
 
 An optional `<case>.script.json` (a JSON list of choice indices) overrides the
 default choice script, which takes the first choice every time.
 
 ## Provenance and pins
 
-- Source: [y-lohse/inkjs](https://github.com/y-lohse/inkjs) `src/tests/inkfiles/original/`,
+- Stories: [y-lohse/inkjs](https://github.com/y-lohse/inkjs) `src/tests/inkfiles/original/`,
   commit `6b11534` (2026-09-01).
-- Compiler and oracle: npm `inkjs` 2.4.0 (pinned in `tool/package.json`).
-  Compiled stories are `inkVersion` 21; saves are `inkSaveVersion` 10.
+- Compiler and oracle: inkle's C# ink 1.2.1 (tag `v1.2.1`, `35c63e5`), via
+  `ink_compiler.dll` and `ink-engine-runtime.dll` from the inklecate release,
+  checked in under `tool/oracle/lib/` (identical in the linux, mac and
+  windows zips). Compiled stories are `inkVersion` 21; saves are
+  `inkSaveVersion` 10.
 - Seed: 42 for every case. Guards: 1000 continues, 100 choices; a case that
   hits one records a `truncated` event.
 
-Regenerate with `node tool/regen_goldens.mjs [filter]`. Re-vendor from a
-fresh inkjs checkout with `node tool/vendor_cases.mjs path/to/inkjs`.
+Regenerate with `node tool/regen_goldens.mjs [filter]` (needs the .NET 10
+SDK; tests do not). Re-vendor from a fresh inkjs checkout with
+`node tool/vendor_cases.mjs path/to/inkjs` (needs `npm ci` in `tool/`).
 
 ## Phase assignment
 
@@ -41,34 +45,40 @@ that use `LIST` or `<-`, and inkjs's big `inkjs/tests.ink` (which uses lists).
   `variables/variable_name_collision_with_arg`,
   `weaves/weave_point_naming_collision`.
 
+## Why C# and not inkjs
+
+The goldens were first recorded with inkjs 2.4.0. Switching to the C#
+runtime changed 13 transcripts, for three reasons the port must follow C# on:
+
+- **Floats.** C# floats are 32-bit and print in .NET's shortest round-trip
+  form (`7 / 3.0` → `2.3333333`); inkjs uses doubles (`2.3333333333333335`)
+  and turns a whole float result into an int, so `1.5 * 2 / 4` gives `0`
+  instead of `0.75`. inkjs's JSON writer also drops the `.0` from whole
+  floats. (`evaluation/arithmetic`, `extra/arithmetic_2`,
+  `builtins/floor_ceiling_and_casts`)
+- **Randomness.** C# seeds shuffles and `RANDOM` with `new System.Random(seed)`;
+  inkjs uses its own PRNG, so sequences differ. (`sequences/all_sequence_types`,
+  `sequences/shuffle_stack_muddying`, `lists/list_random`)
+- **Error text.** C# words some messages differently, e.g. pointers print as
+  `(0.1)`; the port reproduces C#'s text. (`variables/temp_not_found`, and
+  the `Missing function binding` cases below)
+
 ## Known limits of the transcripts
 
 - inkjs's specs drive some stories with `ChoosePathString`, `EvaluateFunction`,
   variable writes or bound externals. The generic driver does none of that,
   so `phase2/bindings/*`, `phase2/newlines/newlines_trimming_with_func_external_fallback`
-  and `phase3/inkjs/tests` currently record inkjs's
+  and `phase3/inkjs/tests` currently record the runtime's
   `Missing function binding` exception. Phase 2 extends `script.json` with
   those operations and regenerates.
-- inkjs 2.4.0's JSON writer drops the `.0` from whole floats, which made the
-  compiler turn `7 / 3.0` into integer division. `tool/ink.mjs` patches
-  `SimpleJson.Writer.WriteFloat` to write `3.0` as the C# reference does;
-  story JSON and saved state both go through the patched writer.
-- Known inkjs-vs-C# differences the goldens keep, because inkjs is the
-  oracle: floats are doubles (`7 / 3.0` prints `2.3333333333333335`; C#
-  prints `2.333333`), and a whole float result becomes an int (`3.0 * 2`
-  is saved as `6`, not `6.0`).
-- Compiled JSON still differs from inkjs's checked-in JSON (ignoring
-  `inkVersion` 20 → 21) for 8 stories: `choices/tags_in_choice`,
-  `choices/various_blank_choice_warning`,
-  `diverts/tunnel_onwards_to_variable_divert_target`,
-  `lists/contains_empty_list_always_false`, `lists/list_range`, and the three
-  `tags/` stories. Some `.ink` sources changed after inkjs last regenerated
-  its JSON (`list_range`); the rest are not investigated. The goldens use the
-  pinned compiler's output throughout.
+- ink's own C# test suite (`tests/Tests.cs` in inkle/ink) keeps its stories
+  inline in code; they are not vendored yet.
 
 ## Licence
 
-The `.ink` files are from inkjs, used under its MIT licence:
+`tool/oracle/lib/` holds inkle's ink DLLs under ink's MIT licence
+(`tool/oracle/lib/LICENSE.txt`). The `.ink` files are from inkjs, used under
+its MIT licence:
 
 ```
 MIT License

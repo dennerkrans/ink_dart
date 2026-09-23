@@ -1,6 +1,6 @@
 {
   "case": "phase2/choices/tags_in_choice",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

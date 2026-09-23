@@ -1,6 +1,6 @@
 {
   "case": "phase1/builtins/turns",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -1928,5 +1928,5 @@
       "reason": "maxChoices"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":100,\"previousContentObject\":\"0.top.5\"}],\"threadCounter\":101},\"outputStream\":[\"^100\",\"\\n\"],\"choiceThreads\":{\"101\":{\"callstack\":[{\"cPath\":\"0.top\",\"idx\":5,\"exp\":false,\"type\":0}],\"threadIndex\":101,\"previousContentObject\":\"0.top.4\"}},\"currentChoices\":[{\"text\":\"choice\",\"index\":0,\"originalChoicePath\":\"0.top.5\",\"originalThreadIndex\":101,\"targetPath\":\"0.top.c-0\",\"isInvisibleDefault\":false}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":99,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":100,\"previousContentObject\":\"0.top.5\"}],\"threadCounter\":101},\"outputStream\":[\"^100\",\"\\n\"],\"choiceThreads\":{\"101\":{\"callstack\":[{\"cPath\":\"0.top\",\"idx\":5,\"exp\":false,\"type\":0}],\"threadIndex\":101,\"previousContentObject\":\"0.top.4\"}},\"currentChoices\":[{\"text\":\"choice\",\"index\":0,\"originalChoicePath\":\"0.top.5\",\"originalThreadIndex\":101,\"targetPath\":\"0.top.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":99,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

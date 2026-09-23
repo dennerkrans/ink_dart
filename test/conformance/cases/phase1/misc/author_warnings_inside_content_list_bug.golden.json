@@ -1,6 +1,6 @@
 {
   "case": "phase1/misc/author_warnings_inside_content_list_bug",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [
     "TODO: '/Users/daniel/dev/personal/ink_dart/test/conformance/cases/phase1/misc/author_warnings_inside_content_list_bug.ink' line 3: b"

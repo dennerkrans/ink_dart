@@ -1,6 +1,6 @@
 {
   "case": "phase1/choices/once_only_choices_can_link_back_to_self",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

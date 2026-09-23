@@ -1,46 +1,10 @@
-// Shared helpers for the conformance tooling: compile .ink with the pinned
-// inkjs compiler, and classify a compiled story by the phase that can run it.
+// Helpers for tool/vendor_cases.mjs: compile .ink with inkjs's compiler and
+// classify a compiled story by the phase that can run it. Goldens come from
+// the C# reference runtime instead (tool/oracle/).
 
 import fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
-
-// The unbundled CommonJS build, not `inkjs/full`: compiler, runtime and
-// SimpleJson must share one module instance for the patch below to reach
-// both the compiled story JSON and state.toJson().
-const require = createRequire(import.meta.url);
-const { SimpleJson } = require("inkjs/engine/SimpleJson");
-export const { Compiler, CompilerOptions, Story } = require(
-  "inkjs/compiler/Compiler",
-);
-
-// inkjs 2.4.0's SimpleJson.Writer.WriteFloat hands the number to
-// JSON.stringify, so a whole float comes out as `3`, not `3.0`; inkjs's own
-// Reader then loads it as an int. The compiler turns `7 / 3.0` into integer
-// division, and saves drop the type of whole float variables. The C#
-// reference (SimpleJson.cs WriteFloat) appends ".0", as did the inklecate
-// output inkjs's test suite checks in; this patch restores that, so the
-// oracle is inkjs's runtime writing C#-compatible JSON.
-const floatMarker = "\u0001inkfloat:";
-const Writer = SimpleJson.Writer;
-const writeFloat = Writer.prototype.WriteFloat;
-Writer.prototype.WriteFloat = function (value) {
-  if (value !== null && Number.isFinite(value)) {
-    const text = String(value);
-    if (!/[.e]/.test(text)) {
-      this.StartNewObject(false);
-      this._addToCurrentObject(`${floatMarker}${text}.0`);
-      return;
-    }
-  }
-  return writeFloat.call(this, value);
-};
-const writerToString = Writer.prototype.toString;
-Writer.prototype.toString = function () {
-  return writerToString
-    .call(this)
-    .replace(/"\\u0001inkfloat:([^"]+)"/g, "$1");
-};
+import { Compiler, CompilerOptions } from "inkjs/full";
 
 // Stories inkjs's own test suite compiles with `-c` (count all visits).
 export const countAllVisitsFiles = new Set([

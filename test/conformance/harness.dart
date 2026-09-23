@@ -1,7 +1,7 @@
 // Replays a conformance case against the Dart runtime and diffs the result
-// against the golden that tool/regen_goldens.mjs recorded from inkjs.
+// against the golden that tool/oracle recorded with the C# ink runtime.
 //
-// The replay loop mirrors `play` in tool/regen_goldens.mjs step for step;
+// The replay loop mirrors `Play` in tool/oracle/Program.cs step for step;
 // keep the two in sync.
 
 import 'dart:convert';
@@ -9,7 +9,7 @@ import 'dart:io';
 
 import 'package:ink_dart/ink_dart.dart';
 
-/// Same guards as tool/regen_goldens.mjs.
+/// Same guards as tool/oracle/Program.cs.
 const maxContinues = 1000;
 const maxChoices = 100;
 

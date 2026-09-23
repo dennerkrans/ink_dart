@@ -1,6 +1,6 @@
 {
   "case": "phase1/variables/variable_declaration_in_conditional",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

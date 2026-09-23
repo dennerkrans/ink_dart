@@ -130,7 +130,7 @@ One `continueStory` yields exactly one line. The reference does this by stepping
 
 **Errors** are collected into `state.currentErrors` and surfaced through `onError`; a `StoryException` is thrown only when the caller has set no handler. The reference distinguishes errors from warnings; keep both.
 
-**Random**: a small, seedable PRNG that yields the same sequence as the reference for a given seed (the C# runtime uses its own `PRNG` class, a park-miller-style generator, not `System.Random`). Shuffles and `RANDOM()` depend on it, so a conformance transcript with randomness is only reproducible with the same generator.
+**Random**: a small, seedable PRNG that yields the same sequence as the reference for a given seed. The C# runtime uses `new System.Random(seed)` (checked in `Story.cs` at v1.2.1), so the port reproduces .NET's seeded generator (Knuth subtractive); inkjs's own park-miller `PRNG` gives different sequences and is not the target. Shuffles and `RANDOM()` depend on it, so a conformance transcript with randomness is only reproducible with the same generator.
 
 ## Semantics that are easy to get wrong
 
@@ -183,8 +183,8 @@ The test oracle is the reference runtime, not your reading of it. Both ink and i
 **Harness**
 
 1. Vendor the `.ink` test files from inkjs (and ink's own `Tests`), grouped by the phase that should pass them.
-2. Compile each with `inklecate` or with inkjs's own compiler (Node only, no .NET needed) to JSON at a pinned ink version. Check the JSON into the repo so tests need no Mono or .NET at test time; keep the compile script for regeneration.
-3. For each story, run inkjs under Node with a fixed choice script and a fixed seed, and record the transcript: every line, its tags, every choice list, and the final state JSON. Check these in as goldens.
+2. Compile each with the C# ink compiler to JSON at a pinned ink version (decided 2026-09-23: ink 1.2.1; inkjs's compiler and runtime differ from C# on floats and randomness). Check the JSON into the repo so tests need no Mono or .NET at test time; keep the compile script for regeneration.
+3. For each story, run the C# reference runtime (`tool/oracle`, .NET 10) with a fixed choice script and a fixed seed, and record the transcript: every line, its tags, every choice list, and the final state JSON. Check these in as goldens.
 4. The Dart test runs the same JSON with the same choice script and seed and diffs line-for-line against the golden. Tests are data-driven: adding a case is adding three files.
 
 **Beyond transcripts**
@@ -260,7 +260,7 @@ A fresh port through phase 2 is roughly 4–6 weekends for someone who reads Typ
 
 Open questions:
 
-- [x] Pin the ink and inkjs versions to conform to: inkjs 2.4.0 (commit `6b11534` for the corpus), compiling to `inkVersion` 21, `inkSaveVersion` 10. The accepted `inkVersion` range follows inkjs's `inkVersionMinimumCompatible` when `Story` is ported
+- [x] Pin the ink and inkjs versions to conform to: the C# runtime and compiler of ink 1.2.1 (tag `v1.2.1`, `35c63e5`) as the oracle, the story corpus from inkjs commit `6b11534`; `inkVersion` 21, `inkSaveVersion` 10. Numbers follow C# (32-bit floats, no demotion of whole floats to ints), decided 2026-09-23. The accepted `inkVersion` range follows inkjs's `inkVersionMinimumCompatible` when `Story` is ported
 - [ ] Confirm `ink_dart` is free on pub.dev before first publish
 - [ ] Whether the app's arc one waits for phase 2 or ships on the custom node format first
 - [ ] Whether multi-flow is ever needed (parallel hub and delve stories would use it)

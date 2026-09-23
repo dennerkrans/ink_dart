@@ -1,6 +1,6 @@
 {
   "case": "phase2/bindings/lookup_safe_or_not_with_post_glue",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -10,7 +10,7 @@
     },
     {
       "type": "exception",
-      "message": "Error: Missing function binding for external: 'myAction'  (ink fallbacks disabled)"
+      "message": "ERROR: Missing function binding for external: 'myAction'  (ink fallbacks disabled)"
     }
   ],
   "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"

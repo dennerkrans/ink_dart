@@ -1,6 +1,6 @@
 {
   "case": "phase1/variables/warn_variable_not_found_1",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

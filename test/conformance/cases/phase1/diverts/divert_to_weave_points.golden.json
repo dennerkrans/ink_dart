@@ -1,6 +1,6 @@
 {
   "case": "phase1/diverts/divert_to_weave_points",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

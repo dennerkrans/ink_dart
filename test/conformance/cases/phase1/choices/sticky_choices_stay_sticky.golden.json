@@ -1,6 +1,6 @@
 {
   "case": "phase1/choices/sticky_choices_stay_sticky",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -3438,5 +3438,5 @@
       "reason": "maxChoices"
     }
   ],
-  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.5.$r1\"}}}],\"threadIndex\":199,\"previousContentObject\":\"test.0.5.8\"}],\"threadCounter\":202},\"outputStream\":[\"^Second line.\",\"\\n\"],\"choiceThreads\":{\"201\":{\"callstack\":[{\"cPath\":\"test.0.4\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.4.$r1\"}}}],\"threadIndex\":201,\"previousContentObject\":\"test.0.4.7\"},\"202\":{\"callstack\":[{\"cPath\":\"test.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.5.$r1\"}}}],\"threadIndex\":202,\"previousContentObject\":\"test.0.5.7\"}},\"currentChoices\":[{\"text\":\"Choice 1\",\"index\":0,\"originalChoicePath\":\"test.0.4.8\",\"originalThreadIndex\":201,\"targetPath\":\"test.0.c-0\",\"isInvisibleDefault\":false},{\"text\":\"Choice 2\",\"index\":1,\"originalChoicePath\":\"test.0.5.8\",\"originalThreadIndex\":202,\"targetPath\":\"test.0.c-1\",\"isInvisibleDefault\":false}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":99,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.5.$r1\"}}}],\"threadIndex\":199,\"previousContentObject\":\"test.0.5.8\"}],\"threadCounter\":202},\"outputStream\":[\"^Second line.\",\"\\n\"],\"choiceThreads\":{\"201\":{\"callstack\":[{\"cPath\":\"test.0.4\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.4.$r1\"}}}],\"threadIndex\":201,\"previousContentObject\":\"test.0.4.7\"},\"202\":{\"callstack\":[{\"cPath\":\"test.0.5\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"test.0.5.$r1\"}}}],\"threadIndex\":202,\"previousContentObject\":\"test.0.5.7\"}},\"currentChoices\":[{\"text\":\"Choice 1\",\"index\":0,\"originalChoicePath\":\"test.0.4.8\",\"originalThreadIndex\":201,\"targetPath\":\"test.0.c-0\"},{\"text\":\"Choice 2\",\"index\":1,\"originalChoicePath\":\"test.0.5.8\",\"originalThreadIndex\":202,\"targetPath\":\"test.0.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":99,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
 }

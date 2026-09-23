@@ -1,6 +1,6 @@
 {
   "case": "phase1/sequences/all_sequence_types",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -30,7 +30,7 @@
     },
     {
       "type": "line",
-      "text": "Shuffle: two one one two\n",
+      "text": "Shuffle: two one two one\n",
       "tags": []
     },
     {

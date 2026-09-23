@@ -1,6 +1,6 @@
 {
   "case": "phase3/choices/state_rollback_over_default_choice",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

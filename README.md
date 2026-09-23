@@ -1,7 +1,8 @@
 # ink_dart
 
 Pure Dart runtime for [inkle's ink](https://github.com/inkle/ink), ported
-structurally from [inkjs](https://github.com/y-lohse/inkjs). Spec:
+structurally from [inkjs](https://github.com/y-lohse/inkjs), with behaviour
+checked against inkle's C# runtime (numbers and randomness follow C#). Spec:
 [`docs/SPEC.md`](docs/SPEC.md). For the ink language itself, see the
 [official ink documentation](https://github.com/inkle/ink/blob/master/Documentation/WritingWithInk.md).
 
@@ -15,8 +16,7 @@ commands assume), not `packages/ink_dart/` as sketched in the spec;
 ## Conformance
 
 ```
-cd tool && npm ci && cd ..    # inkjs 2.4.0, compiler and oracle
-node tool/regen_goldens.mjs   # compile cases, record inkjs transcripts
+node tool/regen_goldens.mjs   # C# ink 1.2.1 oracle: compile cases, record transcripts (.NET 10 SDK)
 dart test test/conformance    # replay in Dart, diff against goldens
 dart test test/conformance -N phase1/   # the phase 1 loop
 ```

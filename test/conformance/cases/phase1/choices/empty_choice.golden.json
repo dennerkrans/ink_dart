@@ -1,6 +1,6 @@
 {
   "case": "phase1/choices/empty_choice",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [
     "WARNING: '/Users/daniel/dev/personal/ink_dart/test/conformance/cases/phase1/choices/empty_choice.ink' line 1: Choice is completely empty. Interpretting as a default fallback choice. Add a divert arrow to remove this warning: * ->"

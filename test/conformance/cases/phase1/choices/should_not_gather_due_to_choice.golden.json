@@ -1,6 +1,6 @@
 {
   "case": "phase1/choices/should_not_gather_due_to_choice",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

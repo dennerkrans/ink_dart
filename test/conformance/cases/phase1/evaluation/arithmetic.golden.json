@@ -1,6 +1,6 @@
 {
   "case": "phase1/evaluation/arithmetic",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -30,7 +30,7 @@
     },
     {
       "type": "line",
-      "text": "2.3333333333333335\n",
+      "text": "2.3333333\n",
       "tags": []
     },
     {

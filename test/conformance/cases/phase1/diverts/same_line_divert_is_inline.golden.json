@@ -1,6 +1,6 @@
 {
   "case": "phase1/diverts/same_line_divert_is_inline",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [

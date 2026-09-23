@@ -1,6 +1,6 @@
 {
   "case": "phase1/builtins/floor_ceiling_and_casts",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
@@ -25,7 +25,7 @@
     },
     {
       "type": "line",
-      "text": "0.6666666666666666\n",
+      "text": "0.6666667\n",
       "tags": []
     },
     {

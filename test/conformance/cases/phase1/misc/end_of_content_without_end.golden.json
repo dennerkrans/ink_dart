@@ -1,6 +1,6 @@
 {
   "case": "phase1/misc/end_of_content_without_end",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [
     "WARNING: '/Users/daniel/dev/personal/ink_dart/test/conformance/cases/phase1/misc/end_of_content_without_end.ink' line 2: Apparent loose end exists where the flow runs out. Do you need a '-> DONE' statement, choice or divert?"

@@ -1,3 +1,5 @@
 .dart_tool/
 pubspec.lock
 tool/node_modules/
+tool/oracle/bin/
+tool/oracle/obj/

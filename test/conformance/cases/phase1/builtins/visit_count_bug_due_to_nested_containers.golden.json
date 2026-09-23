@@ -1,6 +1,6 @@
 {
   "case": "phase1/builtins/visit_count_bug_due_to_nested_containers",
-  "inkjs": "2.4.0",
+  "runtime": "ink 1.2.1",
   "seed": 42,
   "compilerWarnings": [],
   "events": [
