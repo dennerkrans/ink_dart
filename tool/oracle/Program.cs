@@ -9,10 +9,11 @@
 //      list, every chosen index, every error and warning in the order the
 //      runtime reported it, and the final state.ToJson() as a string.
 //
-// The choice script is the optional <case>.script.json, a JSON list of
-// choice indices; once it runs out (or when there is none) the first choice
-// is taken. The golden records every event, so the Dart side replays the
-// golden, not the script. Keep the play loop in step with
+// The optional <case>.script.json is a JSON array of ops run in order before
+// the default loop (continue to the next choice, take the first choice,
+// repeat). The golden records the script and every event, and the Dart
+// harness replays the golden's script the same way. Ops and their events are
+// documented in test/conformance/cases/README.md. Keep this file in step with
 // test/conformance/harness.dart.
 
 using System;
@@ -31,10 +32,10 @@ static class Oracle
 {
     const string RuntimeVersion = "ink 1.2.1";
     // Fixed for every case; the Dart runner reads it from the golden.
-    const int Seed = 42;
+    internal const int Seed = 42;
     // Guards against stories that loop forever under the choice script.
-    const int MaxContinues = 1000;
-    const int MaxChoices = 100;
+    internal const int MaxContinues = 1000;
+    internal const int MaxChoices = 100;
 
     // Stories ink's own test suite compiles with count-all-visits (`-c`).
     static readonly HashSet<string> CountAllVisitsFiles = new()
@@ -81,10 +82,10 @@ static class Oracle
 
             var scriptPath = $"{basePath}.script.json";
             var script = File.Exists(scriptPath)
-                ? JsonSerializer.Deserialize<List<int>>(File.ReadAllText(scriptPath))
-                : new List<int>();
+                ? JsonNode.Parse(File.ReadAllText(scriptPath)).AsArray()
+                : null;
 
-            var (events, finalState) = Play(json, script);
+            var (events, finalState) = new Driver(json).Play(script);
             var golden = new JsonObject
             {
                 ["case"] = rel,
@@ -95,6 +96,7 @@ static class Oracle
                 ["events"] = events,
                 ["finalState"] = finalState,
             };
+            if (script != null) golden.Insert(4, "script", script.DeepClone());
             File.WriteAllText(
                 $"{basePath}.golden.json",
                 golden.ToJsonString(JsonOptions).Replace("\r\n", "\n") + "\n");
@@ -164,91 +166,4 @@ static class Oracle
         return (null, errors, warnings);
     }
 
-    static JsonArray Tags(List<string> tags) =>
-        new JsonArray((tags ?? new List<string>()).Select(t => (JsonNode)t).ToArray());
-
-    static (JsonArray events, string finalState) Play(string json, List<int> script)
-    {
-        var events = new JsonArray();
-        Story story;
-        try
-        {
-            story = new Story(json);
-        }
-        catch (Exception e)
-        {
-            events.Add(new JsonObject { ["type"] = "exception", ["message"] = e.Message });
-            return (events, null);
-        }
-        story.onError += (message, type) =>
-        {
-            var kind = type switch
-            {
-                Ink.ErrorType.Author => "author",
-                Ink.ErrorType.Warning => "warning",
-                _ => "error",
-            };
-            events.Add(new JsonObject { ["type"] = kind, ["message"] = message });
-        };
-        story.state.storySeed = Seed;
-
-        var continues = 0;
-        var choicesMade = 0;
-        try
-        {
-            events.Add(new JsonObject { ["type"] = "globalTags", ["tags"] = Tags(story.globalTags) });
-            var done = false;
-            while (!done)
-            {
-                while (story.canContinue)
-                {
-                    if (continues++ >= MaxContinues)
-                    {
-                        events.Add(new JsonObject { ["type"] = "truncated", ["reason"] = "maxContinues" });
-                        done = true;
-                        break;
-                    }
-                    var text = story.Continue();
-                    events.Add(new JsonObject
-                    {
-                        ["type"] = "line",
-                        ["text"] = text,
-                        ["tags"] = Tags(story.currentTags),
-                    });
-                }
-                if (done) break;
-
-                var choices = story.currentChoices;
-                if (choices.Count == 0)
-                {
-                    events.Add(new JsonObject { ["type"] = "end" });
-                    break;
-                }
-                events.Add(new JsonObject
-                {
-                    ["type"] = "choices",
-                    ["choices"] = new JsonArray(choices.Select(c => (JsonNode)new JsonObject
-                    {
-                        ["index"] = c.index,
-                        ["text"] = c.text,
-                        ["tags"] = Tags(c.tags),
-                    }).ToArray()),
-                });
-                if (choicesMade >= MaxChoices)
-                {
-                    events.Add(new JsonObject { ["type"] = "truncated", ["reason"] = "maxChoices" });
-                    break;
-                }
-                var index = choicesMade < script.Count ? script[choicesMade] : 0;
-                choicesMade++;
-                events.Add(new JsonObject { ["type"] = "choose", ["index"] = index });
-                story.ChooseChoiceIndex(index);
-            }
-        }
-        catch (Exception e)
-        {
-            events.Add(new JsonObject { ["type"] = "exception", ["message"] = e.Message });
-        }
-        return (events, story.state.ToJson());
-    }
 }

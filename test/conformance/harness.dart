@@ -1,13 +1,14 @@
 // Replays a conformance case against the Dart runtime and diffs the result
 // against the golden that tool/oracle recorded with the C# ink runtime.
 //
-// The replay loop mirrors `Play` in tool/oracle/Program.cs step for step;
+// `Driver` mirrors tool/oracle/Driver.cs op for op and event for event;
 // keep the two in sync.
 
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:ink_dart/ink_dart.dart';
+import 'package:ink_dart/src/float32.dart';
 
 /// Same guards as tool/oracle/Program.cs.
 const maxContinues = 1000;
@@ -43,10 +44,9 @@ class ConformanceCase {
     goldenFile.path.replaceFirst(RegExp(r'\.golden\.json$'), '.json'),
   ).readAsStringSync();
 
-  /// The choice indices inkjs took, in order.
-  List<int> get picks => [
-    for (final e in events)
-      if (e['type'] == 'choose') e['index'] as int,
+  /// The op script the oracle ran, if any.
+  List<Map<String, Object?>> get script => [
+    ...((golden['script'] as List?) ?? const []).cast<Map<String, Object?>>(),
   ];
 
   static List<ConformanceCase> discover(Directory dir) {
@@ -63,78 +63,301 @@ class ConformanceCase {
 
 /// What the Dart runtime did with a case.
 class Replay {
-  Replay(this.events, this.finalState);
+  Replay(this.events, this.finalState, {this.reloads = 0});
 
   final List<Map<String, Object?>> events;
   final String? finalState;
+
+  /// Round-trip mode: how many times a reloaded story took over.
+  final int reloads;
 }
 
-Replay replay(ConformanceCase c) {
-  final events = <Map<String, Object?>>[];
-  void record(Map<String, Object?> e) => events.add(e);
+Replay replay(ConformanceCase c, {bool roundTrip = false}) =>
+    Driver(c, roundTrip: roundTrip).play();
 
-  final Story story;
-  try {
-    story = Story.fromJson(c.storyJson);
-  } catch (e) {
-    record({'type': 'exception', 'message': '$e'});
-    return Replay(events, null);
-  }
-  story.onError = (message, type) {
-    record({'type': _errorKinds[type], 'message': message});
-  };
+/// Plays a case: the golden's op script, then the default loop (continue to
+/// the next choice, take the first, repeat).
+///
+/// With [roundTrip], every choice point in the default loop saves the state,
+/// loads it into a fresh [Story] and carries on there; the transcript must
+/// not change.
+class Driver {
+  Driver(this.c, {this.roundTrip = false});
 
-  final picks = c.picks;
-  var continues = 0;
-  var choicesMade = 0;
-  try {
-    story.state.storySeed = c.seed;
-    record({'type': 'globalTags', 'tags': story.globalTags ?? <String>[]});
-    outer:
-    for (;;) {
-      while (story.canContinue) {
-        if (continues++ >= maxContinues) {
-          record({'type': 'truncated', 'reason': 'maxContinues'});
-          break outer;
-        }
-        final text = story.continueStory();
-        record({
-          'type': 'line',
-          'text': text,
-          'tags': [...story.currentTags],
-        });
-      }
-      final choices = story.currentChoices;
-      if (choices.isEmpty) {
-        record({'type': 'end'});
-        break;
-      }
-      record({
-        'type': 'choices',
-        'choices': [
-          for (final ch in choices)
-            {'index': ch.index, 'text': ch.text, 'tags': ch.tags ?? <String>[]},
-        ],
-      });
-      if (choicesMade >= maxChoices) {
-        record({'type': 'truncated', 'reason': 'maxChoices'});
-        break;
-      }
-      final index = choicesMade < picks.length ? picks[choicesMade] : 0;
-      choicesMade++;
-      record({'type': 'choose', 'index': index});
-      story.chooseChoiceIndex(index);
+  final ConformanceCase c;
+  final bool roundTrip;
+
+  /// How many times round-trip mode swapped in a reloaded story.
+  int reloads = 0;
+
+  final List<Map<String, Object?>> _events = [];
+  final Map<String, String> _slots = {};
+
+  /// Ops that configure a story rather than drive it; replayed on the fresh
+  /// story in round-trip mode.
+  final List<Map<String, Object?>> _configOps = [];
+
+  late Story _story;
+
+  void _record(Map<String, Object?> e) => _events.add(e);
+
+  Replay play() {
+    final Story story;
+    try {
+      story = _newStory();
+    } catch (e) {
+      _record({'type': 'exception', 'message': '$e'});
+      return Replay(_events, null);
     }
-  } catch (e) {
-    record({'type': 'exception', 'message': '$e'});
+    _story = story;
+    _story.state.storySeed = c.seed;
+
+    var continues = 0;
+    var choicesMade = 0;
+    try {
+      _record({'type': 'globalTags', 'tags': _story.globalTags ?? <String>[]});
+
+      for (final op in c.script) {
+        try {
+          continues = _runOp(op, continues);
+        } catch (e) {
+          _record({'type': 'exception', 'message': '$e'});
+        }
+      }
+
+      outer:
+      for (;;) {
+        while (_story.canContinue) {
+          if (continues++ >= maxContinues) {
+            _record({'type': 'truncated', 'reason': 'maxContinues'});
+            break outer;
+          }
+          _continueOnce();
+        }
+        if (_story.currentChoices.isEmpty) {
+          _record({'type': 'end'});
+          break;
+        }
+        _recordChoices();
+        if (choicesMade >= maxChoices) {
+          _record({'type': 'truncated', 'reason': 'maxChoices'});
+          break;
+        }
+        choicesMade++;
+        if (roundTrip) _swapForReloadedStory();
+        _choose(0);
+      }
+    } catch (e) {
+      _record({'type': 'exception', 'message': '$e'});
+    }
+    String? finalState;
+    try {
+      finalState = _story.state.toJson();
+    } catch (e) {
+      finalState = null;
+    }
+    return Replay(_events, finalState, reloads: reloads);
   }
-  String? finalState;
-  try {
-    finalState = story.state.toJson();
-  } catch (e) {
-    finalState = null;
+
+  Story _newStory() {
+    final story = Story.fromJson(c.storyJson);
+    story.onError = (message, type) {
+      _record({'type': _errorKinds[type], 'message': message});
+    };
+    return story;
   }
-  return Replay(events, finalState);
+
+  void _swapForReloadedStory() {
+    final saved = _story.state.toJson();
+    final fresh = _newStory();
+    final previous = _story;
+    _story = fresh;
+    for (final op in _configOps) {
+      _runOp(op, 0, replaying: true);
+    }
+    fresh.state.loadJson(saved);
+    reloads++;
+    final reloaded = fresh.state.toJson();
+    final where = jsonPath(jsonDecode(saved), jsonDecode(reloaded), r'$');
+    if (where != null) {
+      _story = previous;
+      _record({'type': 'roundTripMismatch', 'at': where});
+    }
+  }
+
+  void _continueOnce() {
+    final text = _story.continueStory();
+    _record({
+      'type': 'line',
+      'text': text,
+      'tags': [..._story.currentTags],
+    });
+  }
+
+  void _recordChoices() {
+    _record({
+      'type': 'choices',
+      'choices': [
+        for (final ch in _story.currentChoices)
+          {'index': ch.index, 'text': ch.text, 'tags': ch.tags ?? <String>[]},
+      ],
+    });
+  }
+
+  void _choose(int index) {
+    _record({'type': 'choose', 'index': index});
+    _story.chooseChoiceIndex(index);
+  }
+
+  /// Returns the updated continue count.
+  int _runOp(Map<String, Object?> op, int continues, {bool replaying = false}) {
+    final name = op['op'] as String;
+    switch (name) {
+      case 'continue':
+        continues++;
+        _continueOnce();
+      case 'continueMaximally':
+        while (_story.canContinue && continues++ < maxContinues) {
+          _continueOnce();
+        }
+      case 'choose':
+        _recordChoices();
+        _choose(op['index'] as int);
+      case 'choosePathString':
+        _story.choosePathString(
+          op['path'] as String,
+          resetCallstack: (op['resetCallstack'] as bool?) ?? true,
+          arguments: _args(op),
+        );
+      case 'evaluateFunction':
+        final fn = op['name'] as String;
+        final r = _story.evaluateFunctionWithOutput(fn, _args(op));
+        _record({
+          'type': 'function',
+          'name': fn,
+          'result': encodeValue(r.result),
+          'output': r.textOutput,
+        });
+      case 'setVariable':
+        _story.variablesState[op['name'] as String] = decodeValue(op['value']);
+      case 'getVariable':
+        _record({
+          'type': 'variable',
+          'name': op['name'],
+          'value': encodeValue(_story.variablesState[op['name'] as String]),
+        });
+      case 'variableNames':
+        _record({
+          'type': 'variableNames',
+          'names': [..._story.variablesState],
+        });
+      case 'observe':
+        if (!replaying) _configOps.add(op);
+        _story.observeVariable(op['name'] as String, (varName, value) {
+          _record({
+            'type': 'observed',
+            'name': varName,
+            'value': encodeValue(value),
+          });
+        });
+      case 'bind':
+        if (!replaying) _configOps.add(op);
+        _bind(op);
+      case 'unbind':
+        if (!replaying) _configOps.add(op);
+        _story.unbindExternalFunction(op['name'] as String);
+      case 'allowExternalFunctionFallbacks':
+        if (!replaying) _configOps.add(op);
+        _story.allowExternalFunctionFallbacks = op['value'] as bool;
+      case 'save':
+        _slots[(op['slot'] as String?) ?? ''] = _story.state.toJson();
+      case 'load':
+        final saved = _slots[(op['slot'] as String?) ?? ''];
+        if (saved == null) throw StateError('nothing saved in slot');
+        _story.state.loadJson(saved);
+      case 'resetState':
+        _story.resetState();
+      case 'switchFlow':
+        _story.switchFlow(op['name'] as String);
+      case 'removeFlow':
+        _story.removeFlow(op['name'] as String);
+      case 'switchToDefaultFlow':
+        _story.switchToDefaultFlow();
+      case 'visitCount':
+        _record({
+          'type': 'visitCount',
+          'path': op['path'],
+          'count': _story.state.visitCountAtPathString(op['path'] as String),
+        });
+      case 'tagsForContentAtPath':
+        _record({
+          'type': 'tags',
+          'path': op['path'],
+          'tags':
+              _story.tagsForContentAtPath(op['path'] as String) ?? <String>[],
+        });
+      default:
+        throw StateError('unknown script op: $name');
+    }
+    return continues;
+  }
+
+  /// External function behaviours, as in tool/oracle/Driver.cs.
+  void _bind(Map<String, Object?> op) {
+    final fn = op['name'] as String;
+    final behaviour = (op['behaviour'] as String?) ?? 'record';
+    _story.bindExternalFunctionGeneral(fn, (args) {
+      _record({
+        'type': 'external',
+        'name': fn,
+        'args': [for (final a in args) encodeValue(a)],
+      });
+      switch (behaviour) {
+        case 'record':
+          return null;
+        case 'return':
+          return decodeValue(op['value']);
+        case 'multiply':
+          return ((args[0] as int) * (args[1] as int)).toSigned(32);
+        case 'repeat':
+          return (args[1] as String) * (args[0] as int);
+        case 'callInk':
+          // Increment the argument, then hand it to an ink function.
+          return _story.evaluateFunction(op['function'] as String, [
+            (args[0] as int) + 1,
+          ]);
+        default:
+          throw StateError('unknown external behaviour: $behaviour');
+      }
+    }, lookaheadSafe: (op['lookaheadSafe'] as bool?) ?? false);
+  }
+
+  static List<Object?> _args(Map<String, Object?> op) => [
+    for (final a in (op['args'] as List?) ?? const []) decodeValue(a),
+  ];
+}
+
+/// Values cross the script and the golden as `{"int": 5}`,
+/// `{"float": "2.5"}`, `{"string": "x"}`, `{"bool": true}`,
+/// `{"list": "a, b"}`, or null.
+Object? encodeValue(Object? value) => switch (value) {
+  null => null,
+  final int i => {'int': i},
+  final double f => {'float': formatFloat32(f)},
+  final bool b => {'bool': b},
+  final String s => {'string': s},
+  final InkList l => {'list': l.toString()},
+  _ => {'unknown': value.runtimeType.toString()},
+};
+
+Object? decodeValue(Object? node) {
+  if (node == null) return null;
+  final o = node as Map<String, Object?>;
+  if (o['int'] != null) return o['int'];
+  if (o['float'] != null) return parseFloat32(o['float'] as String);
+  if (o['bool'] != null) return o['bool'];
+  if (o['string'] != null) return o['string'];
+  throw StateError('cannot decode script value: $node');
 }
 
 /// Returns a readable description of the first divergence, or null when

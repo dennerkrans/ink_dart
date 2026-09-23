@@ -17,10 +17,31 @@ void main() {
     expect(cases, isNotEmpty);
   });
 
-  for (final c in cases) {
-    test(c.name, () {
-      final mismatch = diff(c, replay(c));
-      if (mismatch != null) fail(mismatch);
+  group('transcript', () {
+    for (final c in cases) {
+      test(c.name, () {
+        final mismatch = diff(c, replay(c));
+        if (mismatch != null) fail(mismatch);
+      });
+    }
+  });
+
+  // At every choice point: toJson, a fresh Story, loadJson, and the reloaded
+  // state must serialise the same and play on to the same transcript.
+  group('save/load round trip', () {
+    test('reloads happen', () {
+      var reloads = 0;
+      for (final c in cases) {
+        reloads += replay(c, roundTrip: true).reloads;
+      }
+      expect(reloads, greaterThan(100));
     });
-  }
+
+    for (final c in cases) {
+      test(c.name, () {
+        final mismatch = diff(c, replay(c, roundTrip: true));
+        if (mismatch != null) fail(mismatch);
+      });
+    }
+  });
 }
