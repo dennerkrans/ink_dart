@@ -10,6 +10,7 @@ import 'list_definition.dart';
 /// value. Derives from `Dictionary<InkListItem, int>` in the reference;
 /// iteration follows .NET's dictionary order (see [DotNetDictionary]).
 class InkList {
+  /// Creates an empty list with no origins.
   InkList();
 
   /// Copy constructor.
@@ -38,10 +39,14 @@ class InkList {
     }
   }
 
+  /// Creates a list holding one item with its int value.
   InkList.single(MapEntry<InkListItem, int> singleElement) {
     add(singleElement.key, singleElement.value);
   }
 
+  /// Creates a list holding the single item named [myListItem] (`item` or
+  /// `List.item`), looked up in [originStory]'s list definitions. An empty
+  /// name gives an empty list; an unknown name throws.
   static InkList fromString(String myListItem, Story originStory) {
     if (myListItem.isEmpty) return InkList();
     final listValue = originStory.listDefinitions?.findSingleItemListWithName(
@@ -62,22 +67,33 @@ class InkList {
 
   // Dictionary members.
 
+  /// The number of items in the list.
   int get count => _items.count;
 
+  /// The int value of [item], or null if the list doesn't contain it.
   int? operator [](InkListItem item) => _items[item];
 
+  /// Adds [item] with [value], or changes its value if already present.
   void operator []=(InkListItem item, int value) => _items[item] = value;
 
+  /// Adds [item] with [value]; throws if the list already contains it
+  /// (C#'s `Dictionary.Add`).
   void add(InkListItem item, int value) => _items.add(item, value);
 
+  /// Removes [item]; returns whether it was present.
   bool remove(InkListItem item) => _items.remove(item);
 
+  /// Whether the list contains [item].
   bool containsKey(InkListItem item) => _items.containsKey(item);
 
+  /// The items with their int values, in .NET dictionary order.
   Iterable<MapEntry<InkListItem, int>> get entries => _items.entries;
 
+  /// The items, in .NET dictionary order.
   Iterable<InkListItem> get keys => _items.keys;
 
+  /// Adds [item], taking its int value from its origin list definition. The
+  /// origin must be one of this list's [origins]; otherwise this throws.
   void addItem(InkListItem item) {
     if (item.originName == null) {
       addItemNamed(item.itemName ?? '');
@@ -107,6 +123,9 @@ class InkList {
     );
   }
 
+  /// Adds the item named [itemName] from one of this list's [origins], or
+  /// looks it up in [storyObject] when the list has no matching origin.
+  /// Throws if the name is ambiguous or unknown. `AddItem(string)` in C#.
   void addItemNamed(String itemName, [Story? storyObject]) {
     ListDefinition? foundListDef;
 
@@ -141,6 +160,7 @@ class InkList {
     }
   }
 
+  /// Whether the list contains an item named [itemName], from any origin.
   bool containsItemNamed(String itemName) {
     for (final item in keys) {
       if (item.itemName == itemName) return true;
@@ -154,6 +174,7 @@ class InkList {
   /// the origin can be resolved from the originListName.
   List<ListDefinition>? origins;
 
+  /// The list definition of the item with the highest value, or null.
   ListDefinition? get originOfMaxItem {
     final o = origins;
     if (o == null) return null;
@@ -182,14 +203,18 @@ class InkList {
 
   List<String>? _originNames;
 
+  /// Sets the origin name kept while the list is empty.
   void setInitialOriginName(String initialOriginName) {
     _originNames = [initialOriginName];
   }
 
+  /// Sets the origin names kept while the list is empty.
   void setInitialOriginNames(List<String>? initialOriginNames) {
     _originNames = initialOriginNames == null ? null : [...initialOriginNames];
   }
 
+  /// The item with the highest value, or [InkListItem.nullItem] with value 0
+  /// when the list is empty.
   MapEntry<InkListItem, int> get maxItem {
     var max = const MapEntry(InkListItem.nullItem, 0);
     for (final kv in entries) {
@@ -198,6 +223,8 @@ class InkList {
     return max;
   }
 
+  /// The item with the lowest value, or [InkListItem.nullItem] with value 0
+  /// when the list is empty.
   MapEntry<InkListItem, int> get minItem {
     var min = const MapEntry(InkListItem.nullItem, 0);
     for (final kv in entries) {
@@ -206,6 +233,7 @@ class InkList {
     return min;
   }
 
+  /// The items of this list's origins that it doesn't contain (`LIST_INVERT`).
   InkList get inverse {
     final list = InkList();
     for (final origin in origins ?? const <ListDefinition>[]) {
@@ -218,6 +246,7 @@ class InkList {
     return list;
   }
 
+  /// Every item of this list's origins (`LIST_ALL`).
   InkList get all {
     final list = InkList();
     for (final origin in origins ?? const <ListDefinition>[]) {
@@ -228,6 +257,7 @@ class InkList {
     return list;
   }
 
+  /// The items in this list or [otherList] (ink's `+` on lists).
   InkList union(InkList otherList) {
     final union = InkList.from(this);
     for (final kv in otherList.entries) {
@@ -236,6 +266,7 @@ class InkList {
     return union;
   }
 
+  /// The items in both this list and [otherList] (ink's `^`).
   InkList intersect(InkList otherList) {
     final intersection = InkList();
     for (final kv in entries) {
@@ -244,6 +275,7 @@ class InkList {
     return intersection;
   }
 
+  /// Whether this list and [otherList] share any item.
   bool hasIntersection(InkList otherList) {
     for (final item in keys) {
       if (otherList.containsKey(item)) return true;
@@ -251,6 +283,7 @@ class InkList {
     return false;
   }
 
+  /// This list without the items of [listToRemove] (ink's `-` on lists).
   InkList without(InkList listToRemove) {
     final result = InkList.from(this);
     for (final item in listToRemove.keys) {
@@ -259,6 +292,8 @@ class InkList {
     return result;
   }
 
+  /// Whether this list contains every item of [otherList] (ink's `?`). False
+  /// when either list is empty.
   bool contains(InkList otherList) {
     if (otherList.count == 0 || count == 0) return false;
     for (final item in otherList.keys) {
@@ -267,6 +302,8 @@ class InkList {
     return true;
   }
 
+  /// Whether the list contains an item named [listItemName].
+  /// `Contains(string)` in C#.
   bool containsName(String listItemName) {
     for (final item in keys) {
       if (item.itemName == listItemName) return true;
@@ -274,6 +311,8 @@ class InkList {
     return false;
   }
 
+  /// Whether every item here has a higher value than every item in
+  /// [otherList] (ink's `>` on lists).
   bool greaterThan(InkList otherList) {
     if (count == 0) return false;
     if (otherList.count == 0) return true;
@@ -282,6 +321,8 @@ class InkList {
     return minItem.value > otherList.maxItem.value;
   }
 
+  /// Ink's `>=` on lists: this list's lowest and highest values are at least
+  /// [otherList]'s.
   bool greaterThanOrEquals(InkList otherList) {
     if (count == 0) return false;
     if (otherList.count == 0) return true;
@@ -290,6 +331,8 @@ class InkList {
         maxItem.value >= otherList.maxItem.value;
   }
 
+  /// Whether every item here has a lower value than every item in
+  /// [otherList] (ink's `<` on lists).
   bool lessThan(InkList otherList) {
     if (otherList.count == 0) return false;
     if (count == 0) return true;
@@ -297,6 +340,8 @@ class InkList {
     return maxItem.value < otherList.minItem.value;
   }
 
+  /// Ink's `<=` on lists: this list's highest and lowest values are at most
+  /// [otherList]'s.
   bool lessThanOrEquals(InkList otherList) {
     if (otherList.count == 0) return false;
     if (count == 0) return true;
@@ -305,8 +350,10 @@ class InkList {
         minItem.value <= otherList.minItem.value;
   }
 
+  /// A list holding only the highest item (`LIST_MAX`), or an empty list.
   InkList maxAsList() => count > 0 ? InkList.single(maxItem) : InkList();
 
+  /// A list holding only the lowest item (`LIST_MIN`), or an empty list.
   InkList minAsList() => count > 0 ? InkList.single(minItem) : InkList();
 
   /// [minBound] and [maxBound] are each an `int` or an [InkList].
@@ -377,6 +424,7 @@ class InkList {
     return ordered;
   }
 
+  /// The first item in dictionary order, or [InkListItem.nullItem] when empty.
   InkListItem get singleItem {
     for (final item in keys) {
       return item;

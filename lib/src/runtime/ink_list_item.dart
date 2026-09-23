@@ -3,6 +3,7 @@
 /// The name of a list item, qualified by the list it comes from.
 /// A struct in the reference: an immutable value here.
 class InkListItem {
+  /// Creates the item [itemName] of the list [originName].
   const InkListItem(this.originName, this.itemName);
 
   /// Splits `"Origin.item"`.
@@ -11,13 +12,19 @@ class InkListItem {
     return InkListItem(nameParts[0], nameParts[1]);
   }
 
+  /// The item with neither origin nor name; `InkListItem.Null` in C#.
   static const InkListItem nullItem = InkListItem(null, null);
 
+  /// The name of the list definition the item belongs to, or null if unknown.
   final String? originName;
+
+  /// The item's own name within its list.
   final String? itemName;
 
+  /// Whether this is [nullItem].
   bool get isNull => originName == null && itemName == null;
 
+  /// The qualified name, `Origin.item` (`?.item` when the origin is unknown).
   String get fullName => '${originName ?? '?'}.$itemName';
 
   @override

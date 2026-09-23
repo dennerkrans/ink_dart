@@ -9,6 +9,10 @@ import 'path.dart';
 /// different Choices dynamically dependent on state, so they're
 /// separated.
 class Choice extends InkObject {
+  /// Creates an empty choice; the story fills it in when generating
+  /// choices.
+  Choice();
+
   /// The main text to presented to the player for this Choice.
   String text = '';
 
@@ -26,15 +30,25 @@ class Choice extends InkObject {
   /// this Choice was generated, for convenience.
   int index = 0;
 
+  /// The path the story diverts to when this choice is chosen.
   Path targetPath = Path();
 
+  /// A copy of the call stack thread as it was when this choice was generated;
+  /// restored when the choice is chosen.
   Thread? threadAtGeneration;
+
+  /// The index of [threadAtGeneration], as saved in state JSON.
   int originalThreadIndex = 0;
 
+  /// Whether this is an invisible default choice (a fallback `* ->`), taken
+  /// automatically when no other choice is available. Not shown in
+  /// `Story.currentChoices`.
   bool isInvisibleDefault = false;
 
+  /// Tags written on the choice, or null if it has none.
   List<String>? tags;
 
+  /// A copy of this choice with its own copy of [threadAtGeneration].
   Choice clone() {
     final copy = Choice()
       ..text = text

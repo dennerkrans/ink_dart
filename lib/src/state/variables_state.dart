@@ -16,6 +16,7 @@ import '../system_exception.dart';
 import 'call_stack.dart';
 import 'state_patch.dart';
 
+/// Called when a global variable is assigned, with its new runtime value.
 typedef VariableChanged =
     void Function(String variableName, InkObject newValue);
 
@@ -23,17 +24,25 @@ typedef VariableChanged =
 /// allows binding of a VariableChanged event so that that game
 /// code can be notified whenever the global variables change.
 class VariablesState extends Iterable<String> {
+  /// Creates the variables of a story, reading temporaries from [callStack].
   VariablesState(this.callStack, this._listDefsOrigin);
 
+  /// Called on every global assignment; `Story` uses it to notify observers.
   VariableChanged? variableChangedEvent;
 
+  /// Changes made during lookahead, applied later; null when not looking
+  /// ahead.
   StatePatch? patch;
 
+  /// Starts batching changed variable names until
+  /// [completeVariableObservation].
   void startVariableObservation() {
     _batchObservingVariableChanges = true;
     _changedVariablesForBatchObs = {};
   }
 
+  /// Stops batching and returns each changed variable with its current
+  /// value.
   Map<String, InkObject> completeVariableObservation() {
     _batchObservingVariableChanges = false;
 
@@ -67,6 +76,7 @@ class VariablesState extends Iterable<String> {
     return changedVars;
   }
 
+  /// Calls [variableChangedEvent] for each of [changedVars].
   void notifyObservers(Map<String, InkObject> changedVars) {
     final event = variableChangedEvent;
     if (event == null) return;
@@ -103,6 +113,9 @@ class VariablesState extends Iterable<String> {
     }
   }
 
+  /// Sets a global variable from the game. [value] is an `int`, `double`
+  /// (stored as a 32-bit float), `String`, `bool` or [InkList]; the variable
+  /// must be declared in the story, or this throws.
   void operator []=(String variableName, Object? value) {
     if (!(_defaultGlobalVariables?.containsKey(variableName) ?? false)) {
       throw StoryException(
@@ -127,6 +140,7 @@ class VariablesState extends Iterable<String> {
   @override
   Iterator<String> get iterator => _globalVariables.keys.iterator;
 
+  /// Applies [patch] to the globals and clears it.
   void applyPatch() {
     final p = patch;
     if (p == null) return;
@@ -145,6 +159,7 @@ class VariablesState extends Iterable<String> {
     patch = null;
   }
 
+  /// Loads globals from saved state, keeping defaults for any not saved.
   void setJsonToken(Map<String, Object?> jToken) {
     _globalVariables.clear();
 
@@ -170,6 +185,7 @@ class VariablesState extends Iterable<String> {
   /// save timing.
   static bool dontSaveDefaultValues = true;
 
+  /// Writes the globals that differ from their defaults to saved state.
   void writeJson(Writer writer) {
     writer.writeObjectStart();
     for (final keyVal in _globalVariables.entries) {
@@ -192,6 +208,8 @@ class VariablesState extends Iterable<String> {
     writer.writeObjectEnd();
   }
 
+  /// Whether two values are equal for the purpose of skipping unchanged
+  /// globals when saving.
   bool runtimeObjectsEqual(InkObject obj1, InkObject obj2) {
     if (obj1.runtimeType != obj2.runtimeType) return false;
 
@@ -213,6 +231,9 @@ class VariablesState extends Iterable<String> {
     );
   }
 
+  /// The value of the variable [name], following variable pointers; null if
+  /// it doesn't exist. [contextIndex] 0 is global, 1 and up a call stack
+  /// element, -1 the current one.
   InkObject? getVariableWithName(String? name, [int contextIndex = -1]) {
     var varValue = _getRawVariableWithName(name, contextIndex);
 
@@ -224,9 +245,11 @@ class VariablesState extends Iterable<String> {
     return varValue;
   }
 
+  /// The declared initial value of the global [name], or null.
   InkObject? tryGetDefaultVariableValue(String name) =>
       _defaultGlobalVariables?[name];
 
+  /// Whether [name] is a global variable of the story.
   bool globalVariableExistsWithName(String? name) =>
       _globalVariables.containsKey(name) ||
       _defaultGlobalVariables != null &&
@@ -266,9 +289,11 @@ class VariablesState extends Iterable<String> {
     return varValue;
   }
 
+  /// The value of the variable [pointer] refers to.
   InkObject? valueAtVariablePointer(VariablePointerValue pointer) =>
       getVariableWithName(pointer.variableName, pointer.contextIndex);
 
+  /// Performs the assignment [varAss] of [value], to a global or a temporary.
   void assign(VariableAssignment varAss, InkObject value) {
     var name = varAss.variableName ?? '';
     var contextIndex = -1;
@@ -316,10 +341,12 @@ class VariablesState extends Iterable<String> {
     }
   }
 
+  /// Records the current globals as their defaults.
   void snapshotDefaultGlobals() {
     _defaultGlobalVariables = {..._globalVariables};
   }
 
+  /// Sets the global [variableName] to [value] and notifies observers.
   void setGlobal(String variableName, InkObject value) {
     InkObject? oldValue;
     final p = patch;

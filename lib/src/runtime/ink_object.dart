@@ -14,6 +14,8 @@ class InkObject {
   /// Usually a [Container].
   InkObject? parent;
 
+  /// Source location of this content, or of its nearest ancestor that has
+  /// one; null for stories compiled without debug information.
   DebugMetadata? get debugMetadata {
     if (_debugMetadata == null) {
       final p = parent;
@@ -22,12 +24,16 @@ class InkObject {
     return _debugMetadata;
   }
 
+  /// Sets this object's own source location.
   set debugMetadata(DebugMetadata? value) => _debugMetadata = value;
 
+  /// This object's own source location, without falling back to ancestors.
   DebugMetadata? get ownDebugMetadata => _debugMetadata;
 
   DebugMetadata? _debugMetadata;
 
+  /// The source line number of the content at [path], if debug metadata is
+  /// available; otherwise null.
   int? debugLineNumberOfPath(Path? path) {
     if (path == null) return null;
 
@@ -43,6 +49,7 @@ class InkObject {
     return null;
   }
 
+  /// The path to this object from the root of the story.
   Path get path {
     var p = _path;
     if (p == null) {
@@ -78,6 +85,8 @@ class InkObject {
 
   Path? _path;
 
+  /// Looks up the content at [path], relative to this object if the path is
+  /// relative, else from the root.
   SearchResult resolvePath(Path path) {
     if (path.isRelative) {
       var nearestContainer = this is Container ? this as Container : null;
@@ -101,6 +110,8 @@ class InkObject {
     }
   }
 
+  /// Converts [globalPath] into a path relative to this object, using `^`
+  /// components to climb to the nearest shared ancestor.
   Path convertPathToRelative(Path globalPath) {
     // 1. Find last shared ancestor
     // 2. Drill up using ".." style (actually represented as "^")
@@ -167,6 +178,8 @@ class InkObject {
     }
   }
 
+  /// The container at the root of this object's hierarchy, or null if the
+  /// root isn't a container.
   Container? get rootContentContainer {
     InkObject ancestor = this;
     for (var p = ancestor.parent; p != null; p = ancestor.parent) {
@@ -175,6 +188,7 @@ class InkObject {
     return ancestor is Container ? ancestor : null;
   }
 
+  /// A copy of this object; throws for kinds of content that can't be copied.
   InkObject copy() {
     throw UnsupportedError("$runtimeType doesn't support copying");
   }

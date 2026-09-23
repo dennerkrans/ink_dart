@@ -134,6 +134,7 @@ class Story extends InkObject {
   /// state object.
   VariablesState get variablesState => state.variablesState;
 
+  /// The story's list definitions, or null if it declares no lists.
   ListDefinitionsOrigin? get listDefinitions => _listDefinitions;
 
   /// The entire current state of the story including (but not limited to):
@@ -318,6 +319,9 @@ class Story extends InkObject {
     state.variablesState.snapshotDefaultGlobals();
   }
 
+  /// Switches to the flow [flowName], creating it if needed (experimental).
+  /// Each flow has its own position, call stack, output and choices; globals
+  /// are shared.
   void switchFlow(String flowName) {
     _ifAsyncWeCant('switch flow');
     if (_asyncSaving) {
@@ -330,8 +334,11 @@ class Story extends InkObject {
     state.switchFlowInternal(flowName);
   }
 
+  /// Removes the flow [flowName], switching to the default flow if it was
+  /// current (experimental).
   void removeFlow(String flowName) => state.removeFlowInternal(flowName);
 
+  /// Switches back to the default flow (experimental).
   void switchToDefaultFlow() => state.switchToDefaultFlowInternal();
 
   /// Continue the story for one line of content, if possible.
@@ -678,14 +685,18 @@ class Story extends InkObject {
     return sb.toString();
   }
 
+  /// Looks up the content at [path] from the story's root.
   SearchResult contentAtPath(Path path) =>
       mainContentContainer.contentAtPath(path);
 
+  /// The knot or top-level function named [name], or null.
   Container? knotContainerWithName(String name) {
     final namedContainer = mainContentContainer.namedContent[name];
     return namedContainer is Container ? namedContainer : null;
   }
 
+  /// A pointer to the content at [path]; reports an error if it can't be
+  /// found.
   Pointer pointerAtPath(Path path) {
     if (path.length == 0) return Pointer.nullPointer;
 
@@ -1738,6 +1749,7 @@ class Story extends InkObject {
     }
   }
 
+  /// Moves the story to [p], counting visits to the containers entered.
   void choosePath(Path p, {bool incrementingTurnIndex = true}) {
     state.setChosenPath(p, incrementingTurnIndex: incrementingTurnIndex);
 
@@ -1836,6 +1848,8 @@ class Story extends InkObject {
 
   // Evaluate a "hot compiled" piece of ink content, as used by the REPL-like
   // CommandLinePlayer.
+  /// Evaluates a compiled expression container and returns its value, or
+  /// null. Used by development tools.
   InkObject? evaluateExpression(Container exprContainer) {
     final startCallStackHeight = state.callStack.elements.length;
 
@@ -2574,6 +2588,8 @@ class Story extends InkObject {
     throw StoryException(message)..useEndLineNumber = useEndLineNumber;
   }
 
+  /// Adds a runtime warning, reported through [onError] after the current
+  /// continue.
   void warning(String message) => _addError(message, isWarning: true);
 
   void _addError(
@@ -2640,6 +2656,8 @@ class Story extends InkObject {
     return null;
   }
 
+  /// The story's root container (or the container being evaluated by
+  /// [evaluateExpression]).
   Container get mainContentContainer {
     final temp = _temporaryEvaluationContainer;
     if (temp != null) {

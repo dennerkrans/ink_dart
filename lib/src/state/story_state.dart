@@ -37,6 +37,8 @@ class StoryState {
   // v10: dynamic tags
   // v9:  multi-flows
   static const kInkSaveStateVersion = 10;
+
+  /// The oldest save format version [loadJson] accepts.
   static const kMinCompatibleLoadVersion = 8;
 
   /// Callback for when a state is loaded
@@ -78,6 +80,8 @@ class StoryState {
     return _visitCounts[pathString] ?? 0;
   }
 
+  /// How many times [container] has been visited. Reports an error when the
+  /// container doesn't count visits.
   int visitCountForContainer(Container? container) {
     if (container == null || !container.visitsShouldBeCounted) {
       story.error(
@@ -93,6 +97,7 @@ class StoryState {
     return _visitCounts[containerPathStr] ?? 0;
   }
 
+  /// Adds one to [container]'s visit count.
   void incrementVisitCountForContainer(Container container) {
     final p = _patch;
     if (p != null) {
@@ -108,6 +113,7 @@ class StoryState {
     _visitCounts[containerPathStr] = count;
   }
 
+  /// Records that [container] was visited on the current turn.
   void recordTurnIndexVisitToContainer(Container container) {
     final p = _patch;
     if (p != null) {
@@ -119,6 +125,8 @@ class StoryState {
     _turnIndices[containerPathStr] = currentTurnIndex;
   }
 
+  /// Turns since [container] was last visited (`TURNS_SINCE`), or -1 if it
+  /// never was.
   int turnsSinceForContainer(Container container) {
     if (!container.turnIndexShouldBeCounted) {
       story.error(
@@ -139,14 +147,19 @@ class StoryState {
     }
   }
 
+  /// The number of elements on the current thread's call stack.
   int get callstackDepth => callStack.depth;
 
   // REMEMBER! REMEMBER! REMEMBER!
   // When adding state, update the Copy method, and serialisation.
   // REMEMBER! REMEMBER! REMEMBER!
 
+  /// The content generated so far for the current line, before text and tags
+  /// are separated.
   List<InkObject> get outputStream => _currentFlow.outputStream;
 
+  /// The choices available now, including invisible defaults; empty while the
+  /// story can still continue.
   List<Choice> get currentChoices {
     // If we can continue generating text content rather than choices,
     // then we reflect the choice list as being empty, since choices
@@ -155,6 +168,7 @@ class StoryState {
     return _currentFlow.currentChoices;
   }
 
+  /// The choices generated so far, whether or not the story can continue.
   List<Choice> get generatedChoices => _currentFlow.currentChoices;
 
   // TODO: Consider removing currentErrors / currentWarnings altogether
@@ -162,23 +176,40 @@ class StoryState {
   // StoryExceptions etc
   // Or is there a specific reason we need to collect potentially multiple
   // errors before throwing/exiting?
+  /// Errors from the last continue that haven't been reported yet, or null.
   List<String>? currentErrors;
+
+  /// Warnings from the last continue that haven't been reported yet, or null.
   List<String>? currentWarnings;
 
+  /// The story's global variables.
   late VariablesState variablesState;
 
+  /// The current flow's call stack of threads, tunnels and functions.
   CallStack get callStack => _currentFlow.callStack;
 
+  /// The stack of values used while evaluating expressions.
   List<InkObject> evaluationStack = [];
 
+  /// Where the next step diverts to, or the null pointer for none.
   Pointer divertedPointer = Pointer.nullPointer;
 
+  /// The number of choices made so far, minus one; -1 before the first.
   int currentTurnIndex = -1;
 
+  /// The seed for `RANDOM` and shuffles. Set it before continuing to get a
+  /// repeatable story.
   int storySeed = 0;
+
+  /// The last value drawn for `RANDOM` or `LIST_RANDOM`; combined with
+  /// [storySeed] to seed the next draw.
   int previousRandom = 0;
+
+  /// Whether the flow ended through `-> DONE` or `-> END` rather than by
+  /// running out of content.
   bool didSafeExit = false;
 
+  /// The story this state belongs to.
   Story story;
 
   /// String representation of the location where the story currently is.
@@ -191,6 +222,7 @@ class StoryState {
     }
   }
 
+  /// The path of the previously evaluated content, or null.
   String? get previousPathString {
     final pointer = previousPointer;
     if (pointer.isNull) {
@@ -200,28 +232,37 @@ class StoryState {
     }
   }
 
+  /// The position of the next content to evaluate.
   Pointer get currentPointer => callStack.currentElement.currentPointer;
 
+  /// Moves the position of the next content to evaluate.
   set currentPointer(Pointer value) =>
       callStack.currentElement.currentPointer = value;
 
+  /// The position of the previously evaluated content.
   Pointer get previousPointer => callStack.currentThread.previousPointer;
 
+  /// Sets the position of the previously evaluated content.
   set previousPointer(Pointer value) =>
       callStack.currentThread.previousPointer = value;
 
+  /// Whether there is more content to evaluate and no error has stopped it.
   bool get canContinue => !currentPointer.isNull && !hasError;
 
+  /// Whether [currentErrors] holds any errors.
   bool get hasError {
     final e = currentErrors;
     return e != null && e.isNotEmpty;
   }
 
+  /// Whether [currentWarnings] holds any warnings.
   bool get hasWarning {
     final w = currentWarnings;
     return w != null && w.isNotEmpty;
   }
 
+  /// The text of the output stream, without tags, with whitespace cleaned as
+  /// ink does.
   String get currentText {
     if (_outputStreamTextDirty) {
       final sb = StringBuffer();
@@ -286,6 +327,7 @@ class StoryState {
     return sb.toString();
   }
 
+  /// The tags in the output stream, in order.
   List<String> get currentTags {
     if (_outputStreamTagsDirty) {
       final tags = <String>[];
@@ -331,10 +373,13 @@ class StoryState {
 
   List<String> _currentTags = [];
 
+  /// The name of the current flow; `DEFAULT_FLOW` unless using multi-flow.
   String get currentFlowName => _currentFlow.name;
 
+  /// Whether the default flow is current.
   bool get currentFlowIsDefaultFlow => _currentFlow.name == kDefaultFlowName;
 
+  /// The names of the flows that exist, not counting the default flow.
   List<String> get aliveFlowNames {
     if (_aliveFlowNamesDirty) {
       final names = <String>[];
@@ -352,12 +397,15 @@ class StoryState {
 
   List<String> _aliveFlowNames = [];
 
+  /// Whether the current call stack element is evaluating an expression.
   bool get inExpressionEvaluation =>
       callStack.currentElement.inExpressionEvaluation;
 
+  /// Sets whether the current call stack element is evaluating an expression.
   set inExpressionEvaluation(bool value) =>
       callStack.currentElement.inExpressionEvaluation = value;
 
+  /// Creates the start state of [story], with a clock-based [storySeed].
   StoryState(this.story) : _currentFlow = Flow(kDefaultFlowName, story) {
     _outputStreamDirty();
     _aliveFlowNamesDirty = true;
@@ -379,12 +427,15 @@ class StoryState {
     goToStart();
   }
 
+  /// Points the current flow at the start of the story.
   void goToStart() {
     callStack.currentElement.currentPointer = Pointer.startOf(
       story.mainContentContainer,
     );
   }
 
+  /// Makes [flowName] the current flow, creating it if needed; use
+  /// `Story.switchFlow`. `SwitchFlow_Internal` in C#.
   void switchFlowInternal(String? flowName) {
     if (flowName == null) {
       throw SystemException('Must pass a non-null string to Story.SwitchFlow');
@@ -408,11 +459,13 @@ class StoryState {
     _outputStreamDirty();
   }
 
+  /// Makes the default flow current; use `Story.switchToDefaultFlow`.
   void switchToDefaultFlowInternal() {
     if (_namedFlows == null) return;
     switchFlowInternal(kDefaultFlowName);
   }
 
+  /// Removes the flow [flowName]; use `Story.removeFlow`.
   void removeFlowInternal(String? flowName) {
     if (flowName == null) {
       throw SystemException('Must pass a non-null string to Story.DestroyFlow');
@@ -503,6 +556,8 @@ class StoryState {
     return copy;
   }
 
+  /// Gives the variables state back its own call stack and patch after a
+  /// lookahead copy borrowed it.
   void restoreAfterPatch() {
     // VariablesState was being borrowed by the patched
     // state, so restore it with our own callstack.
@@ -512,6 +567,7 @@ class StoryState {
     variablesState.patch = _patch; // usually null
   }
 
+  /// Applies changes made during lookahead to the variables and counts.
   void applyAnyPatch() {
     final p = _patch;
     if (p == null) return;
@@ -713,11 +769,13 @@ class StoryState {
     previousRandom = previousRandomObj == null ? 0 : previousRandomObj as int;
   }
 
+  /// Clears [currentErrors] and [currentWarnings].
   void resetErrors() {
     currentErrors = null;
     currentWarnings = null;
   }
 
+  /// Clears the output stream, optionally replacing it with [objs].
   void resetOutput([List<InkObject>? objs]) {
     outputStream.clear();
     if (objs != null) outputStream.addAll(objs);
@@ -743,6 +801,7 @@ class StoryState {
     _outputStreamDirty();
   }
 
+  /// Removes the last [count] objects from the output stream.
   void popFromOutputStream(int count) {
     outputStream.removeRange(outputStream.length - count, outputStream.length);
     _outputStreamDirty();
@@ -985,6 +1044,7 @@ class StoryState {
     _outputStreamDirty();
   }
 
+  /// Whether the output stream ends in a newline.
   bool get outputStreamEndsInNewline {
     if (outputStream.isNotEmpty) {
       for (var i = outputStream.length - 1; i >= 0; i--) {
@@ -1003,6 +1063,7 @@ class StoryState {
     return false;
   }
 
+  /// Whether the output stream holds any text.
   bool get outputStreamContainsContent {
     for (final content in outputStream) {
       if (content is StringValue) return true;
@@ -1010,6 +1071,8 @@ class StoryState {
     return false;
   }
 
+  /// Whether a string is being built for an expression (for example choice
+  /// text).
   bool get inStringEvaluation {
     for (var i = outputStream.length - 1; i >= 0; i--) {
       final cmd = outputStream[i];
@@ -1021,6 +1084,8 @@ class StoryState {
     return false;
   }
 
+  /// Pushes [obj] onto the evaluation stack; list values get their origins
+  /// resolved first.
   void pushEvaluationStack(InkObject? obj) {
     // Include metadata about the origin List for list values when
     // they're used, so that lower level functions can make use
@@ -1049,12 +1114,16 @@ class StoryState {
     evaluationStack.add(obj);
   }
 
+  /// Removes and returns the top of the evaluation stack.
   InkObject popEvaluationStack() {
     return evaluationStack.removeLast();
   }
 
+  /// The top of the evaluation stack.
   InkObject peekEvaluationStack() => evaluationStack.last;
 
+  /// Removes and returns the top [numberOfObjects] values, oldest first.
+  /// `PopEvaluationStack(int)` in C#.
   List<InkObject> popEvaluationStackCount(int numberOfObjects) {
     if (numberOfObjects > evaluationStack.length) {
       throw SystemException('trying to pop too many objects');
@@ -1109,6 +1178,8 @@ class StoryState {
     }
   }
 
+  /// Pops the call stack, trimming trailing whitespace when leaving a
+  /// function. Throws if the top isn't of [popType].
   void popCallstack([PushPopType? popType]) {
     // Add the end of a function call, trim any whitespace from the end.
     if (callStack.currentElement.type == PushPopType.function) {
@@ -1120,6 +1191,8 @@ class StoryState {
 
   // Don't make public since the method need to be wrapped in Story for visit
   // counting
+  /// Moves the story to [path] and clears the choices, optionally counting a
+  /// new turn.
   void setChosenPath(Path path, {required bool incrementingTurnIndex}) {
     // Changing direction, assume we need to clear current set of choices
     _currentFlow.currentChoices.clear();
@@ -1134,6 +1207,8 @@ class StoryState {
     if (incrementingTurnIndex) currentTurnIndex++;
   }
 
+  /// Starts evaluating [funcContainer] as a function called from the game,
+  /// with [arguments] on the evaluation stack.
   void startFunctionEvaluationFromGame(
     Container funcContainer,
     List<Object?>? arguments,
@@ -1147,6 +1222,8 @@ class StoryState {
     passArgumentsToEvaluationStack(arguments);
   }
 
+  /// Pushes game-side [arguments] (`int`, `double`, `String`, `bool` or
+  /// [InkList]) onto the evaluation stack.
   void passArgumentsToEvaluationStack(List<Object?>? arguments) {
     // Pass arguments onto the evaluation stack
     if (arguments != null) {
@@ -1170,6 +1247,8 @@ class StoryState {
     }
   }
 
+  /// Ends a function evaluation started from the game, if one is current;
+  /// returns whether it was.
   bool tryExitFunctionEvaluationFromGame() {
     if (callStack.currentElement.type ==
         PushPopType.functionEvaluationFromGame) {
@@ -1181,6 +1260,9 @@ class StoryState {
     return false;
   }
 
+  /// Finishes a function evaluation started from the game and returns its
+  /// result: an `int`, `double`, `String`, `bool`, [InkList], a divert
+  /// target's path as a string, or null.
   Object? completeFunctionEvaluationFromGame() {
     if (callStack.currentElement.type !=
         PushPopType.functionEvaluationFromGame) {
@@ -1228,6 +1310,8 @@ class StoryState {
     return null;
   }
 
+  /// Adds [message] to [currentErrors] or, with [isWarning], to
+  /// [currentWarnings].
   void addError(String message, {required bool isWarning}) {
     if (!isWarning) {
       (currentErrors ??= []).add(message);
@@ -1255,6 +1339,8 @@ class StoryState {
 
   Flow _currentFlow;
   Map<String, Flow>? _namedFlows;
+
+  /// The name of the flow a story starts in.
   static const kDefaultFlowName = 'DEFAULT_FLOW';
   bool _aliveFlowNamesDirty = true;
 }

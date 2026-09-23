@@ -3,8 +3,10 @@
 ///
 /// [toString] is the bare message, as C#'s `Exception.Message` is.
 class SystemException implements Exception {
+  /// Creates an exception with [message].
   SystemException(this.message);
 
+  /// What went wrong, as the reference words it.
   final String message;
 
   @override
