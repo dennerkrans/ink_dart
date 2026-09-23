@@ -172,7 +172,7 @@ TypeScript to Dart is a mechanical translation for this codebase: classes, enums
 1. **Core flow.** Done: the whole runtime, including lists, threads and multi-flow, is ported, and all 168 goldens pass.
 2. **Persistence and game interface.** Done: 19 scripted cases drive external functions (typed bindings with C#'s argument conversion), observers, `evaluateFunction`, `choosePathString`, variables, save/load, flows and tags; every save is byte-identical to C#'s, and C#'s saves load and play on in Dart.
 3. **Lists and threads.** Done: new cases for list operators, `LIST_RANDOM`, `RANDOM` edge cases and thread choices with temporaries; inkjs's integration story scripted from its engine specs; ink's C# `Tests.cs` stories are all already in the corpus; thread choices load from C# saves at every checkpoint.
-4. **Later.** Verify multi-flow with scripts that call `SwitchFlow`/`RemoveFlow`; profiler hooks; a `flutter_ink` package with a story widget and a debug view.
+4. **Multi-flow, profiler, Flutter.** Done: authored multi-flow and background-save cases; the profiler's step log matches C#'s for every runtime object; `packages/flutter_ink` with a story controller, a story view and a debug view.
 
 Adventuring Shape needs phases 1 and 2. Publish the package to pub.dev at the end of all the phases (decided 2026-09-23), with multi-flow no longer experimental once phase 4 verifies it.
 
@@ -202,20 +202,23 @@ The test oracle is the reference runtime, not your reading of it. Both ink and i
 One pure Dart package, one optional Flutter package on top, in a small monorepo.
 
 ```
-ink_dart/
+ink_dart/                      # the repo; not a package itself
   packages/
-    ink_dart/               # pure Dart, zero Flutter
-      lib/ink_dart.dart     # public exports only
-      lib/src/runtime/      # object model, one file per class, reference names
-      lib/src/state/        # StoryState, CallStack, VariablesState
-      lib/src/json/         # JsonSerialisation, PRNG
-      lib/src/story.dart
-      test/conformance/     # <case>.ink, <case>.json, <case>.golden.json
+    ink_dart/                  # pure Dart, zero Flutter, no dependencies
+      lib/ink_dart.dart        # public exports only
+      lib/src/runtime/         # object model, one file per class, reference names
+      lib/src/state/           # StoryState, CallStack, VariablesState, Flow
+      lib/src/json/            # JsonSerialisation, SimpleJson
+      lib/src/story.dart, prng.dart, float32.dart, profiler.dart
+      test/conformance/        # harness + cases/<phase>/<category>/<case>.{ink,json,golden.json,script.json}
       test/unit/
-      tool/regen_goldens.sh # node inkjs compiler + runner
-    flutter_ink/            # later: StoryController, StoryView, debug panel
-  melos.yaml or a plain workspace
+      example/                 # example.dart, play.dart
+    flutter_ink/               # StoryController, StoryView, StoryDebugView
+  tool/                        # C# oracle (ink 1.2.1 DLLs), regen_goldens.mjs, vendoring scripts
+  docs/SPEC.md
 ```
+
+No pub workspace: a workspace would pull the Flutter SDK into ink_dart's own resolution. flutter_ink depends on ink_dart ^0.1.0 and a committed `pubspec_overrides.yaml` points it at the local package until both are published.
 
 | Concern | Choice |
 | --- | --- |
