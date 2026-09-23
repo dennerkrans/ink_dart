@@ -433,6 +433,17 @@ String _eventMismatch(
   List<Map<String, Object?>> actual,
   String where,
 ) {
+  final e = i < expected.length ? expected[i] : null;
+  final a = i < actual.length ? actual[i] : null;
+  if (e?['type'] == 'checkpoint' && a?['type'] == 'checkpoint') {
+    final es = e?['state'] as String;
+    final as_ = a?['state'] as String;
+    final at = jsonPath(jsonDecode(es), jsonDecode(as_), r'$');
+    return '${c.name}: checkpoint at event $i differs'
+        '${at == null ? ' in bytes only' : ' at $at'}\n'
+        '  expected: $es\n'
+        '  actual:   $as_';
+  }
   String show(List<Map<String, Object?>> events) =>
       i < events.length ? jsonEncode(events[i]) : '(no event)';
   final context = [

@@ -26,7 +26,7 @@ The oracle is the C# reference runtime (ink 1.2.1, DLLs in `tool/oracle/lib/`), 
 ## Phases
 
 1. Core flow (done: the whole runtime is ported, and all 168 goldens pass)
-2. Persistence, observers, externals, `evaluateFunction`, `choosePathString`, tags: verify with scripted cases and a save/load round trip over every golden
+2. Persistence, observers, externals, `evaluateFunction`, `choosePathString`, tags (done: 19 scripted cases; saves byte-identical to C# at every checkpoint; C# saves load in Dart)
 3. Verify lists and threads with scripted cases (thread choices across save/load first), and vendor ink's own C# test stories from `Tests.cs`
 4. Multi-flow verification (scripts that call `switchFlow`/`removeFlow`), profiler, `flutter_ink`
 

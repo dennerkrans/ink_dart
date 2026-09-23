@@ -63,6 +63,9 @@ and must serialise identically and play on to the same transcript.
   does. Guards: 1000 continues, 100 choices; a case that
   hits one records a `truncated` event.
 
+The `.script.json` files are hand-written and live beside the cases, so
+re-vendoring must keep them (don't delete `cases/` wholesale).
+
 Regenerate with `node tool/regen_goldens.mjs [filter]` (needs the .NET 10
 SDK; tests do not). Re-vendor from a fresh inkjs checkout with
 `node tool/vendor_cases.mjs path/to/inkjs` (needs `npm ci` in `tool/`).

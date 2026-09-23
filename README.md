@@ -6,11 +6,12 @@ checked against inkle's C# runtime (numbers and randomness follow C#). Spec:
 [`docs/SPEC.md`](docs/SPEC.md). For the ink language itself, see the
 [official ink documentation](https://github.com/inkle/ink/blob/master/Documentation/WritingWithInk.md).
 
-**Status: phase 1.** The runtime is ported and passes every conformance
-case (168 stories), including lists, threads and the multi-flow stories.
-The generic transcript driver only continues and chooses, so externals,
-`choosePathString`, `evaluateFunction`, observers and save/load are not yet
-exercised by the goldens; that is phase 2.
+**Status: phase 2.** The runtime passes every conformance case (168 stories,
+including lists, threads and multi-flow), checked against inkle's C#
+runtime. 19 cases drive the game-side API through scripts: external
+functions, observers, `evaluateFunction`, `choosePathString`, variables,
+save/load and flows. Every save is byte-identical to C#'s, and C#'s saves
+load and play on in Dart.
 
 ```
 dart run example/play.dart path/to/story.json [--seed N]
