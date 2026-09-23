@@ -171,7 +171,7 @@ TypeScript to Dart is a mechanical translation for this codebase: classes, enums
 
 1. **Core flow.** Done: the whole runtime, including lists, threads and multi-flow, is ported, and all 168 goldens pass.
 2. **Persistence and game interface.** Done: 19 scripted cases drive external functions (typed bindings with C#'s argument conversion), observers, `evaluateFunction`, `choosePathString`, variables, save/load, flows and tags; every save is byte-identical to C#'s, and C#'s saves load and play on in Dart.
-3. **Lists and threads.** Verify with scripted cases, starting with thread choices across save/load, and vendor ink's own C# test stories.
+3. **Lists and threads.** Done: new cases for list operators, `LIST_RANDOM`, `RANDOM` edge cases and thread choices with temporaries; inkjs's integration story scripted from its engine specs; ink's C# `Tests.cs` stories are all already in the corpus; thread choices load from C# saves at every checkpoint.
 4. **Later.** Verify multi-flow with scripts that call `SwitchFlow`/`RemoveFlow`; profiler hooks; a `flutter_ink` package with a story widget and a debug view.
 
 Adventuring Shape needs phases 1 and 2. Publish the package to pub.dev at the end of all the phases (decided 2026-09-23), with multi-flow no longer experimental once phase 4 verifies it.
