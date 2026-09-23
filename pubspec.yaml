@@ -4,6 +4,8 @@ description: >-
   stories compiled to ink's JSON format, checked against the C# reference
   runtime: same text, choices, randomness and save files.
 version: 0.1.0
+repository: https://github.com/dennerkrans/ink_dart
+issue_tracker: https://github.com/dennerkrans/ink_dart/issues
 topics:
   - ink
   - interactive-fiction
