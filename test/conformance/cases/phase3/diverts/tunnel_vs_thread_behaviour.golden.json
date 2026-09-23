@@ -29,6 +29,10 @@
       ]
     },
     {
+      "type": "checkpoint",
+      "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"0\",\"idx\":0,\"exp\":false,\"type\":0},{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"knot_with_options.0.1.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"knot_with_options.0.1.8\"}],\"threadCounter\":2},\"outputStream\":[],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"0\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"knot_with_options.0.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"knot_with_options.0.0.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"knot_with_options.0.0.7\"},\"2\":{\"callstack\":[{\"cPath\":\"0\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"knot_with_options.0.1\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"knot_with_options.0.1.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"knot_with_options.0.1.7\"}},\"currentChoices\":[{\"text\":\"A\",\"index\":0,\"originalChoicePath\":\"knot_with_options.0.0.8\",\"originalThreadIndex\":1,\"targetPath\":\"knot_with_options.0.c-0\"},{\"text\":\"B\",\"index\":1,\"originalChoicePath\":\"knot_with_options.0.1.8\",\"originalThreadIndex\":2,\"targetPath\":\"knot_with_options.0.c-1\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+    },
+    {
       "type": "choose",
       "index": 0
     },
@@ -66,6 +70,10 @@
           "tags": []
         }
       ]
+    },
+    {
+      "type": "checkpoint",
+      "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.7.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.7.8\"}],\"threadCounter\":6},\"outputStream\":[\"^Starting thread.\",\"\\n\"],\"choiceThreads\":{\"4\":{\"callstack\":[{\"cPath\":\"thread_with_options.0.0\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"thread_with_options.0.0.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"thread_with_options.0.0.7\"},\"5\":{\"callstack\":[{\"cPath\":\"thread_with_options.0.1\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"thread_with_options.0.1.$r1\"}}}],\"threadIndex\":5,\"previousContentObject\":\"thread_with_options.0.1.7\"},\"6\":{\"callstack\":[{\"cPath\":\"0.7\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.7.$r1\"}}}],\"threadIndex\":6,\"previousContentObject\":\"0.7.7\"}},\"currentChoices\":[{\"text\":\"C\",\"index\":0,\"originalChoicePath\":\"thread_with_options.0.0.8\",\"originalThreadIndex\":4,\"targetPath\":\"thread_with_options.0.c-0\"},{\"text\":\"D\",\"index\":1,\"originalChoicePath\":\"thread_with_options.0.1.8\",\"originalThreadIndex\":5,\"targetPath\":\"thread_with_options.0.c-1\"},{\"text\":\"E\",\"index\":2,\"originalChoicePath\":\"0.7.8\",\"originalThreadIndex\":6,\"targetPath\":\"0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"knot_with_options.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
     },
     {
       "type": "choose",

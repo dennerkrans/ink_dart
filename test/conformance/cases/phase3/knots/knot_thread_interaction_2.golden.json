@@ -29,6 +29,10 @@
       ]
     },
     {
+      "type": "checkpoint",
+      "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"knot.3\"}],\"threadCounter\":2},\"outputStream\":[\"^When should this get printed?\",\"\\n\"],\"choiceThreads\":{\"2\":{\"callstack\":[{\"cPath\":\"threadA\",\"idx\":0,\"exp\":false,\"type\":0},{\"cPath\":\"tunnel.0.g-0.2\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"tunnel.0.g-0.2.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"tunnel.0.g-0.2.7\"}},\"currentChoices\":[{\"text\":\"I’m an option\",\"index\":0,\"originalChoicePath\":\"tunnel.0.g-0.2.8\",\"originalThreadIndex\":2,\"targetPath\":\"tunnel.0.g-0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+    },
+    {
       "type": "choose",
       "index": 0
     },

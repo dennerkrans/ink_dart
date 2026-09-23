@@ -78,9 +78,9 @@ Replay replay(ConformanceCase c, {bool roundTrip = false}) =>
 /// Plays a case: the golden's op script, then the default loop (continue to
 /// the next choice, take the first, repeat).
 ///
-/// With [roundTrip], every choice point in the default loop saves the state,
-/// loads it into a fresh [Story] and carries on there; the transcript must
-/// not change.
+/// Every choice point in the default loop records a `checkpoint` with the
+/// save JSON. With [roundTrip], the oracle's checkpoint JSON is then loaded
+/// into a fresh [Story], which carries on; the transcript must not change.
 class Driver {
   Driver(this.c, {this.roundTrip = false});
 
@@ -98,6 +98,7 @@ class Driver {
   final List<Map<String, Object?>> _configOps = [];
 
   late Story _story;
+  int _checkpoints = 0;
 
   void _record(Map<String, Object?> e) => _events.add(e);
 
@@ -144,7 +145,9 @@ class Driver {
           break;
         }
         choicesMade++;
-        if (roundTrip) _swapForReloadedStory();
+        final saved = _story.state.toJson();
+        _record({'type': 'checkpoint', 'state': saved});
+        if (roundTrip) _swapForReloadedStory(_checkpoints++);
         _choose(0);
       }
     } catch (e) {
@@ -167,8 +170,16 @@ class Driver {
     return story;
   }
 
-  void _swapForReloadedStory() {
-    final saved = _story.state.toJson();
+  /// Loads the oracle's save from the [n]th checkpoint (C#'s bytes, not
+  /// ours) into a fresh story and carries on there.
+  void _swapForReloadedStory(int n) {
+    final goldenCheckpoints = [
+      for (final e in c.events)
+        if (e['type'] == 'checkpoint') e['state'] as String,
+    ];
+    final saved = n < goldenCheckpoints.length
+        ? goldenCheckpoints[n]
+        : _story.state.toJson();
     final fresh = _newStory();
     final previous = _story;
     _story = fresh;
@@ -401,7 +412,15 @@ String? diff(ConformanceCase c, Replay actual) {
   final e = jsonDecode(expectedState);
   final a = jsonDecode(actualState);
   final where = jsonPath(e, a, r'$');
-  if (where == null) return null;
+  if (where == null) {
+    // Same structure; saves must also be byte-identical, so that a Dart
+    // save is a C# save.
+    if (expectedState == actualState) return null;
+    return '${c.name}: final state has the same structure but different '
+        'bytes\n'
+        '  expected: $expectedState\n'
+        '  actual:   $actualState';
+  }
   return '${c.name}: final state differs at $where\n'
       '  expected: ${_at(e, where)}\n'
       '  actual:   ${_at(a, where)}';

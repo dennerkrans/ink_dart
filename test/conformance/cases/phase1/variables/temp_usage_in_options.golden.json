@@ -24,6 +24,10 @@
       ]
     },
     {
+      "type": "checkpoint",
+      "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"one\":1,\"$r\":{\"^->\":\"0.4.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"0.4.8\"}],\"threadCounter\":1},\"outputStream\":[],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"0.4\",\"idx\":8,\"exp\":false,\"type\":0,\"temp\":{\"one\":1,\"$r\":{\"^->\":\"0.4.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.4.7\"}},\"currentChoices\":[{\"text\":\"1\",\"index\":0,\"originalChoicePath\":\"0.4.8\",\"originalThreadIndex\":1,\"targetPath\":\"0.c-0\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+    },
+    {
       "type": "choose",
       "index": 0
     },

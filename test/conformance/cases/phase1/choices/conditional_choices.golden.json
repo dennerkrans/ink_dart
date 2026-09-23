@@ -39,6 +39,10 @@
       ]
     },
     {
+      "type": "checkpoint",
+      "state": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.5.$r1\"}}}],\"threadIndex\":0,\"previousContentObject\":\"0.5.9\"}],\"threadCounter\":4},\"outputStream\":[],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"0.1\",\"idx\":15,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.1.$r1\"}}}],\"threadIndex\":1,\"previousContentObject\":\"0.1.14\"},\"2\":{\"callstack\":[{\"cPath\":\"0.3\",\"idx\":9,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.3.$r1\"}}}],\"threadIndex\":2,\"previousContentObject\":\"0.3.8\"},\"3\":{\"callstack\":[{\"cPath\":\"0.4\",\"idx\":11,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.4.$r1\"}}}],\"threadIndex\":3,\"previousContentObject\":\"0.4.10\"},\"4\":{\"callstack\":[{\"cPath\":\"0.5\",\"idx\":9,\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.5.$r1\"}}}],\"threadIndex\":4,\"previousContentObject\":\"0.5.8\"}},\"currentChoices\":[{\"text\":\"one\",\"index\":0,\"originalChoicePath\":\"0.1.15\",\"originalThreadIndex\":1,\"targetPath\":\"0.c-1\"},{\"text\":\"two\",\"index\":1,\"originalChoicePath\":\"0.3.9\",\"originalThreadIndex\":2,\"targetPath\":\"0.c-3\"},{\"text\":\"three\",\"index\":2,\"originalChoicePath\":\"0.4.11\",\"originalThreadIndex\":3,\"targetPath\":\"0.c-4\"},{\"text\":\"four\",\"index\":3,\"originalChoicePath\":\"0.5.9\",\"originalThreadIndex\":4,\"targetPath\":\"0.c-5\"}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+    },
+    {
       "type": "choose",
       "index": 0
     },

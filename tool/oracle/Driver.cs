@@ -79,6 +79,9 @@ sealed class Driver
                     break;
                 }
                 choicesMade++;
+                // The save a game would make here; Dart must write the same
+                // bytes and load these.
+                Record(new JsonObject { ["type"] = "checkpoint", ["state"] = _story.state.ToJson() });
                 Choose(0);
             }
         }
