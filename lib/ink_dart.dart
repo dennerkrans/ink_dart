@@ -1,11 +1,20 @@
-/// Pure Dart runtime for inkle's ink.
+/// Pure Dart runtime for inkle's ink, ported structurally from inkjs and
+/// checked against the C# reference runtime.
 ///
-/// Phase 0: the public API exists as signatures only, so the conformance
-/// harness can drive it; every member throws [UnimplementedError] until
-/// phase 1 ports the runtime from inkjs.
+/// ```dart
+/// final story = Story.fromJson(jsonString);
+/// while (story.canContinue) {
+///   print(story.continueStory());
+/// }
+/// ```
 library;
 
-export 'src/choice.dart' show Choice;
 export 'src/error.dart' show ErrorHandler, ErrorType;
+export 'src/runtime/choice.dart' show Choice;
+export 'src/runtime/ink_list.dart' show InkList;
+export 'src/runtime/ink_list_item.dart' show InkListItem;
 export 'src/state/story_state.dart' show StoryState;
-export 'src/story.dart' show Story;
+export 'src/state/variables_state.dart' show VariablesState;
+export 'src/story.dart' show ExternalFunction, Story, VariableObserver;
+export 'src/story_exception.dart' show StoryException;
+export 'src/system_exception.dart' show SystemException;

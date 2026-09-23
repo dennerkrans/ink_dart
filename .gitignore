@@ -3,3 +3,5 @@ pubspec.lock
 tool/node_modules/
 tool/oracle/bin/
 tool/oracle/obj/
+tool/oracle_unit/bin/
+tool/oracle_unit/obj/
