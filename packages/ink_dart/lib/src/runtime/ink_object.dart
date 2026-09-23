@@ -194,6 +194,9 @@ class InkObject {
   @override
   String toString() => 'Ink.Runtime.$runtimeType';
 
+  /// A copy of this object, for the few runtime types that support it
+  /// (values and control commands); others throw [UnsupportedError], as in
+  /// the reference.
   InkObject copy() {
     throw UnsupportedError("$runtimeType doesn't support copying");
   }
