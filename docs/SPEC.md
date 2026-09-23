@@ -170,11 +170,11 @@ TypeScript to Dart is a mechanical translation for this codebase: classes, enums
 **Phases, each ending green on its slice of the conformance corpus**
 
 1. **Core flow.** Done: the whole runtime, including lists, threads and multi-flow, is ported, and all 168 goldens pass.
-2. **Persistence and game interface.** Verify `StoryState.toJson`/`loadJson` (a round trip over every golden), variable observers, external functions with lookahead safety and fallbacks, `evaluateFunction`, `choosePathString`, tags and `globalTags` with scripted cases.
+2. **Persistence and game interface.** Done: 19 scripted cases drive external functions (typed bindings with C#'s argument conversion), observers, `evaluateFunction`, `choosePathString`, variables, save/load, flows and tags; every save is byte-identical to C#'s, and C#'s saves load and play on in Dart.
 3. **Lists and threads.** Verify with scripted cases, starting with thread choices across save/load, and vendor ink's own C# test stories.
 4. **Later.** Verify multi-flow with scripts that call `SwitchFlow`/`RemoveFlow`; profiler hooks; a `flutter_ink` package with a story widget and a debug view.
 
-Adventuring Shape needs phases 1 and 2. Ship the package to pub.dev after phase 2 with lists and threads supported and multi-flow marked experimental until phase 4 verifies it.
+Adventuring Shape needs phases 1 and 2. Publish the package to pub.dev at the end of all the phases (decided 2026-09-23), with multi-flow no longer experimental once phase 4 verifies it.
 
 ## Conformance testing
 
@@ -261,6 +261,6 @@ A fresh port through phase 2 is roughly 4–6 weekends for someone who reads Typ
 Open questions:
 
 - [x] Pin the ink and inkjs versions to conform to: the C# runtime and compiler of ink 1.2.1 (tag `v1.2.1`, `35c63e5`) as the oracle, the story corpus from inkjs commit `6b11534`; `inkVersion` 21, `inkSaveVersion` 10. Stories with `inkVersion` 18–21 load, as in C#. Numbers follow C# (32-bit floats, no demotion of whole floats to ints), decided 2026-09-23.
-- [ ] Confirm `ink_dart` is free on pub.dev before first publish
+- [x] Confirm `ink_dart` is free on pub.dev before first publish: free as of 2026-09-23
 - [ ] Whether the app's arc one waits for phase 2 or ships on the custom node format first
 - [ ] Whether multi-flow is ever needed (parallel hub and delve stories would use it)

@@ -30,7 +30,7 @@ The oracle is the C# reference runtime (ink 1.2.1, DLLs in `tool/oracle/lib/`), 
 3. Verify lists and threads with scripted cases (thread choices across save/load first), and vendor ink's own C# test stories from `Tests.cs`
 4. Multi-flow verification (scripts that call `switchFlow`/`removeFlow`), profiler, `flutter_ink`
 
-Ship to pub.dev after phase 2 with lists and threads supported and multi-flow marked experimental until phase 4 verifies it. Nothing is refused at load.
+Publish to pub.dev at the end of all the phases, not before (decided 2026-09-23). Multi-flow stays marked experimental until phase 4 verifies it. Nothing is refused at load.
 
 ## References
 
