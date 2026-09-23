@@ -5,3 +5,4 @@ tool/oracle/bin/
 tool/oracle/obj/
 tool/oracle_unit/bin/
 tool/oracle_unit/obj/
+tool/fuzz-failures/

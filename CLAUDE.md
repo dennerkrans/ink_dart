@@ -33,6 +33,7 @@ The oracle is the C# runtime, not inkjs. Regenerating goldens needs the .NET 10 
 - A case is `<case>.ink` under `packages/ink_dart/test/conformance/cases/<phase>/<category>/`, plus an optional `<case>.script.json` of ops (see that folder's README). `node tool/regen_goldens.mjs [filter]` compiles it and records `<case>.json` and `<case>.golden.json`.
 - The Dart suite replays each golden twice: straight through, and loading C#'s saved state into a fresh story at every choice point.
 - Both drivers, `tool/oracle/Driver.cs` and `packages/ink_dart/test/conformance/harness.dart`, implement the same ops and events; change them together.
+- `tool/fuzz.mjs` plays random runs in both runtimes and diffs them; run it after runtime changes, and turn anything it finds into a case.
 - Hand-written cases go in `*/ink-dart/` and say so in their first line. `.script.json` files are hand-written: re-vendoring must keep them.
 
 ## Releasing
@@ -61,4 +62,5 @@ dart test --compiler exe test/conformance  # AOT
 dart run example/play.dart path/to/story.json
 cd ../flutter_ink && flutter test
 node tool/regen_goldens.mjs [filter]       # from the repo root; needs .NET 10
+node tool/fuzz.mjs [runs] [seed]           # differential fuzzing against C#; needs .NET 10
 ```

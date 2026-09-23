@@ -9,6 +9,7 @@ import 'dart:io';
 
 import 'package:ink_dart/ink_dart.dart';
 import 'package:ink_dart/src/float32.dart';
+import 'package:ink_dart/src/prng.dart';
 import 'package:ink_dart/src/runtime/path.dart';
 
 /// Same guards as tool/oracle/Program.cs.
@@ -23,12 +24,31 @@ const _errorKinds = {
 
 /// One case: `<case>.json` (compiled story) and `<case>.golden.json`.
 class ConformanceCase {
-  ConformanceCase(this.goldenFile);
+  ConformanceCase(File this.goldenFile);
 
-  final File goldenFile;
+  /// A run with no golden, for the differential fuzzer: [script] played on
+  /// the compiled story [json] with [seed].
+  ConformanceCase.run({
+    required String name,
+    required String json,
+    required int seed,
+    required List<Map<String, Object?>> script,
+  }) : goldenFile = null,
+       _storyJson = json,
+       _golden = {'case': name, 'seed': seed, 'script': script, 'events': []};
 
-  late final Map<String, Object?> golden =
-      jsonDecode(goldenFile.readAsStringSync()) as Map<String, Object?>;
+  final File? goldenFile;
+  String? _storyJson;
+  Map<String, Object?>? _golden;
+
+  Map<String, Object?> get golden =>
+      _golden ??= jsonDecode(_file.readAsStringSync()) as Map<String, Object?>;
+
+  File get _file {
+    final f = goldenFile;
+    if (f == null) throw StateError('this run has no golden file');
+    return f;
+  }
 
   String get name => golden['case'] as String;
 
@@ -41,18 +61,17 @@ class ConformanceCase {
 
   String? get finalState => golden['finalState'] as String?;
 
-  String get storyJson => File(
-    goldenFile.path.replaceFirst(RegExp(r'\.golden\.json$'), '.json'),
+  String get storyJson => _storyJson ??= File(
+    _file.path.replaceFirst(RegExp(r'\.golden\.json$'), '.json'),
   ).readAsStringSync();
 
   /// A save inkjs made at the first choice, if one was recorded (see
   /// tool/record_inkjs_saves.mjs).
   String? get inkjsSave {
+    final gf = goldenFile;
+    if (gf == null) return null;
     final f = File(
-      goldenFile.path.replaceFirst(
-        RegExp(r'\.golden\.json$'),
-        '.inkjs-save.json',
-      ),
+      gf.path.replaceFirst(RegExp(r'\.golden\.json$'), '.inkjs-save.json'),
     );
     return f.existsSync() ? f.readAsStringSync() : null;
   }
@@ -154,7 +173,8 @@ class Driver {
           in resume == null ? c.script : const <Map<String, Object?>>[]) {
         try {
           continues = _runOp(op, continues);
-        } catch (e) {
+        } catch (e, stack) {
+          _trace(op, e, stack);
           _record({'type': 'exception', 'message': '$e'});
         }
       }
@@ -193,6 +213,12 @@ class Driver {
       finalState = null;
     }
     return Replay(_events, finalState, reloads: reloads);
+  }
+
+  /// With INK_TRACE=1 in the environment, prints where an op failed.
+  static void _trace(Map<String, Object?> op, Object e, StackTrace stack) {
+    if (Platform.environment['INK_TRACE'] != '1') return;
+    stderr.writeln('op ${jsonEncode(op)} threw $e\n$stack');
   }
 
   Story _newStory() {
@@ -326,6 +352,25 @@ class Driver {
       case 'freshStory':
         // A new Story from the same JSON, as a game would make on relaunch.
         _story = _newStory()..state.storySeed = c.seed;
+      case 'chooseRandom':
+        // The fuzzer's choice: .NET's Random(seed).Next() modulo the choice
+        // count, so both runtimes pick the same one.
+        final choices = _story.currentChoices;
+        if (choices.isEmpty) {
+          _record({'type': 'noChoices'});
+        } else {
+          _recordChoices();
+          final seed = op['seed'] as int;
+          _choose(PRNG(seed).next() % choices.length);
+        }
+      case 'saveReload':
+        // Save, then carry on in a fresh story loaded from that save.
+        final saved = _story.state.toJson();
+        _story = _newStory()..state.storySeed = c.seed;
+        for (final configOp in _configOps) {
+          _runOp(configOp, 0, replaying: true);
+        }
+        _story.state.loadJson(saved);
       case 'currentText':
         _record({'type': 'currentText', 'text': _story.currentText});
       case 'currentChoices':

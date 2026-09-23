@@ -1116,11 +1116,26 @@ class StoryState {
 
   /// Removes and returns the top of the evaluation stack.
   InkObject popEvaluationStack() {
+    _checkEvaluationStackNotEmpty();
     return evaluationStack.removeLast();
   }
 
   /// The top of the evaluation stack.
-  InkObject peekEvaluationStack() => evaluationStack.last;
+  InkObject peekEvaluationStack() {
+    _checkEvaluationStackNotEmpty();
+    return evaluationStack.last;
+  }
+
+  /// The reference indexes `evaluationStack[Count - 1]`, so an empty stack
+  /// fails with .NET's list message rather than a Dart `RangeError`.
+  void _checkEvaluationStackNotEmpty() {
+    if (evaluationStack.isEmpty) {
+      throw SystemException(
+        'Index was out of range. Must be non-negative and less than the size '
+        "of the collection. (Parameter 'index')",
+      );
+    }
+  }
 
   /// Removes and returns the top [numberOfObjects] values, oldest first.
   /// `PopEvaluationStack(int)` in C#.

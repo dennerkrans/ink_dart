@@ -59,6 +59,8 @@ static class Oracle
             Console.Error.WriteLine("usage: InkOracle <cases dir> [filter]");
             return 64;
         }
+        if (args[0] == "--runs") return RunBatch(args[1], args[2]);
+
         var casesDir = Path.GetFullPath(args[0]);
         var filter = args.Length > 1 ? args[1] : "";
         var written = 0;
@@ -128,6 +130,30 @@ static class Oracle
             foreach (var f in failures) Console.Error.WriteLine($"  {f}");
             return 1;
         }
+        return 0;
+    }
+
+    // The differential fuzzer's batch mode (tool/fuzz.mjs): plays each run
+    // {name, story (path to compiled JSON), seed, script} and writes
+    // [{name, events, finalState}].
+    static int RunBatch(string runsPath, string outPath)
+    {
+        var runs = JsonNode.Parse(File.ReadAllText(runsPath)).AsArray();
+        var results = new JsonArray();
+        foreach (var runNode in runs)
+        {
+            var run = runNode.AsObject();
+            var json = File.ReadAllText((string)run["story"]);
+            var (events, finalState) = new Driver(json, seed: (int)run["seed"])
+                .Play(run["script"].AsArray());
+            results.Add(new JsonObject
+            {
+                ["name"] = (string)run["name"],
+                ["events"] = events,
+                ["finalState"] = finalState,
+            });
+        }
+        File.WriteAllText(outPath, results.ToJsonString());
         return 0;
     }
 

@@ -90,6 +90,22 @@ an invisible default, so after loading, the C# runtime (and so ink_dart)
 offers it as a visible, empty choice. inkjs writes an extra
 `isInvisibleDefault` field for it, which neither loader reads.
 
+## Differential fuzzing
+
+`node tool/fuzz.mjs [runs] [seed]` plays random runs over this corpus in both
+the C# runtime and ink_dart and reports any difference in events or final
+save. A run is a random story with its script's bindings and observers, then
+random ops: a random choice (`chooseRandom`, picked with .NET's `Random` so
+both sides agree), continues, save and reload into a fresh story
+(`saveReload`), jumps to random knots, flow switches and resets. The same
+seed gives the same runs. It needs .NET 10 and Dart, so it runs on demand,
+not in CI; a difference it finds becomes a regular case here.
+
+The first runs found one: when random jumps land mid-function and pop an
+empty evaluation stack, ink_dart crashed at the same step as C# but with
+Dart's `RangeError` text; it now throws C#'s message. Since then, 14,300 runs
+(386,000 events, seeds 1, 2, 3 and 42) show no difference.
+
 ## Cases written for ink_dart
 
 `*/ink-dart/` holds stories written here rather than vendored, each saying so

@@ -20,11 +20,14 @@ sealed class Driver
     StoryState _backgroundSave;
     Profiler _profiler;
 
-    public Driver(string json, string resumeFrom = null)
+    public Driver(string json, string resumeFrom = null, int seed = Oracle.Seed)
     {
         _json = json;
         _resumeFrom = resumeFrom;
+        _seed = seed;
     }
+
+    readonly int _seed;
 
     // A save to load before playing; skips the global tags and the script.
     readonly string _resumeFrom;
@@ -117,7 +120,7 @@ sealed class Driver
             };
             Record(new JsonObject { ["type"] = kind, ["message"] = message });
         };
-        _story.state.storySeed = Oracle.Seed;
+        _story.state.storySeed = _seed;
     }
 
     void ContinueOnce()
@@ -151,9 +154,15 @@ sealed class Driver
         _story.ChooseChoiceIndex(index);
     }
 
-    void RunOp(JsonObject op, ref int continues)
+    // Ops that configure a story rather than drive it; replayed on the fresh
+    // story after saveReload.
+    readonly List<JsonObject> _configOps = new();
+
+    void RunOp(JsonObject op, ref int continues, bool replaying = false)
     {
         var name = (string)op["op"];
+        if (!replaying && (name == "bind" || name == "unbind" || name == "observe" || name == "allowExternalFunctionFallbacks"))
+            _configOps.Add(op);
         switch (name)
         {
             case "continue":
@@ -232,12 +241,37 @@ sealed class Driver
             case "resetState":
                 // ResetState seeds from the clock; keep the case deterministic.
                 _story.ResetState();
-                _story.state.storySeed = Oracle.Seed;
+                _story.state.storySeed = _seed;
                 break;
             case "freshStory":
                 // A new Story from the same JSON, as a game would make on relaunch.
                 NewStory();
                 break;
+            case "chooseRandom":
+            {
+                // The fuzzer's choice: Random(seed).Next() modulo the choice
+                // count, so both runtimes pick the same one.
+                var choices = _story.currentChoices;
+                if (choices.Count == 0)
+                {
+                    Record(new JsonObject { ["type"] = "noChoices" });
+                }
+                else
+                {
+                    RecordChoices();
+                    Choose(new Random((int)op["seed"]).Next() % choices.Count);
+                }
+                break;
+            }
+            case "saveReload":
+            {
+                // Save, then carry on in a fresh story loaded from that save.
+                var saved = _story.state.ToJson();
+                NewStory();
+                foreach (var configOp in _configOps) RunOp(configOp, ref continues, replaying: true);
+                _story.state.LoadJson(saved);
+                break;
+            }
             case "currentText":
                 Record(new JsonObject { ["type"] = "currentText", ["text"] = _story.currentText });
                 break;
