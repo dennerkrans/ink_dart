@@ -1,6 +1,8 @@
 # ink_dart — package spec
 
-Status: draft, 2026-09-22. Mirrors the Claude Doc "Ink runtime for Dart — package spec"; the doc is the editable original, this file is the repo copy.
+**Status: released.** ink_dart 0.1.0 and flutter_ink 0.1.0 are on pub.dev under the verified publisher daniel.party (2026-09-23), with GitHub release v0.1.0. All four phases are done.
+
+Mirrors the Claude Doc "Ink runtime for Dart — package spec"; the doc is the editable original, this file is the repo copy.
 
 ## Purpose and scope
 
@@ -174,7 +176,7 @@ TypeScript to Dart is a mechanical translation for this codebase: classes, enums
 3. **Lists and threads.** Done: new cases for list operators, `LIST_RANDOM`, `RANDOM` edge cases and thread choices with temporaries; inkjs's integration story scripted from its engine specs; ink's C# `Tests.cs` stories are all already in the corpus; thread choices load from C# saves at every checkpoint.
 4. **Multi-flow, profiler, Flutter.** Done: authored multi-flow and background-save cases; the profiler's step log matches C#'s for every runtime object; `packages/flutter_ink` with a story controller, a story view and a debug view.
 
-Adventuring Shape needs phases 1 and 2. Publish the package to pub.dev at the end of all the phases (decided 2026-09-23), with multi-flow no longer experimental once phase 4 verifies it.
+Adventuring Shape needs phases 1 and 2. Both packages were published to pub.dev once all four phases were done: ink_dart and flutter_ink 0.1.0, 2026-09-23, under daniel.party.
 
 ## Conformance testing
 
