@@ -1,0 +1,31 @@
+{
+  "case": "phase1/sequences/empty_sequence_content",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Wait for it....\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Surprise!\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Done.\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.6\"}],\"threadCounter\":0},\"outputStream\":[\"^Done.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"thing.0\":5},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

@@ -1,0 +1,45 @@
+{
+  "case": "phase1/sequences/shuffle_stack_muddying",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice 2",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "choice 3",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"0.c-1.1\"}],\"threadCounter\":2},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"condFunc.0\":4,\"0.c-1\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

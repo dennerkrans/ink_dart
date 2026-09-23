@@ -1,0 +1,46 @@
+{
+  "case": "phase1/logic/print_num",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". four .\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". fifteen .\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". thirty-seven .\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". one hundred and one .\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". two hundred and twenty-two .\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": ". one thousand two hundred and thirty-four .\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.47\"}],\"threadCounter\":0},\"outputStream\":[\"^. \",\"^one\",\"^ thousand \",\"^two\",\"^ hundred \",\"^and \",\"^thirty\",\"^-\",\"^four\",\"^ .\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

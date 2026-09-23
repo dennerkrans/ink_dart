@@ -1,0 +1,31 @@
+{
+  "case": "phase3/extra/list_comparison",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Hey, my name is Philippe. What about yours?\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "I am Andre and I need my rheumatism pills!\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Would you like me, Philippe, to get some more for you?\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[\"^ Would you like me, \",\"^Philippe\",\"^, to get some more for you?\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"currentActor\":\"^Philippe\"},\"evalStack\":[],\"visitCounts\":{\"set_actor\":3},\"turnIndices\":{\"set_actor\":-1},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

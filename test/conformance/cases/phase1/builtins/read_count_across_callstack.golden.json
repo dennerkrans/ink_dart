@@ -1,0 +1,31 @@
+{
+  "case": "phase1/builtins/read_count_across_callstack",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1) Seen first 1 times.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "In second.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2) Seen first 1 times.\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"first.14\"}],\"threadCounter\":0},\"outputStream\":[\"^2) Seen first \",\"^1\",\"^ times.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"first\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

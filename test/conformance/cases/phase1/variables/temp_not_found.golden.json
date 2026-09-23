@@ -1,0 +1,30 @@
+{
+  "case": "phase1/variables/temp_not_found",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "warning",
+      "message": "RUNTIME WARNING: (Ink Pointer -> 0 -- index 1): Variable not found: 'x'. Using default value of 0 (false). This can happen with temporary variables if the declaration hasn't yet been hit. Globals are always given a default value on load if a value doesn't exist in the save state."
+    },
+    {
+      "type": "line",
+      "text": "0\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "hello\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"x\":5}}],\"threadIndex\":0,\"previousContentObject\":\"0.10\"}],\"threadCounter\":0},\"outputStream\":[\"^hello\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

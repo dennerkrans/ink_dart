@@ -1,0 +1,40 @@
+{
+  "case": "phase3/threads/top_flow_terminator_should_not_kill_thread_choices",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Limes\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "boop",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "boop\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":2},\"outputStream\":[\"^boop\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"move.0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

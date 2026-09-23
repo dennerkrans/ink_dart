@@ -1,0 +1,45 @@
+{
+  "case": "phase2/bindings/variable_observer",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Hello world!\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Hello world 2!\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "choice",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "choice\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":1},\"outputStream\":[\"^choice\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"testVar\":25,\"testVar2\":200},\"evalStack\":[],\"visitCounts\":{\"0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

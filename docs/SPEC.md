@@ -260,7 +260,7 @@ A fresh port through phase 2 is roughly 4–6 weekends for someone who reads Typ
 
 Open questions:
 
-- [ ] Pin the ink and inkjs versions to conform to, and the `inkVersion` range to accept
+- [x] Pin the ink and inkjs versions to conform to: inkjs 2.4.0 (commit `6b11534` for the corpus), compiling to `inkVersion` 21, `inkSaveVersion` 10. The accepted `inkVersion` range follows inkjs's `inkVersionMinimumCompatible` when `Story` is ported
 - [ ] Confirm `ink_dart` is free on pub.dev before first publish
 - [ ] Whether the app's arc one waits for phase 2 or ships on the custom node format first
 - [ ] Whether multi-flow is ever needed (parallel hub and delve stories would use it)

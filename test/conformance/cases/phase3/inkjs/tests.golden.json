@@ -1,0 +1,19 @@
+{
+  "case": "phase3/inkjs/tests",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": [
+        "global tag"
+      ]
+    },
+    {
+      "type": "exception",
+      "message": "Error: Missing function binding for externals: 'fn_ext', 'gameInc'  (ink fallbacks disabled)"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"cPath\":\"\",\"idx\":0,\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":0},\"outputStream\":[],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"\":1},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

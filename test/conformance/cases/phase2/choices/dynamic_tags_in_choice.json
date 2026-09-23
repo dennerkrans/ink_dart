@@ -1,0 +1,1 @@
+{"inkVersion":21,"root":[["ev","str","^choice ","#","^tag ","ev",{"VAR?":"var1"},"out","/ev","ev",{"VAR?":"var2"},"out","/ev","/#","/str","/ev",{"*":"0.c-0","flg":4},{"c-0":["\n",{"->":"0.g-0"},null],"g-0":["done",null]}],"done",{"global decl":["ev","str","^aaa","/str",{"VAR=":"var1"},"str","^bbb","/str",{"VAR=":"var2"},"/ev","end",null]}],"listDefs":{}}

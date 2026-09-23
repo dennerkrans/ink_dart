@@ -1,0 +1,42 @@
+{
+  "case": "phase1/choices/blank_choice",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [
+    "WARNING: '/Users/daniel/dev/personal/ink_dart/test/conformance/cases/phase1/choices/blank_choice.ink' line 1: Blank choice - if you intended a default fallback choice, use the `* ->` syntax"
+  ],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "blank\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"0.c-0.2\"}],\"threadCounter\":1},\"outputStream\":[\"^ blank\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.c-0\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

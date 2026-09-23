@@ -1,0 +1,9 @@
+{
+  "name": "ink_dart-tool",
+  "private": true,
+  "type": "module",
+  "description": "Golden generation for ink_dart conformance tests (inkjs as oracle).",
+  "dependencies": {
+    "inkjs": "2.4.0"
+  }
+}

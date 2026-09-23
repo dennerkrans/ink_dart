@@ -1,0 +1,36 @@
+{
+  "case": "phase1/conditions/else_branches",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "other\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "other\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "other\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "other\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.27\"}],\"threadCounter\":0},\"outputStream\":[\"^other\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

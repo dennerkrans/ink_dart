@@ -1,0 +1,74 @@
+{
+  "case": "phase1/weaves/weave_gathers",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "one",
+          "tags": []
+        },
+        {
+          "index": 1,
+          "text": "four",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "one\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "two",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "six\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"0.g-0.c-0.7.c-0.$r2\"}}}],\"threadIndex\":3,\"previousContentObject\":\"0.g-1.1\"}],\"threadCounter\":3},\"outputStream\":[\"^six\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"0.g-0.c-0\":1,\"0.g-0.c-0.7.c-0\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

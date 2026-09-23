@@ -1,0 +1,69 @@
+{
+  "case": "phase1/builtins/turns_since_nested",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "-1 = -1\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "stuff",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "stuff\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "0 = 0\n",
+      "tags": []
+    },
+    {
+      "type": "choices",
+      "choices": [
+        {
+          "index": 0,
+          "text": "more stuff",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "type": "choose",
+      "index": 0
+    },
+    {
+      "type": "line",
+      "text": "more stuff\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 = 1\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0,\"temp\":{\"$r\":{\"^->\":\"empty_world.0.c-0.14.c-0.$r2\"}}}],\"threadIndex\":2,\"previousContentObject\":\"empty_world.0.c-0.14.c-0.13\"}],\"threadCounter\":2},\"outputStream\":[\"^1\",\"^ = 1\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"empty_world.0.c-0\":1,\"empty_world.0.c-0.14.c-0\":1},\"turnIndices\":{\"empty_world.0.c-0\":0},\"turnIdx\":1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

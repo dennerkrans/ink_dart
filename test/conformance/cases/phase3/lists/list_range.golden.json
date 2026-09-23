@@ -1,0 +1,51 @@
+{
+  "case": "phase3/lists/list_range",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Pound, Pizza, Euro, Pasta, Dollar, Curry, Paella\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Euro, Pasta, Dollar, Curry\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Two, Three, Four, Five, Six\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "One, Two, Three\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Two, Three, Four\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Two, Three, Four, Five\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Pizza, Pasta\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.65\"}],\"threadCounter\":0},\"outputStream\":[\"^Pizza, Pasta\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"all\":{\"list\":{\"Food.Pizza\":1,\"Food.Pasta\":2,\"Food.Curry\":3,\"Food.Paella\":4,\"Currency.Pound\":1,\"Currency.Euro\":2,\"Currency.Dollar\":3}}},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

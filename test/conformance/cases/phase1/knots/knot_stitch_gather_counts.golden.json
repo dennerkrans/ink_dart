@@ -1,0 +1,91 @@
+{
+  "case": "phase1/knots/knot_stitch_gather_counts",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3 3\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3 1\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2 2\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3 2\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.11\"}],\"threadCounter\":0},\"outputStream\":[\"^3\",\"^ \",\"^2\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"knotCount\":3,\"stitchCount\":3,\"gatherCount\":3},\"evalStack\":[],\"visitCounts\":{\"gather_count_test.0.loop\":3,\"knot_count_test\":2,\"stitch_count_test.stitch\":2},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

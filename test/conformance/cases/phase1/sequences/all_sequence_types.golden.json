@@ -1,0 +1,51 @@
+{
+  "case": "phase1/sequences/all_sequence_types",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Once: one two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Stopping: one two two two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Default: one two two two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Cycle: one two one two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Shuffle: two one one two\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Shuffle stopping: one two final final\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "Shuffle once: two one\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.152\"}],\"threadCounter\":0},\"outputStream\":[\"^Shuffle once: \",\"^two\",\"^ \",\"^one\",\"^ \",\"^ \",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"f_once.0\":4,\"f_stopping.0\":4,\"f_default.0\":4,\"f_cycle.0\":4,\"f_shuffle.0\":4,\"f_shuffle_stopping.0\":4,\"f_shuffle_once.0\":4},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}

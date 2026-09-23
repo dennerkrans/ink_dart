@@ -1,0 +1,96 @@
+{
+  "case": "phase1/sequences/blanks_in_inline_sequences",
+  "inkjs": "2.4.0",
+  "seed": 42,
+  "compilerWarnings": [],
+  "events": [
+    {
+      "type": "globalTags",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1. a\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3. b\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "4. b\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "---\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2. a\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3. a\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "---\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1. a\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "---\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "1.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "2.\n",
+      "tags": []
+    },
+    {
+      "type": "line",
+      "text": "3.\n",
+      "tags": []
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "finalState": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"0.44\"}],\"threadCounter\":0},\"outputStream\":[\"^3. \",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{\"seq1.0\":4,\"seq2.0\":3,\"seq3.0\":3,\"seq4.0\":3},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":42,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}"
+}
