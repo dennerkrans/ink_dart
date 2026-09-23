@@ -1,0 +1,8 @@
+# Development only: the conformance oracle (.NET, with inkle's DLLs), the
+# golden corpus and the tests that need it, and project notes.
+tool/
+docs/
+test/
+CLAUDE.md
+.dart_tool/
+pubspec.lock

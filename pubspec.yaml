@@ -1,16 +1,17 @@
 name: ink_dart
 description: >-
-  Pure Dart runtime for inkle's ink narrative scripting language, ported
-  structurally from inkjs. Runs stories compiled to ink's JSON format.
-version: 0.0.1
-publish_to: none
+  Pure Dart runtime for inkle's ink narrative scripting language. Plays
+  stories compiled to ink's JSON format, checked against the C# reference
+  runtime: same text, choices, randomness and save files.
+version: 0.1.0
+topics:
+  - ink
+  - interactive-fiction
+  - narrative
+  - games
 
 environment:
   sdk: ^3.12.0
-
-dependencies:
-  collection: ^1.19.0
-  meta: ^1.16.0
 
 dev_dependencies:
   lints: ^6.0.0
