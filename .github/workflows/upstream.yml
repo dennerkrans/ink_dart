@@ -1,0 +1,99 @@
+name: upstream
+
+# Opens an issue when inkle/ink or inkjs publishes a release newer than the
+# one ink_dart is pinned to. The pins are read from the repo: ink from
+# RuntimeVersion in tool/oracle/Program.cs, inkjs from tool/package.json.
+# Bumping either one silences its check.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC
+  workflow_dispatch:
+    inputs:
+      pretend_ink_pin:
+        description: Use this as the pinned ink version (to test the issue path)
+        required: false
+      pretend_inkjs_pin:
+        description: Use this as the pinned inkjs version (to test the issue path)
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PRETEND_INK: ${{ inputs.pretend_ink_pin }}
+      PRETEND_INKJS: ${{ inputs.pretend_inkjs_pin }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check for new upstream releases
+        run: |
+          ink_checklist="$RUNNER_TEMP/ink.md"
+          cat > "$ink_checklist" <<'EOF'
+          - [ ] Read the compare: `ink-engine-runtime/` changes affect the port, `compiler/` changes affect the goldens.
+          - [ ] Replace `tool/oracle/lib/*.dll` with the DLLs from the new inklecate release zip; update `RuntimeVersion` and the header comment in `tool/oracle/Program.cs`, and the tag and commit in `tool/oracle/InkOracle.csproj`.
+          - [ ] Compare the new `Story.cs` (`inkVersionCurrent`, `inkVersionMinimumCompatible`) with `packages/ink_dart/lib/src/story.dart`, and `StoryState.cs` (`kInkSaveStateVersion`, `kMinCompatibleLoadVersion`) with `packages/ink_dart/lib/src/state/story_state.dart`.
+          - [ ] Give each runtime change a conformance case first, then port it structurally.
+          - [ ] `node tool/regen_goldens.mjs`, `dart test`, `node tool/fuzz.mjs`.
+          - [ ] Update the docs that name the old version: `README.md`, `packages/ink_dart/README.md`, `docs/SPEC.md`; add a CHANGELOG entry and bump the minor version (SPEC: bump minor when adding an ink version).
+          EOF
+
+          inkjs_checklist="$RUNNER_TEMP/inkjs.md"
+          cat > "$inkjs_checklist" <<'EOF'
+          - [ ] Read the compare under `src/engine/`: inkjs is where the names come from and is the second opinion.
+          - [ ] Bump `inkjs` in `tool/package.json` and run `npm install` in `tool/`.
+          - [ ] `node tool/record_inkjs_saves.mjs`, then `dart test` (inkjs save loading).
+          - [ ] Optional: look for new stories in inkjs's test corpus (ours was vendored from commit `6b11534` by `tool/vendor_cases.mjs`).
+          EOF
+
+          # check <repo> <pinned version> <checklist file>
+          check() {
+            local repo=$1 pin=${2#v} checklist=$3
+            local latest
+            latest=$(gh release view --repo "$repo" --json tagName --jq .tagName)
+            if [ "${latest#v}" = "$pin" ]; then
+              echo "$repo: up to date ($pin)"
+              return
+            fi
+
+            local title="Upstream release: $repo $latest"
+            local existing
+            existing=$(gh issue list --state all --limit 500 --json title \
+              | jq --arg t "$title" '[.[] | select(.title == $t)] | length')
+            if [ "$existing" -gt 0 ]; then
+              echo "$repo: $latest already has an issue"
+              return
+            fi
+
+            local body="$RUNNER_TEMP/body.md"
+            {
+              echo "[$repo $latest](https://github.com/$repo/releases/tag/$latest) is out; ink_dart is pinned to $pin."
+              echo
+              echo "Changes since the pin: https://github.com/$repo/compare/v$pin...$latest"
+              echo
+              cat "$checklist"
+            } > "$body"
+
+            gh label create upstream --force --color C5DEF5 \
+              --description "A new release of a project ink_dart ports or checks against" > /dev/null
+            gh issue create --title "$title" --label upstream --body-file "$body"
+          }
+
+          ink_pin=${PRETEND_INK:-$(sed -n 's/.*RuntimeVersion = "ink \(.*\)";.*/\1/p' tool/oracle/Program.cs)}
+          inkjs_pin=${PRETEND_INKJS:-$(jq -r '.dependencies.inkjs // empty' tool/package.json)}
+          if [ -z "$ink_pin" ] || [ -z "$inkjs_pin" ]; then
+            echo "::error::Could not read the pinned versions (ink: '$ink_pin', inkjs: '$inkjs_pin')"
+            exit 1
+          fi
+
+          check inkle/ink "$ink_pin" "$ink_checklist"
+          check y-lohse/inkjs "$inkjs_pin" "$inkjs_checklist"
