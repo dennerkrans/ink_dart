@@ -20,8 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
---------------------------------------------------------------------------------
-
 ink_dart is a port of inkle's ink runtime (https://github.com/inkle/ink) and
 of inkjs (https://github.com/y-lohse/inkjs), and its random number generator
 reproduces .NET's seeded System.Random (https://github.com/dotnet/runtime).
