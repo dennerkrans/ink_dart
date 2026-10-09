@@ -1,3 +1,9 @@
+## 0.1.2
+
+- The LICENSE no longer has a line of 80 hyphens, which Flutter's licence
+  collector read as a divider between packages: an app's licences page
+  listed the notices under made-up package names and had no ink_dart.
+
 ## 0.1.1
 
 - Guides in the API reference (getting started, game functions and
